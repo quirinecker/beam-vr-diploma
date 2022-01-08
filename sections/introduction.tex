@@ -1,33 +1,50 @@
 \section{Ausgangssituation}\label{sec: initial_situation}
 
-Es gibt bereits viele VR Applikation, aber was ist genau eine VR Applikation.
-Es gibt viele Definitionen für VR ausgeschrieben Virtual Reality.
+Laut Encyclopedia Britannica ist die virtuelle Realität folgendermaßen definiert:
+\begin{quotation}
+    virtual reality (VR), the use of computer modeling and simulation that enables a person to interact with an artificial three-dimensional (3-D) visual or other sensory environment.
+    VR applications immerse the user in a computer-generated environment that simulates reality through the use of interactive devices, which send and receive information and are worn as goggles, headsets, gloves, or body suits~\cite{LOWOOD_2021}.
+\end{quotation}
+
+Im Zuge der weiteren Forschung zum Thema VR wurde das eingeführt~\cite{MILGRAM_1994} (Siehe Abbildung~\ref{fig:reality_virtuality_continuum})).
+In dieser Theorie wird erklärt, dass die von einem Benutzer erfahrenen Welten in einem Continuum zwischen völliger Realität und völliger Virtualität angesiedelt sind.
+Markante Punkte in diesem Kontinuum sind Augmented Reality und Augmented Virtuality.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{pics/reality_virtuality_continuum}
+    \caption{Reality Virtuality Continuum}
+    \label{fig:reality_virtuality_continuum}
+\end{figure}
+
 In dieser Arbeit sprechen wir über die Wirklichkeit welche durch ein head mounted display, oder umgangssprachlich auch eine VR-Brille angezeigt wird.
 Somit bezeichnet eine VR Application eine Software, welche in der VR-Brille läuft.
 
 Von diesen VR Applikationen gibt es schon einige.
-Die meisten werden im Bereich Videospiele verwendet nach einer Statistik aus Deutschland im Jahre 2021, bei welcher Personen mit einer VR-Brille oder head mounted display befragt worden sind.
-Siehe Abbildung~\ref{fig:statistic_usage_vr}~\cite{BITKOM_2021}
+Lt. einer Statistik aus Deutschland aus dem Jahr 2021, bei welcher Personen mit einer VR-Brille oder head mounted display befragt worden sind, wird VR meistens im Bereich Videospiele verwendet.
+Details zu dieser Befragung siehe Abbildung~\ref{fig:statistic_usage_vr}.
 
 \begin{figure}
-    \includegraphics[scale=0.5]{pics/statistic_usage_vr}
-    \caption{Anwendungsgebiete VR}
+    \begin{center}
+        \includegraphics[scale=0.4]{pics/statistic_usage_vr}
+    \end{center}
+    \caption{Anwendungsgebiete VR~\cite{BITKOM_2021}}
     \label{fig:statistic_usage_vr}
 \end{figure}
 
 VR Applikationen der Vergangenheit haben sich hauptsächlich auf das Tracking des Kopfes konzentriert.
 Das Tracken weiterer Körperteile oder ein sogenanntes Full Body Tracking, also das tracken der Füße, Hände, Hüfte und Kopf war bis vor kurzem ein technisches und vor allem auch ein finanzielles Problem (siehe~\cite{PAVEL_NUZHDIN_2020}).
 
-Im Falle der VR Chat werden zwei Vive Tracker (Siehe~\ref{sec:vive-tracker}) verwendet um den linken und den rechten Fuß zu tracken und ein weiterer um die Hüfte zu tracken.
-Für die Hände und den Kopf werden jeweils die Controller (Siehe Abschnitt~\ref{sec:vr-controller})und das VR Headset (Siehe Abschnitt~\ref{sec:vr-headset}) verwebtet.
+Im Falle der VR Chat werden zwei Vive Tracker (siehe~\ref{sec:vive-tracker}) verwendet um den linken und den rechten Fuß zu tracken und ein weiterer um die Hüfte zu tracken.
+Für die Hände und den Kopf werden jeweils die Controller (Siehe Abschnitt~\ref{sec:vr-controller})und das VR Headset (siehe Abschnitt~\ref{sec:vr-headset}) verwebtet.
 Somit kann der ganze Körper getrackt werden, da die restlichen positionen berechnetet werden können.
-Diese Implementierung kann zum Beispiel bei der Applikation VR Chat gefunden werden (Siehe~\cite{VRCHAT_2021} oben).
+Diese Implementierung kann zum Beispiel bei der Applikation VR Chat gefunden werden (siehe~\cite{VRCHAT_DOCS_2021} oben).
 In der Dokumentation wird es auch 6PT oder six-point genannt.
 VR Chat bietet auch ein weniger genaues Tracking an welches nur einen Tracker, zwei Controller und das VR Headset verwendet.
 
-Ein weiterer Schritt im Reality-Virtual Continuum (siehe~\cite{MILGRAM_1994}) ist die Einbindung realer Gegenstände in die virtuelle Welt.
+Ein weiterer Schritt im Reality-Virtuality Continuum~\cite{MILGRAM_1994} ist die Einbindung realer Gegenstände in die virtuelle Welt.
 Man spricht in diesem Fall von Augmented Virtuality.
-Dadurch wird der Grad an Immersion (Siehe~\cite{EMEST_ADAMS_2004} und~\cite{BJOERK_2003}), also wie "real" die virtuelle Welt vom Benutzer wahrgenommen wird, erhöht.
+Dadurch wird der Grad an Immersion (siehe~\cite{EMEST_ADAMS_2004} und~\cite{BJOERK_2003}), also wie "real" die virtuelle Welt vom Benutzer wahrgenommen wird, erhöht.
 
 \section{Zielsetzung}\label{sec: objective}
 
