@@ -21,11 +21,16 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@master
 
-      - name: Install TexLive
+      - name: Install TexLive ✅
         run: sudo apt install texlive-full
 
       - name: Build thesis ⚙️
-        run: pdflatex --output-directory=./out thesis.tex
+        uses: repaction/texlive@main
+        with:
+          root_file: thesis.tex
+
+      - name: Prepare files 🗄
+        run: ️️mkdir out && cp main.pdf out/index.pdf
 
       - name: Deploy application 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
