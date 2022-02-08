@@ -7,15 +7,10 @@ on:
 
 jobs:
   cd:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     env:
       BRANCH: gh-pages
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
 
     steps:
       - name: Checkout 🛎
