@@ -21,6 +21,9 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@master
 
+      - name: Install TexLive
+        run: apt install texlive-full
+
       - name: Build thesis ⚙️
         run: pdflatex --output-directory=./out thesis.tex
 
