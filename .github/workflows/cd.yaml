@@ -27,7 +27,9 @@ jobs:
           root_file: thesis.tex
 
       - name: Prepare files 🗄
-        run: ️️mkdir out && cp main.pdf out/index.pdf
+        run: ️️|
+          mkdir out 
+          cp main.pdf out/index.pdf
 
       - name: Deploy application 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
