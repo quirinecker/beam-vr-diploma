@@ -21,9 +21,6 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@master
 
-      - name: Install TexLive ✅
-        run: sudo apt install texlive-full
-
       - name: Build thesis ⚙️
         uses: repaction/texlive@main
         with:
