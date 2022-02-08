@@ -20,7 +20,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: thesis.tex
-          args: --output-directory=./dist
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode --output-directory=./dist
 
       - name: Deploy application 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
