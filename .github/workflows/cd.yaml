@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Build thesis ⚙️
-        uses: repaction/texlive@main
+        uses: xu-cheng/latex-action@v2
         with:
           root_file: thesis.tex
           args: --output-directory=./dist
