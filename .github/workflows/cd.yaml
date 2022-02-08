@@ -20,9 +20,7 @@ jobs:
         uses: repaction/texlive@main
         with:
           root_file: thesis.tex
-
-      - name: Prepare files 🗄
-        run: ️️mkdir dist
+          args: --output-directory=./dist
 
       - name: Deploy application 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
