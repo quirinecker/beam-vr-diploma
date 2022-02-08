@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Install TexLive
-        run: apt install texlive-full
+        run: sudo apt install texlive-full
 
       - name: Build thesis ⚙️
         run: pdflatex --output-directory=./out thesis.tex
