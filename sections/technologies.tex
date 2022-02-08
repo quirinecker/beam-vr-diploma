@@ -1,4 +1,4 @@
-\section{Hardware}
+\usepackage{wasysym}\section{Hardware}
 
 \subsection{VR Headset}\label{sec:vr-headset}
 
@@ -54,14 +54,14 @@ Unity ist eine Game Engine, welche von Unity Technologies initial exklusiv für 
 Die Engine wurde portiert und kann heute auch auf Windows und auf der Linux Plattform benützt werden.
 Die Engine ist für Einsteiger gratis.
 Auch wenn sie eine Einsteiger Engine genannt wird, wird sie trotzdem im professionellen Bereich genutzt und viele bekannte Spiele wurden mit Unity entwickelt.
-Spiele wie Pokemon GO, Among us und Hearthstone wurden in der Unity Engine entwickelt~\cite{Haas2014AHO,UNITY_DOWNLOADS,UNITY_PRICING,WIKIPEDIA_2014}.
+Spiele wie Pokemon GO, Among us und Hearthstone wurden in der Unity Engine entwickelt~\cite{Haas2014AHO,UNITY_DOWNLOAD,UNITY_PRICING,WIKIPEDIA_UNITY_GAME_LIST_2014}.
 
 \paragraph{Vorteile}
 
 \begin{itemize}
-    \item Gratis Lizenz für persönlichen Nutzen und für Unternehmen mit unter 100.000 \$ Einkommen
-    \item Programmierbar in C\#
-    \item Es kann für alle möglichen Plattformen ein Programm geschrieben werden
+    \item Gratis Lizenz für persönlichen Nutzen und für Unternehmen mit unter 100.000 \$ Einkommen~\cite{UNITY_PRICING}
+    \item Programmierbar in C\#~\ref{fig:hardest_programming_languages}
+    \item Es kann für alle möglichen Plattformen ein Programm geschrieben werden~\cite{UNITY_PLATTFORMS}
     \begin{itemize}
         \item IOS
         \item Android
@@ -70,7 +70,6 @@ Spiele wie Pokemon GO, Among us und Hearthstone wurden in der Unity Engine entwi
         \item WebGL
         \item usw.
     \end{itemize}
-    \item verfügbaren Asset-store mit vielen verschiedenen fertigen Assets
 \end{itemize}
 
 \paragraph{Nachteile}
@@ -78,59 +77,63 @@ Spiele wie Pokemon GO, Among us und Hearthstone wurden in der Unity Engine entwi
 \begin{itemize}
     \item weniger Market-share~\ref{fig:game_engine_marketshare}
     \item geschlossener Source Code
+    \item schnellerer Kostenanfall wie z.B.\ bei~\ref{sec:unreal_engine}
 \end{itemize}
 
 \subsubsection{Unreal Engine}
 \label{sec:unreal_engine}
 
-Unreal Engine ist von Epic Games entwickelt.
+Unreal Engine ist von Epic Games entwickelt~\cite{UNEAL_ENGINE_OWNER_2022}.
 Diese Engine ist eine weit verwendete Game Engine.
 Dies kann man auch in Abbildung~\ref{fig:game_engine_marketshare} herausnehmen.
-Unreal Engine findet ihren nutzen aber eher in der PC- und Konsolen-welt.
-Viele Spiele wie Fortnite, Ark Survival Evolved, Borderlands 3 und Jedi Fallen Order sind mit dieser Engine entwickelt worden.
+Viele Spiele wie Fortnite, Ark Survival Evolved, Borderlands 3 und Jedi Fallen Order sind mit dieser Engine entwickelt worden~\cite{WIKIPEDIA_UNREAL_GAME_LIST}.
 
-Vorteile:
+\begin{figure}
+    \centering
+    \includegraphics{pics/visual_scripting_unreal_engine}
+    \caption{Visual Scripting in Unreal Engine 5}
+    \label{fig:visual_scripting_unreal_engine}
+\end{figure}
+
+\paragraph{Vorteile}
 
 \begin{itemize}
     \item großer Market-share~\ref{fig:game_engine_marketshare}
-    \item 'easy to learn' visual scripting
+    \item 'easy to learn' visual scripting~\ref{fig:visual_scripting_unreal_engine}
+    \item Nutzungshonorar von 5\% tritt erst bei einem Einkommen von einem Produkt von 1.000.000\$~\cite{UNREAL_ENGINE_PRICING_2022}
 \end{itemize}
 
-Nachteile
+\paragraph{Nachteile}
 
 \begin{itemize}
-    \item 5\% Nutzungshonorar, wenn das Einkommen eines Produktes über 1000000\$ ist
-    \item für erweiterte funktionalität wird c++ welches nach Umfrage in der Abbildung~\ref{fig:hardest_programming_languages} die drittschwierigste Sprache ist
+    \item 5\% Nutzungshonorar, wenn das Einkommen eines Produktes über 1000000\$ ist~\cite{UNREAL_ENGINE_PRICING_2022}
+    \item für erweiterte funktionalität wird c++ welches nach Umfrage in der Abbildung~\ref{fig:hardest_programming_languages} die dritt schwierigste Sprache ist
 \end{itemize}
 
 \subsubsection{Source Engine und Source 2 Engine}
 
-Source Engine ist eine Game Engine welche von Steam/Valve entwickelt worden ist.
-Diese Engine wurde im Jahre 2010 durch Source 2 ersetzt, welche verantwortlich ist für Spiele wie Dota 2 und Half Life Alyx.
-Andere Spiele wie Half Life 2, Counterstrike Source, Portal, Portal 2 und Counterstrike Global Offensive sind mit der originalen Source Engine entwickelt worden.
-Spiele von Valve sind oft mit dieser Engine entwickelt.
-Auch als VR Entwicklungsumgebung eignet es sich, da sie für Half Life: Alyx eines der erfolgreichsten VR Spiele benutzt worden ist.
-Die kommenden Vorteile und Nachteile handeln sich um Source 2.
+Es gibt mittlerweile 2 Iterationen dieser Engine.
+Zum einen die originale Source Engine und die Source Engine 2.
+Die Markteinführung von der originalen Source Engine war im Juni 2004~\cite{Bryan_Wirtz_SOURCE_ENGINE_2022}.
+Daraufhin ist die Source 2 Engine im August 2014 herausgekommen~\cite{VALVE_DEVELOPER_COMMUNITY_SOURCE2}.
+Beider dieser Engines sind von Valve entwickelt worden~\cite{VALVE_DEVELOPER_COMMUNITY_SOURCE, VALVE_DEVELOPER_COMMUNITY_SOURCE2}.
+Verantwortlich ist die Source 2 Engine für Spiele wie Dota 2 und Half Life Alyx~\cite{WIKIPEDIA_SOURCE2_ENGINE_GAME_LIST}.
+Andere Spiele wie Half Life 2, Counterstrike Source, Portal, Portal 2 und Counterstrike Global Offensive sind mit der originalen Source Engine entwickelt worden~\cite{WIKIPEDIA_SOURCE_ENGINE_GAME_LIST}.
+Auch als VR Entwicklungsumgebung eignet es sich, da sie für Half Life: Alyx eines der erfolgreichsten VR Spiele benutzt worden ist~\cite{WIKIPEDIA_SOURCE2_ENGINE_GAME_LIST, Aden_Carter_2020}.
+Die kommenden Vorteile und Nachteile handeln sich um die Source 2 Engine.
 
-Vorteile:
+\paragraph{Vorteile}
 
 \begin{itemize}
-    \item Steam VR home und andere Steam VR Applikationen wurden mit Source entwickelt
-    \item Source Engine ist gratis zu nutzen und zu publizieren
+    \item Source Engine ist gratis zu nutzen und zu publizieren *~\ref{pgr:cons}
 \end{itemize}
 
 
-Nachteile:
+\paragraph{Nachteile}\label{pgr:cons}
 
 \begin{itemize}
     \item kein hoher Market-share (siehe Abbildung~\ref{fig:game_engine_marketshare})
-    \item keine IOS und Android unterstützung
-    \item auch basierend auf c++
-    \begin{itemize}
-        \item Größere Lernkurfe (Siehe Abbildung~\ref{fig:hardest_programming_languages})
-        \item Es gibt auch keine visuelle programmierung wie bei~\ref{sec:unreal_engine}
-    \end{itemize}
-    \item Spiele müssen auf Steam publiziert werden
+    \item Spiele müssen auf Steam publiziert werden~\cite{Brenna_Hillier_2015}
 \end{itemize}
 
 
