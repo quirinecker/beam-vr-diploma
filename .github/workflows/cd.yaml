@@ -30,6 +30,7 @@ jobs:
         run: ️️|
           mkdir out 
           cp main.pdf out/index.pdf
+          ls out
 
       - name: Deploy application 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
