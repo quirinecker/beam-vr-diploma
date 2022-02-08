@@ -28,13 +28,13 @@ jobs:
 
       - name: Prepare files 🗄
         run: ️️|
-          mkdir out 
-          cp main.pdf out/index.pdf
-          ls out
+          mkdir dist 
+          cp main.pdf dist/index.pdf
+          ls dist
 
       - name: Deploy application 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ github.TOKEN }}
           BRANCH: ${{ env.BRANCH }}
-          FOLDER: out
+          FOLDER: dist
