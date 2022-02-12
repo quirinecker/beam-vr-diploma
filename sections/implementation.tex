@@ -232,6 +232,7 @@ Die Planzen und B\"aume wurden durch ausgetrocknete B\"usche ausgetauscht, damit
 Sound Design ist einer der wichtigsten Punkte, den man bei der Spieleentwicklung beachten muss.
 In der virtuellen Umgebung der verwendeten Game Engine existieren anfangs keine Geräusche, diese m\"ussen von den Entwicklern selber erstellt und eingef\"ugt werden.
 
+
 Es gibt viele verschiedene Arten Sound Design zu benutzen, wie zum Beispiel die Ger\"ausche die der Anwender selbst in der virtuellen Welt verursacht.
 Wenn sich der Spieler bewegt, sollten Fußstapfen zu h\"oren sein.
 Diese klingen je nach Bodentyp unterschiedlich.
@@ -243,6 +244,7 @@ Es gibt jedoch auch Situationen wo gezielt wenig Umgebungsger\"ausche benutzt we
 
 Um die Stimmung noch genauer steuern zu k\"onnen kann Musik benutzt werden.
 Wenn der Spieler auf einem Pferd durch eine Weide reitet, kann eine dramatische und inspirierende Musik benutzt werden, um den Moment noch besser und cinematischer wirken zu lassen.
+~\cite{GK_Media_Factory_Sound_Design_2022}
 
 \subsection{Apocalypse}\label{subsec:apocalypse-background-sound}
 Die Musik in der Apocalypse Map ist stark an das Horror Genre angelegt.
@@ -258,10 +260,33 @@ Der Spieler kann Motorr\"ader und Autos auf den Straßen vorbeifahren h\"oren.
 Hinundwieder kann man Menschen bei kurzen Gespr\"achen miteinander zuh\"oren und ein Kind husted im Hintergrund.
 
 \subsection{Event}\label{subsec:building-collapse-sound}
+Um spezifische Events, also bestimmte Dinge welche in der Welt passieren, f\"ur den Benutzer besser erkennbar zu machen, wurden zus\"atzlich Ge\"ausche eingef\"ugt.
+Auf der Apocalypse Map sind zusammenbrechende Geb\"aude zu h\"oren, um die schlechte instandhaltung der verlassenen Stadt erneut hervorzuheben.
+Aber wenn der Benutzer genauer hinsieht, kann man w\"ahrend diese Sounds h\"orbar sind, auch tats\"achlich eine kleine Auswahl an Bauwerken br\"ockeln sehen.
 
 \section{Effects}\label{sec:effects}
+Unity bietet verschiedene M\"oglichkeiten um das Aussehen der Applikation zu beeinflussen.
+Mithilfe von Post Processing kann man Filter und Effekte zu dem Buffer der Kamera hinzuf\"ugen bevor etwas am Bildschirm Angezeigt wird.
+Eine kleine Auswahl von diesen Effekten und Filtern sind zum Beispiel Bloom, Grain oder Color Grading.
+~\cite{Unity_Post_Processing_2022}
+
+Post Processing kann Global angewandt werden, somit werden die eingestellten Filter \"uber die komplette Spielwelt angewandt.
+Um das zu erreichen muss einfach nur eine Option namens IsGlobal ausgew\"ahlt werden.
+Um die Effekte auf einen bestimmten Bereich zu begrenzen muss ein Collider erstellt und platziert werden.
+Wenn die Kamera in diesem Collider ist, wird das angezeigte Bild mit den eingetellten Effekten versehen.
+~\cite{Unity_Post_Processing_Volumes_2022}
+
 
 \subsection{Nebel}\label{subsec:fog-effect}
+Unity bietet mehrere M\"oglichkeiten Nebel darzustellen, wie zum Beispiel mithilfe von Post Processing oder mithilfe der Lighting Einstellungen.
+F\"ur BeamVR wurde die Lighting Variante verwendet.
+Unter Settings > Lighting befindet sich eine Checkbox names Fog.
+Wenn man diese Ankclickt wird automatisch eine standard Einstellung f\"ur einen Nebel dargestellt.
+~\cite{Unity_Fog_2022}
+
+Auf fast jeder Map von BeamVR wurde dieser Nebel verwendet.
+In der Nacht Map wird mithilfe diesem Effekts ein leichter Nebel dargestellt, was zur abendlichen Stimmung beitr\"agt.
+Bei Apocalypse ist der Nebel viel dichter und stellt einen Sandsturm dar. Zus\"atzlich wurde dieser gelb gef\"arbt um noch mehr an Sand zu erinnern.
 
 \subsection{Lichter}\label{subsec:light-effect}
 
