@@ -281,16 +281,40 @@ Wenn die Kamera in diesem Collider ist, wird das angezeigte Bild mit den eingete
 Unity bietet mehrere M\"oglichkeiten Nebel darzustellen, wie zum Beispiel mithilfe von Post Processing oder mithilfe der Lighting Einstellungen.
 F\"ur BeamVR wurde die Lighting Variante verwendet.
 Unter Settings > Lighting befindet sich eine Checkbox names Fog.
-Wenn man diese Ankclickt wird automatisch eine standard Einstellung f\"ur einen Nebel dargestellt.
+Wenn man diese Anklickt wird automatisch eine standard Einstellung f\"ur einen Nebel dargestellt.
 ~\cite{Unity_Fog_2022}
 
 Auf fast jeder Map von BeamVR wurde dieser Nebel verwendet.
 In der Nacht Map wird mithilfe diesem Effekts ein leichter Nebel dargestellt, was zur abendlichen Stimmung beitr\"agt.
 Bei Apocalypse ist der Nebel viel dichter und stellt einen Sandsturm dar. Zus\"atzlich wurde dieser gelb gef\"arbt um noch mehr an Sand zu erinnern.
+~\ref{fig:beamvr_yellow_fog}
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/beamvr_yellow_fog}
+    \caption{Beam VR - Yellow Fog}
+    \label{fig:beamvr_yellow_fog}
+\end {figure}
 
 \subsection{Lichter}\label{subsec:light-effect}
+In der Nacht Map wurden die von Unity bereitgestellten Point-Lights als Straßenlichter benutzt.
+Point Lights k\"onnen mithilfe eines Radius auf einen bestimmten kreisf\"ormigen Bereich eingegrenzt werden.
+Weiters wird mithilfe der Lichtst\"arke die Wirkkraft des Lichtes in diesem Gebiet genauer bestimmt.
+Dank diesen Eigenschaften war das Point Light perfekt f\"ur die aufhellung der Straßen.
+~\ref{fig:beamvr_street_lights}
+~\cite{Unity_PointLights_2022}
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/beamvr_point_lights}
+    \caption{Beam VR - Street Lights}
+    \label{fig:beamvr_street_lights}
+\end {figure}
+
 
 \subsection{Wind}\label{subsec:wind-effect}
+Damit sich die B\"aume und B\"usche in BeamVR wie im Wind bewegen, werden Unitys Wind Zones ben\"otigt.
+Diese Zonen sind bestimmte Bereiche, in welchen eine Windrichtung, Windst\"arke und Turbulenz definiert wird.
+Die eingestellten Effekte werden dann auf alle Objekte angewandt, die mithilfe des Terrains oder Particle Systems iniziiert wurden.
+~\cite{Unity_WindZones_2022}
 
 \section{Unity Prefabs}\label{sec:prefabs}
 \subsection{Game}\label{subsec:game-prefab}
