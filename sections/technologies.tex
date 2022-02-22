@@ -19,6 +19,20 @@ Nach einer Statistik in 2017 sind die beliebtesten VR Headset Hersteller Sony, O
     \label{fig:vr_headset_manufacturer_marketshare}
 \end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics{pics/vr_headset_price_statistic}
+    \caption{VR Headset Preise~\cite{ALSOP_2019}}
+    \label{fig:vr_headset_prices}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{pics/tracking_precision_statistic}
+    \caption{Tracking Genauigkeit der VR Headsets~\cite{Macedo_2020}}
+    \label{fig:tracking_precision_statistic}
+\end{figure}
+
 \subsubsection{HTC Vive Pro}\label{sec:htc-vive}
 
 Wie bereits in Abschnitt~\ref{sec:vr-headset-types} beschrieben, gibt es von diesen Headsets verschiedene Arten.
@@ -28,45 +42,68 @@ Andere Produkte, wie die im nächsten Abschnitt beschriebene Oculus Quest benöt
 \paragraph{Vorteile}
 
 \begin{itemize}
-    \item {\bf Einfache Verwaltung} Die HTC kann mit SteamVR verwalted werden, womit der manuelle Download von externer Software vermieden wird.
-    \item genaues Tracking mit 32 unabhängigen Lichtsensoren~\cite{Dennis_Ziesecke_2019}
-    \item nicht abhängig von natürlichen Licht, da das tracking mit den Lichtquellen von Lichttürmen abhängig ist~\ref{sec:lighthouse}
-    \item leichtes einbinden von SteamVR kompatiblen Trackern
+    \item {\bf Einfache Verwaltung} Die HTC kann mit SteamVR verwaltet werden, womit der manuelle Download von externer Software vermieden wird.
+    \item lighthouse tracking
+    \begin{itemize}
+        \item genaueres tracking~\cite{Macedo_2020}
+        \item nicht von dem natürlichen Licht abhängig~\cite{Dennis_Ziesecke_2019}
+    \end{itemize}
 \end{itemize}
 
 \paragraph{Nachteile}
 
 \begin{itemize}
     \item langer Aufbau
-    \item aufwendiges aufsetzen
-    \item im teurere Spektrum der VR-Brillen
+    \item hoher Preis~\ref{fig:vr_headset_prices}
+    \item es wird ein Computer benötigt
 \end{itemize}
 
 \subsubsection{Valve Index}
 
 Die Valve Index ist eine VR-Brille welche von Valve entwickelt worden ist.
-Diese befindet sich genause wie die HTC Vive~\ref{sec:htc-vive} im teureren Spektrum der VR-Brillen und ist dem Typ tethered Headset~\ref{sec:vr-headset-types} zuzuordnen.
+Diese befindet sich genauso wie die HTC Vive~\ref{sec:htc-vive} im teureren Spektrum~\cite{ALSOP_2019} der VR-Brillen und ist dem Typ tethered Headset~\ref{sec:vr-headset-types} zuzuordnen.
 
 \paragraph{Vorteile}
 
 \begin{itemize}
-    \item Finger Tracking.
-    Die Controller tracken die Finger.
+    \item Hand Tracking.
+    Die Controller tracken die Finger- und Handbewegungen.
     Diese Technologie kann von Spieleentwicklern verwendet werden~\cite{SadlyItsBradley_2019}
     \item hohe Bildwiederholungsrate
-    \item ähnliches tracking wie bei der HTC Vive
+    \item lighthouse tracking (Siehe HTC Vive)
 \end{itemize}
 
 \paragraph{Nachteile}
 
 \begin{itemize}
-    \item hoher Preis
+    \item hoher Preis~\ref{fig:vr_headset_prices}
     \item aufwendiger Aufbau
+    \item es wird ein Computer benötigt
 \end{itemize}
 
-
-
 \subsubsection{Oculus Quest 2}\label{sec:oculus-quest-2}
+
+Die Oculus Quest 2 ist eine VR-Brille welche von Facebook/Meta im Jahre 2020 entwickelt worden is~\cite{ADI_ROBERTSON_2020}.
+Diese Brille ist eine Mischung von einem tethered Headset und einem Standalone Headset~\ref{sec:vr-headset-types}.
+Dies bedeutet, dass die Oculus Quest 2 ohne einen Computer benutzbar ist, aber auch mit einem USB-C Kabel zu einem Computer verbunden werden kann.
+Ist das Headset mit dem Computer verbunden können PC exclusive Spiele mit der Oculus Quest 2 auch gespielt werden~\cite{ADI_ROBERTSON_2020}
+Für den Aufbau werden nur das Headset und zwei Controller benötigt.
+
+\paragraph{Vorteile}
+
+\begin{itemize}
+    \item Aufbauen erfordert keinen großen Aufwand.
+    \item Die Brille befindet sich eher im unteren Preisspektrum der VR-Brillen~\ref{fig:vr_headset_prices}.
+    \item es wird kein Computer benötigt
+\end{itemize}
+
+\paragraph{Nachteile}
+
+\begin{itemize}
+    \item Das Headset ist von dem natürlichen Licht abhängig~\cite{Dennis_Ziesecke_2019}
+    \item Full Body Tracking kann etwas kompliziert und teuer werden~\cite{Martin_Rakver}
+    \item weniger genaues Tracking~\cite{Macedo_2020}
+\end{itemize}
 
 \subsection{VR Controller}\label{sec:vr-controller}
 
