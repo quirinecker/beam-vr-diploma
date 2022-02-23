@@ -74,7 +74,123 @@ Hierbei geht es nur um das Steam VR Setup welches bereits in dem Kapitel Steam b
 \subsection{Beam Calibration}\label{subsec:beam-calibration}
 \subsection{Schwerkraft}\label{subsec:gravity}
 \subsection{Verkehrssystem}\label{subsec:traffic-system}
+In der Stadt von BeamVR ist auf den Straßen einiges los, dass wurde mithilfe eines neuem Verkehrssystems umgesetzt.
+Die Straßen sind mit, f\"ur den Spieler unsichtbaren, Objekten versehen die den Verkehr regeln.
 
+\textbf{Car Signals}
+Damit die Fahrzeuge in BeamVR wissen wo und vor allem wie sie auf den Straßen navigieren k\"onnen, wurde das Car Signal System entwickelt.
+Die Car Signals gibt es in zwei verschiedenen Versionen, f\"ur die linke Straßenseite wurden gr\"une und f\"ur die Rechte Seite wurden rote Signale erstellt.
+Die Signale funktionieren wie Checkpoints, jedes Auto wird nachdem es initialisiert wurde, von einem zum n\"achsten fahren.
+Jeder dieser Checkpoints verweist auf den nächsten, wie in einer Liste, daher weis jedes Fahrzeug wo die momentane Zielposition ist.
+\ref{fig:trafficsystem_next_signal_reference}
+Endpunkte sind spezielle Signale, welche auf keinen nachfolgenden Punkt mehr verweisen, erreicht ein Auto ein solchen Punkt hat es das Ziel erreicht.
+
+An Kreuzungen befinden sich mehrere dieser Car Signals, damit die Fahrzeuge auf der richtigen Spur bleiben und die Verkehrsregeln befolgen.
+Die gr\"unen Linien zeigen die m\"oglichen Routen die das Auto fahren kann, die Pfeile visualisieren in welche Richtung gefahren werden kann.
+\ref{fig:trafficsystem_crossroads}
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{pics/trafficsystem_carsignal_crossroads}
+    \caption{Traffic System - Crossroads}
+    \label{fig:trafficsystem_crossroads}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{pics/trafficsystem_carsignal_signal_reference}
+    \caption{Traffic System - Next Signal Reference}
+    \label{fig:trafficsystem_next_signal_reference}
+\end{figure}
+
+
+\textbf{Car Spawn Points}
+Car Spawn Points sind blau dargestellte Punkte an denen Fahrzeuge, nach dem laden der Szene, initialisiert werden.
+\ref{fig:trafficsystem_car_spawn_points}
+Falls ein Auto einen Car Signal, welcher ein Endpunkt ist, erreicht wird es, nach einem kurzen Delay, an einem Respawn Point wieder erscheinen.
+Diese Punkte verweisen, \"ahnlich wie Car Signals, auf einen nachfolgenden Punkt, wo die Fahrzeuge hinfahren.
+
+%% IN QUELLCODEVERZEICHNIS PACKEN!
+\begin{lstlisting}{CarSpawnPoint.cs}
+public class CarSpawnPoint : MonoBehaviour
+{
+
+    //Location where the car should go after respawning
+    public CarSignal nextSignal;
+
+    //Position of the Respawnpoint;
+    public Vector3 position;
+
+    public void Start(){
+        position = transform.position;
+    }
+
+    public Vector3 GetPosition(){
+        return position;
+    }
+
+    public CarSignal GetNextSignal(){
+        return nextSignal;
+    }
+
+}
+\end{lstlisting}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/trafficsystem_respawn_point}
+    \caption{Traffic System - Car Spawn Points}
+    \label{fig:trafficsystem_car_spawn_points}
+\end{figure}
+
+
+\textbf{Car Manager}
+Der Car Manager regelt die maximale Anzahl an Fahrzeugen die gleichzeitig auf den Straßen fahren k\"onnen.
+Am Anfang werden n Fahrzeuge (n ist hierbei die maximale Anzahl an Autos) auf den Straßen initialisiert, indem ein zuf\"alliger Spawn Point ausgewählt wird.
+\begin{lstlisting}{car_manager_respawncars}
+
+public void SpawnCar(){
+        CarSpawnPoint newCarSpawnPoint = GetRandomSpawnPoint();
+        GameObject newCar = Instantiate(GetRandomCarModell(), newCarSpawnPoint.GetPosition(), newCarSpawnPoint.transform.rotation);
+        newCar.GetComponent<CarBehaviour>().SetCarManager(this);
+        CarBehaviour carBehaviour = newCar.GetComponent<CarBehaviour>();
+
+
+        carBehaviour.curSignal = newCarSpawnPoint.GetNextSignal();
+        carBehaviour.curPosition = newCarSpawnPoint.GetPosition();
+
+        currentCars.Add(newCar);
+    }
+\end{lstlisting}
+
+Weiters wird mithilfe der Funktion RespawnCars() ein Auto recycled, sobald es einen Endpunkt erreicht hat, indem der Manager die aktuelle Position und das n\"achste Ziel des Fahrzeuges neu setzt.
+\begin{lstlisting}{car_manager_respawncars}
+public void RespawnCars(GameObject finishedCar){
+        CarBehaviour carBehaviour = finishedCar.GetComponent<CarBehaviour>();
+        CarSpawnPoint newCarSpawnPoint = GetRandomSpawnPoint();
+        carBehaviour.curSignal = newCarSpawnPoint.GetNextSignal();
+        carBehaviour.curPosition = newCarSpawnPoint.GetPosition();
+    }
+\end{lstlisting}
+
+\textbf{Car Behaviour}
+Jedes Fahrzeug erh\"alt nachdem es initialisiert wurde eine zufällige ID mit folgendem Aufbau "Car[0-9]BeamVR[0-9]", damit diese im sp\"ateren Verlauf des Spieles besser identifiziert werden können.
+In jedem Frame bewegt sich das Auto, mithilfe der Vector3.MoveTowards() Funktion, richtung dem Car signal, welches derzeit als Ziel festgelegt wurde.
+Wenn nun das momentante Ziel erreicht wurde, sucht das Gefährt in dem aktuellen Punkt die Referenz auf das nächste Signal und bewegt sich dort hin.
+
+Um zu verhindern, dass mehrere Fahrzeuge ineinander fahren,kann das Auto mithilfe eines Raycasts erkennen, was sich in einer bestimmten Distance vor sich befindet und im Notfall anhalten.
+
+\begin{lstlisting}{car_behaviour_raycast}
+...
+RaycastHit hit;
+         if (!Physics.Raycast(curPosition, transform.TransformDirection(Vector3.forward), out hit, carSeeingDist, layerMask))
+        {
+        ...
+        }
+...
+\end{lstlisting}
 
 \section{3d Welt}\label{sec:3d-world}
 Jedes Spiel braucht heutzutage eine Spielwelt, hierbei ist es egal ob es sich um eine 3D oder 2D Applikation handelt.
