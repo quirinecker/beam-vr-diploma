@@ -8,10 +8,12 @@
 
 \subsubsection{Smartphone VR and handheld VR viewers}
 
-\subsection{VR Headset}\label{sec:vr-headset}
+\subsection{VR Headset}
+\label{sec:vr-headset}
+\setauthor{Quirin Ecker}
 
-VR Headsets gibt es auf dem Markt schon viele.
-Nach einer Statistik in 2017 sind die beliebtesten VR Headset Hersteller Sony, Oculus und HTC (Siehe Abbildung~\ref{fig:vr_headset_manufacturer_marketshare}).
+Es sind einige VR Headsets auf dem Markt.
+Nach einer Statistik aus 2017 sind die beliebtesten VR Headset Hersteller Sony, Oculus und HTC (Siehe Abb.~\ref{fig:vr_headset_manufacturer_marketshare}).
 
 \begin{figure}
     \includegraphics[scale=0.5]{pics/vr_headset_manufacturer_marketshare}
@@ -35,17 +37,17 @@ Nach einer Statistik in 2017 sind die beliebtesten VR Headset Hersteller Sony, O
 
 \subsubsection{HTC Vive Pro}\label{sec:htc-vive}
 
-Wie bereits in Abschnitt~\ref{sec:vr-headset-types} beschrieben, gibt es von diesen Headsets verschiedene Arten.
-Die HTC Vive Pro ist vom Typ ein tethered Headset mit dem Zusatz, dass auch sogenannte Light Houses gebraucht werden (Siehe Abschnitt~\ref{sec:lighthouse}).
-Andere Produkte, wie die im nächsten Abschnitt beschriebene Oculus Quest benötigen diese nicht.
+Wie bereits in Abschnitt~\ref{sec:vr-headset-types} beschrieben, gibt es von diesen Headsets verschiedene Modelle.
+Die HTC Vive Pro ist vom Typ ein tethered Headset mit dem Zusatz, dass auch sogenannte Light Houses gebraucht werden (siehe Abschnitt~\ref{sec:lighthouse}).
+Andere Produkte, wie die im Folgendem beschriebene Oculus Quest benötigen solche nicht.
 
 \paragraph{Vorteile}
 
 \begin{itemize}
-    \item {\bf Einfache Verwaltung} Die HTC kann mit SteamVR verwaltet werden, womit der manuelle Download von externer Software vermieden wird.
+    \item die HTC kann mit SteamVR verwaltet werden, womit der manuelle Download von externer Software vermieden wird.
     \item lighthouse tracking
     \begin{itemize}
-        \item genaueres tracking~\cite{Macedo_2020}
+        \item genaueres tracking~\ref{fig:tracking_precision_statistic}
         \item nicht von dem natürlichen Licht abhängig~\cite{Dennis_Ziesecke_2019}
     \end{itemize}
 \end{itemize}
@@ -53,7 +55,7 @@ Andere Produkte, wie die im nächsten Abschnitt beschriebene Oculus Quest benöt
 \paragraph{Nachteile}
 
 \begin{itemize}
-    \item langer Aufbau
+    \item längerer Aufbau wie die Folgend beschriebene Oculus Quest 2
     \item hoher Preis~\ref{fig:vr_headset_prices}
     \item es wird ein Computer benötigt
 \end{itemize}
@@ -61,7 +63,7 @@ Andere Produkte, wie die im nächsten Abschnitt beschriebene Oculus Quest benöt
 \subsubsection{Valve Index}
 
 Die Valve Index ist eine VR-Brille welche von Valve entwickelt worden ist.
-Diese befindet sich genauso wie die HTC Vive~\ref{sec:htc-vive} im teureren Spektrum~\cite{ALSOP_2019} der VR-Brillen und ist dem Typ tethered Headset~\ref{sec:vr-headset-types} zuzuordnen.
+Diese befindet sich genauso wie die HTC Vive Pro~\ref{sec:htc-vive} im teureren Spektrum~\cite{ALSOP_2019} der VR-Brillen und ist dem Typ tethered Headset~\ref{sec:vr-headset-types} zuzuordnen.
 
 \paragraph{Vorteile}
 
@@ -69,15 +71,14 @@ Diese befindet sich genauso wie die HTC Vive~\ref{sec:htc-vive} im teureren Spek
     \item Hand Tracking.
     Die Controller tracken die Finger- und Handbewegungen.
     Diese Technologie kann von Spieleentwicklern verwendet werden~\cite{SadlyItsBradley_2019}
-    \item hohe Bildwiederholungsrate
-    \item lighthouse tracking (Siehe HTC Vive)
+    \item lighthouse tracking (siehe HTC Vive)
 \end{itemize}
 
 \paragraph{Nachteile}
 
 \begin{itemize}
+    \item längerer Aufbau wie die Folgend beschriebene Oculus Quest 2
     \item hoher Preis~\ref{fig:vr_headset_prices}
-    \item aufwendiger Aufbau
     \item es wird ein Computer benötigt
 \end{itemize}
 
@@ -120,10 +121,9 @@ Für den Aufbau werden nur das Headset und zwei Controller benötigt.
 \subsection{Game Engine}
 
 Es gibt mehrere Games Engines mit welchen eine VR Applikation entwickelt werden kann.
-In Abbildung~\ref{fig:game_engine_marketshare} kann man den Marktanteil verschiedener Engines sehen.
-Diese Daten sind aber mit Vorsicht zu genießen, da das Skript welche diese Daten geliefert hat nach einigen Kriterien handelt, siehe~\cite{REDDIT_2018}.
-Auf Basis dieser Statistik werden die drei Engines mit dem höchsten Marktanteil vorgestellt.
-id Tech, welche auf Basis der reinen Zahlen die drittgrößte Engine wäre, wurde hier ausgenommen.
+In Abb.~\ref{fig:game_engine_marketshare} ist der Marktanteil verschiedener Engines abgebildet.
+Diese Daten sind aber mit Vorsicht zu genießen, da das Skript welche diese Daten geliefert hat nach einigen Kriterien handelt,(siehe~\cite{REDDIT_2018}).
+Dies bedeutet beispielsweise, dass nur Spiele mit einer Wikipedia Seite mit einberechnet werden.
 
 \begin{figure}
     \centering
@@ -142,15 +142,14 @@ id Tech, welche auf Basis der reinen Zahlen die drittgrößte Engine wäre, wurd
 
 Unity ist eine Game Engine, welche von Unity Technologies initial exklusiv für Apple Mac OS X entwickelt wurde.
 Die Engine wurde portiert und kann heute auch auf Windows und auf der Linux Plattform benützt werden.
-Die Engine ist für Einsteiger gratis.
-Auch wenn sie eine Einsteiger Engine genannt wird, wird sie trotzdem im professionellen Bereich genutzt und viele bekannte Spiele wurden mit Unity entwickelt.
-Spiele wie Pokemon GO, Among us und Hearthstone wurden in der Unity Engine entwickelt~\cite{Haas2014AHO,UNITY_DOWNLOAD,UNITY_PRICING,WIKIPEDIA_UNITY_GAME_LIST_2014}.
+Sie ist für alle im prinzip gratis bis zu einem bestimmten Umsatz.
+Auch wenn sie eine Einsteiger Engine genannt wird, ist sie trotzdem im professionellen Bereich in benutzung und viele bekannte Spiele, wie Pokemon GO, Among us und Hearthstone wurden in der Unity Engine entwickelt~\cite{Haas2014AHO,UNITY_DOWNLOAD,UNITY_PRICING,WIKIPEDIA_UNITY_GAME_LIST_2014}.
 
 \paragraph{Vorteile}
 
 \begin{itemize}
-    \item Gratis Lizenz für persönlichen Nutzen und für Unternehmen mit unter 100.000 \$ Einkommen~\cite{UNITY_PRICING}
-    \item Programmierbar in C\#~\ref{fig:hardest_programming_languages}
+    \item Gratis benutzung bis zu einem bestimmten Umsatz eines Produktes
+    \item Programmierbar in C\#, einer einfach zu erlernenden Sprachen siehe Abb.~\ref{fig:hardest_programming_languages}
     \item Es kann für alle möglichen Plattformen ein Programm geschrieben werden~\cite{UNITY_PLATTFORMS}
     \begin{itemize}
         \item IOS
@@ -158,24 +157,23 @@ Spiele wie Pokemon GO, Among us und Hearthstone wurden in der Unity Engine entwi
         \item Windows
         \item Linux
         \item WebGL
-        \item usw.
     \end{itemize}
 \end{itemize}
 
 \paragraph{Nachteile}
 
 \begin{itemize}
-    \item weniger Market-share~\ref{fig:game_engine_marketshare}
+    \item im Vergleich zu Unreal weniger Market-share~\ref{fig:game_engine_marketshare}
     \item geschlossener Source Code
-    \item schnellerer Kostenanfall wie z.B.\ bei~\ref{sec:unreal_engine}
+    \item schnellerer Kostenanfall wie bei Unreal
 \end{itemize}
 
 \subsubsection{Unreal Engine}
 \label{sec:unreal_engine}
 
-Unreal Engine ist von Epic Games entwickelt~\cite{UNEAL_ENGINE_OWNER_2022}.
-Diese Engine ist eine weit verwendete Game Engine.
-Dies kann man auch in Abbildung~\ref{fig:game_engine_marketshare} herausnehmen.
+Unreal Engine wird von Epic Games entwickelt~\cite{UNEAL_ENGINE_OWNER_2022}.
+Diese Engine ist eine weit verbreitete Game Engine.
+Dies kann man Abbildung~\ref{fig:game_engine_marketshare} entnehmen.
 Viele Spiele wie Fortnite, Ark Survival Evolved, Borderlands 3 und Jedi Fallen Order sind mit dieser Engine entwickelt worden~\cite{WIKIPEDIA_UNREAL_GAME_LIST}.
 
 \begin{figure}
@@ -188,34 +186,34 @@ Viele Spiele wie Fortnite, Ark Survival Evolved, Borderlands 3 und Jedi Fallen O
 \paragraph{Vorteile}
 
 \begin{itemize}
-    \item großer Market-share~\ref{fig:game_engine_marketshare}
-    \item 'easy to learn' visual scripting~\ref{fig:visual_scripting_unreal_engine}
-    \item Nutzungshonorar von 5\% tritt erst bei einem Einkommen von einem Produkt von 1.000.000\$~\cite{UNREAL_ENGINE_PRICING_2022}
+    \item höchster Market-share nach Abb.~\ref{fig:game_engine_marketshare}
+    \item 'easy to learn' visual scripting~\ref{fig:visual_scripting_unreal_engine} %TODO: Statistic for visual scripting vs Code
+    \item Lizenzkosten von 5\% folgen erst bei einem Einkommen durch ein Produkt von 1.000.000\$~\cite{UNREAL_ENGINE_PRICING_2022}
 \end{itemize}
 
 \paragraph{Nachteile}
 
 \begin{itemize}
-    \item 5\% Nutzungshonorar, wenn das Einkommen eines Produktes über 1000000\$ ist~\cite{UNREAL_ENGINE_PRICING_2022}
-    \item für erweiterte funktionalität wird c++ welches nach Umfrage in der Abbildung~\ref{fig:hardest_programming_languages} die dritt schwierigste Sprache ist
+    \item 5\% Lizenzkosten, wenn das Einkommen eines Produktes über 1.000.000\$ ist~\cite{UNREAL_ENGINE_PRICING_2022}
+    \item für erweiterte Funktionalität wird C++ benötigt, welches nach Umfrage in Abbildung~\ref{fig:hardest_programming_languages} die drittschwierigste Sprache zu erlernen ist
 \end{itemize}
 
 \subsubsection{Source Engine und Source 2 Engine}
 
 Es gibt mittlerweile 2 Iterationen dieser Engine.
 Zum einen die originale Source Engine und die Source Engine 2.
-Die Markteinführung von der originalen Source Engine war im Juni 2004~\cite{Bryan_Wirtz_SOURCE_ENGINE_2022}.
-Daraufhin ist die Source 2 Engine im August 2014 herausgekommen~\cite{VALVE_DEVELOPER_COMMUNITY_SOURCE2}.
-Beider dieser Engines sind von Valve entwickelt worden~\cite{VALVE_DEVELOPER_COMMUNITY_SOURCE, VALVE_DEVELOPER_COMMUNITY_SOURCE2}.
+Die Markteinführung der ursprünglichen Source Engine war im Juni 2004~\cite{Bryan_Wirtz_SOURCE_ENGINE_2022}.
+Daraufhin ist die Source 2 Engine im August 2014 erschienen~\cite{VALVE_DEVELOPER_COMMUNITY_SOURCE2}.
+Beide Engines sind von Valve entwickelt worden~\cite{VALVE_DEVELOPER_COMMUNITY_SOURCE, VALVE_DEVELOPER_COMMUNITY_SOURCE2}.
 Verantwortlich ist die Source 2 Engine für Spiele wie Dota 2 und Half Life Alyx~\cite{WIKIPEDIA_SOURCE2_ENGINE_GAME_LIST}.
 Andere Spiele wie Half Life 2, Counterstrike Source, Portal, Portal 2 und Counterstrike Global Offensive sind mit der originalen Source Engine entwickelt worden~\cite{WIKIPEDIA_SOURCE_ENGINE_GAME_LIST}.
-Auch als VR Entwicklungsumgebung eignet es sich, da sie für Half Life: Alyx eines der erfolgreichsten VR Spiele benutzt worden ist~\cite{WIKIPEDIA_SOURCE2_ENGINE_GAME_LIST, Aden_Carter_2020}.
-Die kommenden Vorteile und Nachteile handeln sich um die Source 2 Engine.
+Auch als VR Entwicklungsumgebung eignet sich die Source 2 Engine, da sie für Half Life: Alyx, eines der erfolgreichsten VR Spiele benutzt worden ist~\cite{WIKIPEDIA_SOURCE2_ENGINE_GAME_LIST, Aden_Carter_2020}.
+Die folgenden Vorteile und Nachteile beziehen sich auf die Source 2 Engine.
 
 \paragraph{Vorteile}
 
 \begin{itemize}
-    \item Source Engine ist gratis zu nutzen und zu publizieren *~\ref{pgr:cons}
+    \item Source Engine ist gratis zu nutzen und zu publizieren *(siehe Nachteile)
 \end{itemize}
 
 
@@ -223,7 +221,7 @@ Die kommenden Vorteile und Nachteile handeln sich um die Source 2 Engine.
 
 \begin{itemize}
     \item kein hoher Market-share (siehe Abbildung~\ref{fig:game_engine_marketshare})
-    \item Spiele müssen auf Steam publiziert werden~\cite{Brenna_Hillier_2015}
+    \item spiele, welche mit der Engine entwickelt worden sind, dürfen nur auf Steam publiziert werden~\cite{Brenna_Hillier_2015}
 \end{itemize}
 
 
