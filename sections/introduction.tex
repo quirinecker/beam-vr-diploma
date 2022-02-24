@@ -1,4 +1,6 @@
-\section{Ausgangssituation}\label{sec: initial_situation}
+\section{Ausgangssituation}
+\label{sec: initial_situation}
+\setauthor{Quirin Ecker}
 
 Laut Encyclopedia Britannica ist die virtuelle Realität folgendermaßen definiert:
 \begin{quotation}
@@ -6,7 +8,7 @@ Laut Encyclopedia Britannica ist die virtuelle Realität folgendermaßen definie
     VR applications immerse the user in a computer-generated environment that simulates reality through the use of interactive devices, which send and receive information and are worn as goggles, headsets, gloves, or body suits~\cite{LOWOOD_2021}.
 \end{quotation}
 
-Im Zuge der weiteren Forschung zum Thema VR wurde das eingeführt~\cite{MILGRAM_1994} (Siehe Abbildung~\ref{fig:reality_virtuality_continuum})).
+Im Zuge der weiteren Forschung zum Thema VR wurde der Begriff Reality Virtuality Continuum eingeführt~\cite{MILGRAM_1994} (Siehe Abb.~\ref{fig:reality_virtuality_continuum})).
 In dieser Theorie wird erklärt, dass die von einem Benutzer erfahrenen Welten in einem Continuum zwischen völliger Realität und völliger Virtualität angesiedelt sind.
 Markante Punkte in diesem Kontinuum sind Augmented Reality und Augmented Virtuality.
 
@@ -21,8 +23,8 @@ In dieser Arbeit sprechen wir über die Wirklichkeit welche durch ein head mount
 Somit bezeichnet eine VR Application eine Software, welche in der VR-Brille läuft.
 
 Von diesen VR Applikationen gibt es schon einige.
-Lt. einer Statistik aus Deutschland aus dem Jahr 2021, bei welcher Personen mit einer VR-Brille oder head mounted display befragt worden sind, wird VR meistens im Bereich Videospiele verwendet.
-Details zu dieser Befragung siehe Abbildung~\ref{fig:statistic_usage_vr}.
+lt. einer Statistik aus Deutschland aus dem Jahr 2021, bei welcher Personen mit einer VR-Brille oder head mounted display befragt worden sind, wird VR meistens im Bereich Videospiele verwendet.
+Details zu dieser Befragung siehe Abb.~\ref{fig:statistic_usage_vr}.
 
 \begin{figure}
     \begin{center}
@@ -32,10 +34,10 @@ Details zu dieser Befragung siehe Abbildung~\ref{fig:statistic_usage_vr}.
     \label{fig:statistic_usage_vr}
 \end{figure}
 
-VR Applikationen der Vergangenheit haben sich hauptsächlich auf das Tracking des Kopfes konzentriert.
-Das Tracken weiterer Körperteile oder ein sogenanntes Full Body Tracking, also das tracken der Füße, Hände, Hüfte und Kopf war bis vor kurzem ein technisches und vor allem auch ein finanzielles Problem (siehe~\cite{PAVEL_NUZHDIN_2020}).
+VR Applikationen haben sich in der Vergangenheit hauptsächlich auf das Tracking des Kopfes konzentriert.
+Das Tracken weiterer Körperteile oder ein sogenanntes Full Body Tracking, also das Tracken der Füße, Hände, Hüfte und des Kopfes, war bis vor kurzem ein technisches und vor allem auch ein finanzielles Problem~\cite{PAVEL_NUZHDIN_2020}.
 
-Im Falle der VR Chat werden zwei Vive Tracker (siehe~\ref{sec:vive-tracker}) verwendet um den linken und den rechten Fuß zu tracken und ein weiterer um die Hüfte zu tracken.
+Im Falle der bestehenden Anwendung VR Chat werden zwei Vive Tracker (siehe~\ref{sec:vive-tracker}) verwendet um den linken und den rechten Fuß zu tracken und ein weiterer um die Hüfte zu tracken.
 Für die Hände und den Kopf werden jeweils die Controller (Siehe Abschnitt~\ref{sec:vr-controller})und das VR Headset (siehe Abschnitt~\ref{sec:vr-headset}) verwebtet.
 Somit kann der ganze Körper getrackt werden, da die restlichen positionen berechnetet werden können.
 Diese Implementierung kann zum Beispiel bei der Applikation VR Chat gefunden werden (siehe~\cite{VRCHAT_DOCS_2021} oben).
@@ -44,23 +46,20 @@ VR Chat bietet auch ein weniger genaues Tracking an welches nur einen Tracker, z
 
 Ein weiterer Schritt im Reality-Virtuality Continuum~\cite{MILGRAM_1994} ist die Einbindung realer Gegenstände in die virtuelle Welt.
 Man spricht in diesem Fall von Augmented Virtuality.
-Dadurch wird der Grad an Immersion (siehe~\cite{EMEST_ADAMS_2004} und~\cite{BJOERK_2003}), also wie "real" die virtuelle Welt vom Benutzer wahrgenommen wird, erhöht.
+Dadurch wird der Grad an Immersion (siehe~\cite{EMEST_ADAMS_2004} und~\cite{BJOERK_2003}), also wie real die virtuelle Welt vom Benutzer wahrgenommen wird, erhöht.
 
-\section{Zielsetzung}\label{sec: objective}
+\section{Zielsetzung}
+\label{sec: objective}
+\setauthor{Quirin Ecker}
 
 Das Ziel dieser Arbeit is eine Applikation der Augmented Virtuality.
 Im Fall von Beam VR wird ein Holzsparren, welcher in der realen Welt auf dem Boden liegt, in der virtuellen Welt als Balken, der aus einem Wolkenkratzer ragt, wahrgenommen.
 % TODO: Siehe eine Abbildung von der realen Umgebung und eine von der virtuellen Umgebung
 Die Applikation soll einem das Gefühl vermitteln, dass man wirklich auf einem Balken steht, welcher von einem Hochhaus wegsteht.
-Der Nutzer soll eine Erhöhung spüren sobald er in der virtuellen Rea
-
-
+Der Nutzer soll eine Erhöhung spüren sobald er in der virtuellen Realität auf den Balken steigt.
 
 Das Ziel von Beam VR ist die physische Realität und die virtuelle Realität zu kombinieren.
-Im Falle Beam VR benützen wir hier einen Balken, welcher von einem Hochhaus wegsteht.
-Dieser Balken soll in der physischen Realität und in der virtuellen Realität existieren und die gleiche Position einehmen.
-Dadurch soll die Immersion entstehen, dass man wirklich auf einem Balken steht, welcher von einem Hochhaus wegsteht.
-Auch, wenn man nur in seinem Wohnzimmer oder auch woanders ohne Gefahren auf einem Balken steht.
+Ein Balken soll in der physischen Realität und in der virtuellen Realität existieren und die gleiche Position einnehmen.
+Auch, wenn man sich in seinem Wohnzimmer oder auch anderswo ohne Gefahren befindet.
 Beam VR ist nicht der Erfinder dieses Konzeptes.
 Mehr dazu gibt es in der kommenden Umfeldanalyse.
-
