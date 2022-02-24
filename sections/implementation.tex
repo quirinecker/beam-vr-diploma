@@ -241,10 +241,10 @@ In Forsaken starb Cayde jedoch und viele trauerten um ihn, als Gedenken wurde di
 
 \subsection{City Grid System}\label{subsec:city-grid-system}
 Um die Gestaltung der Welt in BeamVR zu erleichtern, wurde ein Grid System verwendet.
-Dafür wurde die Stadt in ein Raster aufgeteilt, an welchem sich alle Objekte der Welt auf allen 3 Achsen (x,y,z) orientieren.
-~\ref{fig:grid-system-unity}
-Unity stellt so ein Grid Snapping System bereits zur Verf\"ugung, daher wurde f\"ur BeamVR am Anfang der
-Modellierungsphase eine Bestimmte Grid-Gr\"osse festgelegt, an dem die Grundfl\"achen der Geb\"aude und die Strassen
+Dafür ist die Stadt in ein Raster aufgeteilt, an welchem sich alle Objekte der Welt auf allen 3 Achsen (x,y,z) orientieren.
+Unity stellt, wie in Abb. ~\ref{fig:grid-system-unity} zu sehen, so ein Grid Snapping System zur Verf\"ugung.
+Daher wurde f\"ur BeamVR am Anfang der Modellierungsphase eine bestimmte Grid-Size festgelegt,
+an welche die Grundfl\"achen der Geb\"aude und die Strassen
 angepasst wurden.
 
 \begin {figure}
@@ -254,11 +254,8 @@ angepasst wurden.
     \label{fig:grid-system-unity}
 \end {figure}
 
-Wenn mann die Grid Size, also die Gr\"osse des Rasters, an dem sich alles Orientiert, \"andern m\"ochte muss man zuerst das Grid and Snap Fenster aufrufen.
-Als n\"achstes findet man unter dem Bereich World Grid ein Attribut namens Size, wo man die X, Y und Z Achsen frei und unabh\"angig voneinander umskalieren kann.
-Wenn man alle Achsen gleichzeitig umstellen m\"ochte, muss man nur auf das Link Icon, welches sich Links neben dem X befindet, dr\"ucken.
-Nun werden alle Achsen immer die gleiche Gr\"osse haben.
-~\ref{fig:grid-size-unity}
+Wenn man die Grid Size, also die Gr\"osse des Rasters \"andern m\"ochte, muss man zuerst im Editor das Grid and Snap Fenster öffnen.
+Als n\"achstes findet man unter dem Bereich World Grid ein Attribut namens Size, wo man die X, Y und Z Achsen frei und unabh\"angig voneinander umskalieren kann, siehe Abb. ~\ref{fig:grid-size-unity}.
 ~\cite{Unity_GridSnapping_2022}
 
 \begin {figure}
@@ -271,9 +268,8 @@ Nun werden alle Achsen immer die gleiche Gr\"osse haben.
 
 
 \subsection{Stadt}\label{subsec:city}
-Jede Stadt hat viele verschiedene Strukturen wie Sehensw\"urdigkeiten, Bauwerke und Einrichtungen wie Kinos, Theater oder Restaurants.
-F\"ur BeamVR wurden daher insgesamt \"uber 34 Geb\"aude Modelle erstellt um eine Vielfallt in der Umgebung zu kreieren.
-~\ref{fig:beamvr_building-variety}
+Jede Stadt hat viele verschiedene Strukturen wie zum Beispiel Sehensw\"urdigkeiten, Bauwerke und Einrichtungen wie Kinos, Theater oder Restaurants.
+F\"ur BeamVR wurden daher insgesamt \"uber 34 Geb\"aude Modelle erstellt um eine Vielfalt in der Umgebung zu erreichen, siehe Abb. ~\ref{fig:beamvr_building-variety}.
 
 \begin {figure}
     \centering
@@ -282,26 +278,23 @@ F\"ur BeamVR wurden daher insgesamt \"uber 34 Geb\"aude Modelle erstellt um eine
     \label{fig:beamvr_building-variety}
 \end {figure}
 
-Wie auf dem Bild zu sehen, wurde die Stadt so entworfen, dass nur die für den Spieler sichtbaren Objekte wirklich existieren.
-~\ref{fig:beamvr_building-variety}
+Die Stadt wurde so entworfen, dass nur die für den Spieler sichtbaren Objekte wirklich existieren, wie auf dem Abb. ~\ref{fig:beamvr_building-variety} zu erkennen ist.
 Bei richtiger Umsetzung scheint es für den Anwender dennoch so, als w\"are dieser in einer kompletten Spielwelt.
-In der Spieleentwicklung wird dieser Trick oft angewandt um die Performance des Spieles zu verbessern, da unn\"otige Objekte nicht gerendert oder berechnet werden m\"ussen.
-Bei gr\"osseren Projekten spart das nicht nur Zeit sondern auch Ressourcen wie Geld.
-Da BeamVR jedoch eine Diplomarbeit ist und daher keine Kosten w\"ahrend der Entwicklung entstehen, wurde dieser Trick angewandt
-um die Frames per Second in die h\"ohe zu treiben.
+Um die Performance des Spieles zu verbessern, wurde dieser Trick in BeamVR angewandt, da unn\"otige Objekte nicht gerendert oder berechnet werden m\"ussen.
+Bei gr\"osseren Projekten spart das nicht nur Zeit sondern auch Ressourcen.
+Bei BeamVR wurde diese Technik angewandt um die Frames per Second zu erh\"ohen.
+
+TODO: PERFORMANCE ERHÖHEN MITHILFE VON MAPS UND TEXTUREN ERKKLÄREN!!!! (hier)
 
 
 \subsection{Tag Stadt}\label{subsec:day-city}
-Es wurden 17 verschieden Geb\"aude f\"ur diese Map modelliert.
-~\ref{fig:beamvr_building-variety}
-Der Fokus bei der Gestaltung des Bauwerke lag dabei, dass diese m\"oglichst realistisch Aussehen und dennoch nicht zu Rechenaufwendig in der Darstellung werden.
-Daher wurden Texturen verwendet um kleinere Details an den Fassaden darzustellen.
-Das gleiche wurde bei der Apocalypsen Map angewandt.
-~\ref{subsec:apocalypse-city}
-Die angewandten Texturen stellen Fassaden aus Stein und Glas dar.
-Ein weiterer wichtiger Punkt bei der Planung der Stadt war es auch, dass der Spieler nicht aus der Stadt raus schauen kann.
-Daher wurden alle umliegenden Bauwerke mindestens 3 Meter h\"oher gemacht, als das Geb\"aude wo der Spieler steht.
-~\ref{fig:beamvr_building-heights}
+Es wurden 17 der 34 verschieden Geb\"aude f\"ur diese Map modelliert, siehe Abb. ~\ref{fig:beamvr_building-variety}.
+Der Fokus bei der Gestaltung des Bauwerke lag darauf, dass diese m\"oglichst realistisch aussehen und dennoch nicht zu rechenaufwendig in der Darstellung sind.
+Daher wurden Texturen verwendet um kleinere Details an den Fassaden darzustellen, statt diese zu modellieren.
+Das gleiche Prinzip wurde bei der Apocalypse Map verwendet, siehe Abschnitt ~\ref{subsec:apocalypse-city}.
+Die Texturen stellen Fassaden aus Stein und Glas dar.
+Ein weiterer wichtiger Punkt bei der Planung der Stadt war es auch, dass der Spieler nicht aus der Stadt raus schauen kann und die Illusion aufrecht erhalten bleibt.
+Daher wurden alle umliegenden Bauwerke mindestens 3 Meter h\"oher gemacht, als das Geb\"aude auf dem sich der Spieler befindet, siehe Abb. ~\ref{fig:beamvr_building-heights}.
 
 \begin {figure}
     \centering
@@ -311,9 +304,12 @@ Daher wurden alle umliegenden Bauwerke mindestens 3 Meter h\"oher gemacht, als d
 \end {figure}
 
 \subsection{Nacht Stadt}\label{subsec:night-city}
-In der nacht Version der Stadt wurde die Skybox angepasst, diese zeigt nun einen Sternenhimmel.
+In der Nacht Version der Stadt wurde die Skybox angepasst.
+Diese zeigt nun einen Sternenhimmel.
+Es handelt sich hierbei um eine Sphere oder Box, welche sich um die Spielwelt befindet, sie wird dazu benutzt um einen Himmel oder andere Umgebungen,
+in Form von Texturen, darstellen zu können, ohne dass diese als Modelle existieren.
 Zus\"atzlich wurde die Belichtung der Scene auf ein bl\"auliches Licht eingestellt und die Laternen in den Straßen
-haben optional noch eigene Lichtquellen.
+haben noch eigene Lichtquellen.
 ~\ref{fig:beamvr_night_map_lighting}
 
 \begin {figure}
@@ -323,15 +319,13 @@ haben optional noch eigene Lichtquellen.
     \label{fig:beamvr_night_map_lighting}
 \end {figure}
 
-\subsection{Apokalypsen Stadt}\label{subsec:apocalypse-city}
+\subsection{Apocalypse Stadt}\label{subsec:apocalypse-city}
 F\"ur diese Umgebung wurden alle Geb\"aude nochmal \"uberarbeitet.
-Statt den intakten Glasfassaden werden nun barrikadierte Fenster und Ziegelsteine ohne Verputz f\"ur die Bauwerke verwendet.
-~\ref{fig:beamvr_damaged_texture}
-Durch diese \"Anderung sieht die Stadt verlassen und wie nach einer Apokalypse aus.
-Um den Effekt noch zus\"atzlich zu verst\"arken wurden die Bauwerke noch etwas verdreht, so dass es aussieht, als w\"urden Diese gleich umkippen.
+Statt den intakten Glasfassaden werden nun vor barrikadierte Fenster und Ziegelsteine ohne Verputz f\"ur die Bauwerke verwendet, siehe Abb. ~\ref{fig:beamvr_damaged_texture}.
+Durch diese \"Anderung sieht die Stadt verlassen und postapokalyptisch aus.
+Um den Effekt noch zus\"atzlich zu verst\"arken wurden die Bauwerke in eine Schieflage gebracht, sodass es aussieht, als w\"urden diese gleich zusammenbrechen.
 Das Gel\"ande wurde mit neuen Sandstein Texturen und D\"unen in eine W\"uste umgewandelt.
-Die Planzen und B\"aume wurden durch ausgetrocknete B\"usche ausgetauscht, damit die Welt ein trostloses aussehen bekommt.
-~\ref{fig:beamvr_apocalypse_map}
+Die Planzen und B\"aume wurden durch ausgetrocknete B\"usche ausgetauscht, damit die Welt ein trostloses Aussehen erhält, siehe Abb. ~\ref{fig:beamvr_apocalypse_map}.
 
 \begin {figure}
     \centering
@@ -350,22 +344,24 @@ Die Planzen und B\"aume wurden durch ausgetrocknete B\"usche ausgetauscht, damit
 
 
 \section{Sound Design}\label{sec:sound}
-Sound Design ist einer der wichtigsten Punkte, den man bei der Spieleentwicklung beachten muss.
+Ohne Sound Design würden die Maps von BeamVR unrealisitsch, da in einer Stadt immer etwas los ist.
 In der virtuellen Umgebung der verwendeten Game Engine existieren anfangs keine Geräusche, diese m\"ussen von den Entwicklern selber erstellt und eingef\"ugt werden.
 
 
 Es gibt viele verschiedene Arten Sound Design zu benutzen, wie zum Beispiel die Ger\"ausche die der Anwender selbst in der virtuellen Welt verursacht.
 Wenn sich der Spieler bewegt, sollten Fußstapfen zu h\"oren sein.
 Diese klingen je nach Bodentyp unterschiedlich.
-Besteht der Boden aus Holz, wird man ein h\"olzernes klopfen und knarren h\"oren, ist der Boden jedoch mit Gras bedeckt wird ein rascheln abgespielt.
-Zus\"atzlich wird der gesteuerte Charakter ersch\"opft klingen wenn gelaufen wurde oder gerade ein Sprung ausgef\"uhrt wird.
+Besteht der Boden aus Holz, wird man ein h\"olzernes Klopfen und Knarren h\"oren.
+Ist der Boden jedoch mit Gras bedeckt, wird ein Rascheln abgespielt.
+Zus\"atzlich wird der gesteuerte Charakter außer atem sein wenn gelaufen wurde oder gerade ein Sprung ausgef\"uhrt wird, das wird mithilfe von Atem-Geräuschen umgesetzt.
 
 Bei Umgebungen ist es wichtig, dass die Welt nicht leer klingt, sondern mit situationsbedingten Hintergrundger\"auschen voller Leben erscheint.
 Es gibt jedoch auch Situationen wo gezielt wenig Umgebungsger\"ausche benutzt werden um zum Beispiel eine W\"uste oder eine verlassene Stadt noch einsamer und trostloser darzustellen.
 
 Um die Stimmung noch genauer steuern zu k\"onnen kann Musik benutzt werden.
 Wenn der Spieler auf einem Pferd durch eine Weide reitet, kann eine dramatische und inspirierende Musik benutzt werden, um den Moment noch besser und cinematischer wirken zu lassen.
-~\cite{GK_Media_Factory_Sound_Design_2022}
+
+Die Informationen für die Absätze wurden hier gefunden ~\cite{GK_Media_Factory_Sound_Design_2022}.
 
 \subsection{Apocalypse}\label{subsec:apocalypse-background-sound}
 Die Musik in der Apocalypse Map ist stark an das Horror Genre angelegt.
@@ -378,11 +374,11 @@ Da die Sicht in dieser Map stark durch einen gelblichen Nebel, der wie ein Sands
 \subsection{City}\label{subsec:day-night-background-sound}
 Die Hintergrundger\"ausche der Tag und Nacht Version der Stadt sind sehr \"ahnlich.
 Der Spieler kann Motorr\"ader und Autos auf den Straßen vorbeifahren h\"oren.
-Hinundwieder kann man Menschen bei kurzen Gespr\"achen miteinander zuh\"oren und ein Kind husted im Hintergrund.
+Hin und wieder kann man Menschen, die man nicht sehen kann, bei kurzen Gespr\"achen miteinander zuh\"oren und ein Kind husted im Hintergrund.
 
 \subsection{Event}\label{subsec:building-collapse-sound}
 Um spezifische Events, also bestimmte Dinge welche in der Welt passieren, f\"ur den Benutzer besser erkennbar zu machen, wurden zus\"atzlich Ge\"ausche eingef\"ugt.
-Auf der Apocalypse Map sind zusammenbrechende Geb\"aude zu h\"oren, um die schlechte instandhaltung der verlassenen Stadt erneut hervorzuheben.
+Auf der Apocalypse Map sind zusammenbrechende Geb\"aude zu h\"oren, um die schlechte instandhaltung der verlassenen Stadt erneut zu verdeutlichen.
 Aber wenn der Benutzer genauer hinsieht, kann man w\"ahrend diese Sounds h\"orbar sind, auch tats\"achlich eine kleine Auswahl an Bauwerken br\"ockeln sehen.
 
 \section{Effects}\label{sec:effects}
