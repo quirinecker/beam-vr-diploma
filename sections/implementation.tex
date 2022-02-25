@@ -41,7 +41,7 @@
 
 \section{Aufbau}\label{sec:assembly}
 
-Folgend werden alle Gegenstände und Geräte für den Aufbau in Abbildung~\ref{fig:assembly} benannt.
+Folgend werden alle Gegenstände und Geräte für den Aufbau in Abb.~\ref{fig:assembly} angeführt.
 
 \begin{figure}
     \centering
@@ -52,28 +52,41 @@ Folgend werden alle Gegenstände und Geräte für den Aufbau in Abbildung~\ref{f
 
 \begin{enumerate}
     \item VR Raum
-    \item Lichtboxen~\ref{sec:lighthouse}
-    \item Bildschirm
+    \item Lighthouses~\ref{sec:lighthouse}
+    \item Monitor
     \item Balken
     \item Startposition
-    \item Abgrund
+    \item Virtueller Abgrund
 \end{enumerate}
 
 \subsection{Erklärung}\label{subsec:description}
 
-Der Spieler bei der Startposition starten und dann Richtung Abgrund dem Balken entlang balancieren.
+Der Spieler started bei der Startposition und balanciert entlang des Balkens.
 Die Lichtboxen müssen diagonal positioniert werden wie bereits beschrieben in dem Abschnitt~\ref{sec:lighthouse}.
-Der Balken sollte ca in der Mitte sein.
+Der Balken sollte ca in der Mitte positioniert werden und die langen seiten sollten möglichst parallel zu den langen seiten des VR Raums sein.
 
-Leichte Versetzungen sidn nicht tragisch. Hierbei geht es nur darum, dass der Balken nicht aus dem VR Raum
-rausschaut, da das Tracking dort abbricht. Die position des Bildschirmes ist nicht wichtig.
-Hierbei geht es nur um das Steam VR Setup welches bereits in dem Kapitel Steam besprochen worden ist.
+Leichte Abweichungen der optimalen position sind nicht problematisch.
+Größere Abweichungen können zu unerwarteten verhalten führen.
+Die echte position des Bildschirmes ist nicht wichtig.
+Wichtig ist nur wo die position bei der kalibrierung eingestellt ist~\ref{fig:assembly}.
+Durch das Positionieren des Monitors wird die standard Blickrichtung für SteamVR eingestellt.
+Wenn der monitor Beispielsweise auf der anderen seite eingestellt wird, schaut man in die Falsche richtung in der Simulation.
 
-\section{Code}\label{sec:code}
-\subsection{Ganzkörper-Tracking}\label{sec:full-body-tracking}
-\subsection{Beam Calibration}\label{subsec:beam-calibration}
-\subsection{Schwerkraft}\label{subsec:gravity}
-\subsection{Verkehrssystem}\label{subsec:traffic-system}
+\section{Code}
+\label{sec:code}
+
+\subsection{Ganzkörper-Tracking}
+\label{sec:full-body-tracking}
+
+\subsection{Beam Calibration}
+\label{subsec:beam-calibration}
+
+\subsection{Schwerkraft}
+\label{subsec:gravity}
+
+\subsection{Verkehrssystem}
+\label{subsec:traffic-system}
+\setauthor{Florian Beckerle}
 In der Stadt von BeamVR ist auf den Straßen einiges los, dass wurde mithilfe eines neuem Verkehrssystems umgesetzt.
 Die Straßen sind mit, f\"ur den Spieler unsichtbaren, Objekten versehen die den Verkehr regeln.
 
@@ -81,13 +94,11 @@ Die Straßen sind mit, f\"ur den Spieler unsichtbaren, Objekten versehen die den
 Damit die Fahrzeuge in BeamVR wissen wo und vor allem wie sie auf den Straßen navigieren k\"onnen, wurde das Car Signal System entwickelt.
 Die Car Signals gibt es in zwei verschiedenen Versionen, f\"ur die linke Straßenseite wurden gr\"une und f\"ur die Rechte Seite wurden rote Signale erstellt.
 Die Signale funktionieren wie Checkpoints, jedes Auto wird nachdem es initialisiert wurde, von einem zum n\"achsten fahren.
-Jeder dieser Checkpoints verweist auf den nächsten, wie in einer Liste, daher weis jedes Fahrzeug wo die momentane Zielposition ist.
-\ref{fig:trafficsystem_next_signal_reference}
+Jeder dieser Checkpoints verweist auf den nächsten, wie in einer Liste, daher weis jedes Fahrzeug wo die momentane Zielposition ist.~\ref{fig:trafficsystem_next_signal_reference}
 Endpunkte sind spezielle Signale, welche auf keinen nachfolgenden Punkt mehr verweisen, erreicht ein Auto ein solchen Punkt hat es das Ziel erreicht.
 
 An Kreuzungen befinden sich mehrere dieser Car Signals, damit die Fahrzeuge auf der richtigen Spur bleiben und die Verkehrsregeln befolgen.
-Die gr\"unen Linien zeigen die m\"oglichen Routen die das Auto fahren kann, die Pfeile visualisieren in welche Richtung gefahren werden kann.
-\ref{fig:trafficsystem_crossroads}
+Die gr\"unen Linien zeigen die m\"oglichen Routen die das Auto fahren kann, die Pfeile visualisieren in welche Richtung gefahren werden kann.~\ref{fig:trafficsystem_crossroads}
 
 
 
@@ -107,8 +118,7 @@ Die gr\"unen Linien zeigen die m\"oglichen Routen die das Auto fahren kann, die 
 
 
 \textbf{Car Spawn Points}
-Car Spawn Points sind blau dargestellte Punkte an denen Fahrzeuge, nach dem laden der Szene, initialisiert werden.
-\ref{fig:trafficsystem_car_spawn_points}
+Car Spawn Points sind blau dargestellte Punkte an denen Fahrzeuge, nach dem laden der Szene, initialisiert werden.~\ref{fig:trafficsystem_car_spawn_points}
 Falls ein Auto einen Car Signal, welcher ein Endpunkt ist, erreicht wird es, nach einem kurzen Delay, an einem Respawn Point wieder erscheinen.
 Diese Punkte verweisen, \"ahnlich wie Car Signals, auf einen nachfolgenden Punkt, wo die Fahrzeuge hinfahren.
 
