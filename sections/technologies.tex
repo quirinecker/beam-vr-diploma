@@ -1,12 +1,64 @@
 \section{Hardware}
 
-\subsection{Arten von VR Headsets}\label{sec:vr-headset-types}
+\subsection{Grundlagen}
+\label{sec:basics}
 
-\subsubsection{Tethered VR Headsets}
+\subsubsection{Arten von VR Headsets}
+\label{sec:vr-headset-types}
 
-\subsubsection{Standalone VR Headsets}
+Bei VR Headsets werden grundsätzlich drei verschiedene Arten unterschieden:
 
-\subsubsection{Smartphone VR and handheld VR viewers}
+\begin{itemize}
+    \item Tethered Headsets
+    \item Standalone Headsets
+    \item Smartphone und Handheld Headsets
+\end{itemize}
+
+In Folge werden diese Arten kurz beschrieben, sodass die beschreibungen von der Technologien verstanden werden können.
+Für eine genauere beschreibung dieses Themas wird auf~\cite{ANIWAA_TEAM_2021} verwiesen.
+
+\emph{Tethered VR Headsets} müssen immer mit einem Computer verbunden sein, weil die VR-Applikation ausschließlich auf dem Computer läuft.
+Die Brille hat dabei einerseits die Funktion die vom Computer gerenderten daten darzustellen und andererseits Positionsdaten an den Computer zurückzusenden, damit diese in der Applikationslogik verwendet werden können, um zukünftige Bilddaten zu rendern.
+
+Bei \emph{Standalone VR Headsets} ist in der Brille ein Computer integriert, auf welchem die VR Applikation läuft.
+Der Computer dient ausschließlich aus Entwicklungsplattform und die fertigen Applikationen müssen auf die Brille heruntergeladen werden.
+
+Im Falle des \emph{Smartphone VR Headsets} läuft die Applikation auf einem Smartphone.
+Um die Immersion zu erhöhen wird das Smartphone in die VR-Brille eingeschoben.
+In diesem Fall dient das Telefon sowohl als Anzeigegerät als auch als Sensordatenprovider.
+Die VR-Brille besteht ausschließlich aus Linsen welche die Immersion der am Handy laufenden Applikation erhöht.
+
+\subsubsection{Tracking}
+
+Unter Tracking versteht man das ermitteln der Position von Objekten in der realen Welt.
+Folgend werden Arten das Tracking beschrieben.
+Diese beinhalten:
+
+\begin{itemize}
+    \item Outside In Tracking
+    \item Markerless Inside Out Tracking
+    \item Marker Based Inside Out Tracking
+\end{itemize}
+
+Wie im vorigen Abschnitt wird hier nur ein Überblick über diese Arten des Trackings gegeben.
+Für nähere Informationen wird auf~\cite{Dennis_Ziesecke_2019} verwiesen.
+
+\emph{Outside In Tracking} beschreibt das Ermitteln der Positionen durch außenstehende Sensoren.
+Das bedeutet, dass das zu trackende Objekt nicht weiß wo es sich im Raum befindet (Es ist passiv).
+Währenddessen ermitteln außenstehende Sensoren die Position der zu trackenden Objekte und gibt diese an die VR-Applikation weiter.
+
+Im Gegensatz dazu gibt es das \emph{Inside Out Tracking}.
+Hier ermitteln Sensoren, welche sich auf den Objekten befinden die Position derselbigen.
+Dabei gibt es zwei verschiedene Arten, welche bereits oben aufgelistet worden sind.
+
+Im Fall von \emph{Markerless Inside Out Tracking} wird natürliches Licht verwendet.
+Typischerweise werden hierbei Kameras verwendet.
+Die dabei aufgenommenen Bilder werden mithilfe von Bildverarbeitungsmethoden analysiert und somit wird die Position der Objekte ermittelt.
+
+Bei \emph{Marker Based Inside Out Tracking} wird im Gegensatz kein natürliches Licht verwendet.
+Hierbei ist sind die zu trackenden Objekte von Lighthouses (siehe Abschnitt~\ref{sec:lighthouse}) abhängig.
+Diese beleuchten den Raum mit nicht sichtbaren licht welches von Fotosensoren an den Geräten empfangen wird.
+
 
 \subsection{VR Headset}
 \label{sec:vr-headset}
@@ -14,25 +66,14 @@
 
 Es sind einige VR Headsets auf dem Markt.
 Nach einer Statistik aus 2017 sind die beliebtesten VR Headset Hersteller Sony, Oculus und HTC (Siehe Abb.~\ref{fig:vr_headset_manufacturer_marketshare}).
+Folgend sind 3 VR Brillen beschrieben.
+Hierbei wurden die auf die Spielkonsolen-basierten VR Headsets nciht berücksichtigt.
 
 \begin{figure}
-    \includegraphics[scale=0.5]{pics/vr_headset_manufacturer_marketshare}
+    \centering
+    \includegraphics[scale=0.25]{pics/vr_headset_manufacturer_marketshare}
     \caption{Market-share VR Headset Hersteller~\cite{MARTINDALE_2017}}
     \label{fig:vr_headset_manufacturer_marketshare}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics{pics/vr_headset_price_statistic}
-    \caption{VR Headset Preise~\cite{ALSOP_2019}}
-    \label{fig:vr_headset_prices}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics{pics/tracking_precision_statistic}
-    \caption{Tracking Genauigkeit der VR Headsets~\cite{Macedo_2020}}
-    \label{fig:tracking_precision_statistic}
 \end{figure}
 
 \subsubsection{HTC Vive Pro}\label{sec:htc-vive}
@@ -52,6 +93,13 @@ Andere Produkte, wie die im Folgendem beschriebene Oculus Quest benötigen solch
     \end{itemize}
 \end{itemize}
 
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/tracking_precision_statistic}
+    \caption{Tracking Genauigkeit der VR Headsets~\cite{Macedo_2020}}
+    \label{fig:tracking_precision_statistic}
+\end{figure}
+
 \paragraph{Nachteile}
 
 \begin{itemize}
@@ -59,6 +107,13 @@ Andere Produkte, wie die im Folgendem beschriebene Oculus Quest benötigen solch
     \item hoher Preis~\ref{fig:vr_headset_prices}
     \item es wird ein Computer benötigt
 \end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{pics/vr_headset_price_statistic}
+    \caption{VR Headset Preise~\cite{ALSOP_2019}}
+    \label{fig:vr_headset_prices}
+\end{figure}
 
 \subsubsection{Valve Index}
 
@@ -101,7 +156,7 @@ Für den Aufbau werden nur das Headset und zwei Controller benötigt.
 \paragraph{Nachteile}
 
 \begin{itemize}
-    \item Das Headset ist von dem natürlichen Licht abhängig~\cite{Dennis_Ziesecke_2019}
+    \item Das Headset ist von natürlichem Licht abhängig~\cite{Dennis_Ziesecke_2019}
     \item Full Body Tracking kann etwas kompliziert und teuer werden~\cite{Martin_Rakver}
     \item weniger genaues Tracking~\cite{Macedo_2020}
 \end{itemize}
@@ -112,7 +167,18 @@ Für den Aufbau werden nur das Headset und zwei Controller benötigt.
 
 \subsubsection{Vive Tracker}\label{sec:vive-tracker}
 
-\subsection{Lichtboxen}\label{sec:lighthouse}
+\subsection{Lighthouse}\label{sec:lighthouse}
+
+Die HTC Vive Brillen und die Valve Index benützen beide das Lighthouse-Tracking.
+Diese Form des Trackings ist genauso wie bei der Oculus Quest und Oculus Quest 2 ein Inside-Out Tracking.
+Im Gegensatz zu der Oculus Quest benützt das Lighthouse Tracking kein natürliches Licht, sondern für das Auge unsichtbares Licht, welches von den Lighthouses ausgestrahlt wird.
+
+
+Dies hat den Vorteil, dass die Benutzung der Vr Brille nicht von dem natürlichen abhängig ist.
+Statt Kameras besitzt ein zu trackendes Gerät Fotosensoren.
+Im Falle der HTC Vive befinden sich diese Sensoren in den Einkerbungen der Brille.
+
+
 
 \subsection{Wireless Adapter }
 
