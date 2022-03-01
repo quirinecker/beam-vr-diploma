@@ -169,15 +169,62 @@ Für den Aufbau werden nur das Headset und zwei Controller benötigt.
 
 \subsection{Lighthouse}\label{sec:lighthouse}
 
+\subsubsection{Basics}
+
 Die HTC Vive Brillen und die Valve Index benützen beide das Lighthouse-Tracking.
-Diese Form des Trackings ist genauso wie bei der Oculus Quest und Oculus Quest 2 ein Inside-Out Tracking.
-Im Gegensatz zu der Oculus Quest benützt das Lighthouse Tracking kein natürliches Licht, sondern für das Auge unsichtbares Licht, welches von den Lighthouses ausgestrahlt wird.
-
-
+Diese Form des Trackings ist genauso wie das Tracking der Oculus Quest und Oculus Quest 2 ein Inside-Out Tracking.
+Im Gegensatz zu der Oculus Quest benützt das Lighhouse Tracking kein natürliches Licht, sondern für das Auge unsichtbares Licht.
+Diese Form des Tracking wird auch Marker-Based Inside-Out Tracking genannt.
+Im Falle des Lighhouse Tracking beleuchten die lighhouses die zu trackenden Geräte, womit sich die Geräte orientieren können.
+Neben Lighthouses werden sie auch Basestations oder Basisstationen genannt
 Dies hat den Vorteil, dass die Benutzung der Vr Brille nicht von dem natürlichen abhängig ist.
 Statt Kameras besitzt ein zu trackendes Gerät Fotosensoren.
 Im Falle der HTC Vive befinden sich diese Sensoren in den Einkerbungen der Brille.
 
+Damit dieser Vorgang fehlerfrei funktioniert werden typischerweise zwei Lighhouses verwendet.
+Diese werde wie in Abb~\ref{fig:lighhouse_positioning} positioniert.
+Mögliche Fehler können auftreten, wenn die Lighhouses keine klare Sicht auf die Geräte haben.
+Tracking kann auch mit nur einem Lighthouse funktionieren, kann aber die Trackingfunktionalität negativ beeinflussen, da das Gerät nur von einer Richtung getrackt werden kann und die klare Sicht leichter verloren geht.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/lighhouse_positioning}
+    \caption{Positionierung der Lighhouses~\cite{Sercan_2018}}
+    \label{fig:lighhouse_positioning}
+\end{figure}
+
+\subsubsection{Funktionsweise}
+
+Das Lighhouse verwendet zwei verschiedene Laser.
+Hierbei gibt es 2 Laseremitter und einen Sync Blinker.
+Der Syncblinker ist ein Infrared Strahl und die anderen 2 Laseremitter sind Lichtstrahlen welche sich 60-mal in der Sekunde im Kreis drehen.
+Um die Position zu ermitteln, flasht der Sync Blinker.
+Nach dem Flash zählt das zu trackende Gerät bis die Laseremitter von dem Lighthouse von den sensoren aufgenommen wird.
+Durch die Zeitdifferenz kann mathematisch berechnet werden wo sich genau das Gerät befindet.
+Durch das auftreffen an mehreren Sensoren kann auch die Rotation bestimmt werden.
+
+\subsubsection{Versionen}
+
+Zum Zeitpunkt das Verfassen der Diplomarbeit gibt es 2 Versionen der Lighthouses.
+Die originale HTC Vive benutzte die version 1.0. Daraufhin benutzte die HTC Vive Pro die Version 2.0.
+Version 1.0 und 2.0 sind nicht miteinander kompatibel und könenn nicht miteinander verwendet werden.
+Folgend sind die Versionen aufgelistet mit den jeweils kompatiblen Geräten in der Klammer.
+Wobei Steam bei der Kompatibilität nur HTC Brillen und die Valve Index vermerkt haben, weshalb andere Brillen in der folgenden Liste ausgenommen worden sind.
+
+\begin{itemize}
+    \item Lighthouse 1.0 (HTC Vive, Valve Index)
+    \item Lighthouse 2.0 (HTC Vive Pro, Valve Index)
+\end{itemize}
+
+\emph{1.0 Lighthouses} besitzen eine nahezu quadratische form mit einer Länge von 15 cm, einer Breite von 16 cm und einer höhe von 10 cm.
+
+% TODO: Sources :
+% * https://xinreality.com/wiki/Lighthouse#HTC_Vive
+% * https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9536760
+% * https://help.steampowered.com/de/faqs/view/1AF1-670B-FF5C-3323
+% * https://gizmodo.com/this-is-how-valve-s-amazing-lighthouse-tracking-technol-1705356768
+% * https://medium.com/silicon-valley-global-news/breaking-news-the-valve-lighthouse-2-0-89ddac43b9af
+% * https://www.galaxus.at/de/s1/product/htc-vive-base-station-vr-zubehoer-5920931?gclid=CjwKCAiApfeQBhAUEiwA7K_UHwANWeWWXH9gNXr-HfhJvymXdR3FpLpnLWU7yHUA9dUT4yFEvVK1JBoCb9AQAvD_BwE&gclsrc=aw.ds
 
 
 \subsection{Wireless Adapter }
