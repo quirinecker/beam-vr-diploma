@@ -514,11 +514,43 @@ Ein Beispiel für die Auswirkungen dieses Effekts ist in Abb. ~\ref{fig:unity-po
 
 \begin {figure}
     \centering
-    \includegraphics[scale=0.9]{pics/unity-post-processing-channel-mixer-example}
+    \includegraphics[scale=0.4]{pics/unity-post-processing-channel-mixer-example}
     \caption{Unity - Post Processing Channel Mixer}
     \label{fig:unity-post-processing-channel-mixer}
 \end {figure}
 
+Mithilfe von Trackballs kann man ein 3-Wege Color Grading in einem Linearen oder Logarithmischen System.
+Bei der Logarithmus Variante werden die Farbverteilung und der Contrast komprimiert um einen color-timing process, welcher von optischen Film Druckern erzeugt wird zu simulieren, siehe Abb. ~\ref{fig:unity-post-processing-trackballs-log}.
+Hierbei kann mit Power das Gamma und mit Offset das Signal beeinflusst werden.
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.9]{pics/unity-post-processing-trackballs-log}
+    \caption{Unity - Post Processing Trackballs Log}
+    \label{fig:unity-post-processing-trackballs-log}
+\end {figure}
+Die Lineare Methode wurde für linear-encododed Data optimiert, siehe Abb. ~\ref{fig:unity-post-processing-trackballs-linear} für das UI.
+Mithilfe von Lift kann das gesamte Signal verschoben werden.
+Gamma beeinflusst wieder die mittleren Töne und Gain verstärkt das Signal.
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.9]{pics/unity-post-processing-trackballs-linear}
+    \caption{Unity - Post Processing Trackballs Linear}
+    \label{fig:unity-post-processing-trackballs-linear}
+\end {figure}
+
+Mithilfe von fünf verschiedenen Grading Curves können YRGB, Hue vs Hue, Hue vs Sat, Sat vs Sat und Lum vs Sat verändert werden.
+Hierbei handelt es sich jedes mal um eine Kurvendarstellung, in welcher man weitere Punkte setzen und damit den Verlauf der Kurve beeinflussen kann, siehe Abb. ~\ref{fig:unity-post-processing-grading-curve-example}.
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.9]{pics/unity-post-processing-grading-curve-example}
+    \caption{Unity - Post Processing Grading Curve Example}
+    \label{fig:unity-post-processing-grading-curve-example}
+\end {figure}
+Bei der YRGB Kurve kann durch die Manipulation des Graphen der Contrast und die Helligkeit des Bildes eingestellt werden.
+Die Hue vs Hue Kurve bietet die Möglichkeit, Farbbereiche zu verfeinern oder auszutauschen.
+Um eine bestimmte Farbe besonders hervorzuheben oder einen monochromatischen Effekt zu erreichen wird die Hue vs Sat Kurve verwendet.
+Bei der Sat vs Sat Kurve werden einfache Veränderungen der Farbe wie beim Color Grading vorgenommen.
+Die letzte Option heißt Lum vs Sat Kurve und ermöglicht es in bestimmten Gebieten die Sättigung zu verringern, wie zum Beispiel in dunklen Stellen.
 
 \subsection{Nebel}\label{subsec:fog-effect}
 Unity bietet mehrere M\"oglichkeiten Nebel darzustellen, wie zum Beispiel mithilfe von Post Processing oder mithilfe der Lighting Einstellungen.
