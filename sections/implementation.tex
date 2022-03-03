@@ -553,16 +553,26 @@ Bei der Sat vs Sat Kurve werden einfache Veränderungen der Farbe wie beim Color
 Die letzte Option heißt Lum vs Sat Kurve und ermöglicht es in bestimmten Gebieten die Sättigung zu verringern, wie zum Beispiel in dunklen Stellen.
 
 \subsection{Nebel}\label{subsec:fog-effect}
-Unity bietet mehrere M\"oglichkeiten Nebel darzustellen, wie zum Beispiel mithilfe von Post Processing oder mithilfe der Lighting Einstellungen.
-F\"ur BeamVR wurde die Lighting Variante verwendet.
-Unter Settings > Lighting befindet sich eine Checkbox names Fog.
-Wenn man diese Anklickt wird automatisch eine standard Einstellung f\"ur einen Nebel dargestellt.
+Unity bietet mehrere M\"oglichkeiten Nebel darzustellen.
+Zum Beispiel mittels Post Processing, oder mithilfe der Lighting Einstellungen.
+F\"ur BeamVR wurde die zweite Variante verwendet, da der Nebel in BeamVR kein Hauptaugenmerk ist und mithilfe dieser Methode das Einstellen für BeamVR schneller ging.
+~\cite{Unity_Lighting_Window_2022}
+
+Mittels Post Processing wird ein Screen-Space Nebel Effekt in der Tiefen-Texture der Kamera erstellt, siehe Abb. ~\ref{fig:unity_post_processing_fog}.
+Screen-Space bedeuted, dass die Position auf dem Bildschirm und nicht in der 3 Dimensionalen Welt berechnet wird.
 ~\cite{Unity_Fog_2022}
 
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.9]{pics/unity-post-processing-fog}
+    \caption{Unity - Post Processing Fog}
+    \label{fig:unity_post_processing_fog}
+\end {figure}
+Unter dem Begriff Map versteht man ein Umgebung in einer Spielwelt, in diesem Fall wird auf die Szenen, in welchen die Städte platziert sind, verwiesen.
 Auf fast jeder Map von BeamVR wurde dieser Nebel verwendet.
-In der Nacht Map wird mithilfe diesem Effekts ein leichter Nebel dargestellt, was zur abendlichen Stimmung beitr\"agt.
-Bei Apocalypse ist der Nebel viel dichter und stellt einen Sandsturm dar. Zus\"atzlich wurde dieser gelb gef\"arbt um noch mehr an Sand zu erinnern.
-~\ref{fig:beamvr_yellow_fog}
+In der Nacht Map wird mithilfe dieses Effekts ein leichter Nebel dargestellt, was zur abendlichen Stimmung beitr\"agt.
+Bei Apocalypse ist der Nebel viel dichter und stellt einen Sandsturm dar. Zus\"atzlich wurde dieser gelb gef\"arbt um noch mehr an Sand zu erinnern, siehe Abb. ~\ref{fig:beamvr_yellow_fog}.
+
 \begin {figure}
     \centering
     \includegraphics[scale=0.3]{pics/beamvr_yellow_fog}
@@ -570,12 +580,39 @@ Bei Apocalypse ist der Nebel viel dichter und stellt einen Sandsturm dar. Zus\"a
     \label{fig:beamvr_yellow_fog}
 \end {figure}
 
+Mittels der High Definition Render Pipeline, welche auch als HDRP bezeichnet wird, kann ebenfalls Nebel eingestellt werden.
+Hierfür wird die Volume Framework benötigt, in welcher ein Nebel Overrride hinzugefügt wird.
+
+Diese Framework bietet einige verschiedene Optionen zur Beeinflussung des Nebels dar, siehe Abb. ~\ref{fig:unity-hdrp-fog}.
+Die Option Enable wird verwendet um den Effekt zu aktivieren oder deaktivieren.
+Die Fog Attenuation Distance bestimmt die Dichte und die Sichtweite im Nebel.
+Ab der eingestellten Distanz, hat der Nebel bereits 63\% des Umgebungslichts absorbiert.
+Dichte und Sichtweite bleiben bis zu einer definierten Base Height constant, erst ab dieser ist eine exponentielle Abnahme beider Attribute erkennbar.
+Die Maximum Height und Max Fog Distance bestimmen die Stärke des Abfalls und die Distanz des Nebels.
+Mittels des Color Modes kann die Farbe des Nebels beeinflusst werden.
+Bei Sky Color wird die Farbe automatisch an den Himmel angepasst, während bei constant Color eine eingene Farbe eingestellt werden kann.
+
+Volumetric Fog kann mittels der gleichnamigen Option aktiviert werden.
+Die Albedo Option setzt dabei die Farbe des Nebels, mit welcher das Licht gestreut wird.
+Lichter werden, mit zunehmender Dichte des Nebels, schneller abgedunkelt.
+Anisotropy steuert die Streuung des Lichtes.
+0 streut das Licht garnicht, 1 streut das Licht vorwärts und -1 streut rückwerts.
+Mittels eines Filters kann eine Unschärfe der eingehenden Lichter geschaffen werden, damit ein weicherer Übergang zustande kommt.
+~\cite{Unity_HDRP_Fog_2022}
+
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.9]{pics/unity-hdrp-fog}
+    \caption{Unity - HDRP Fog}
+    \label{fig:unity-hdrp-fog}
+\end {figure}
+
+
 \subsection{Lichter}\label{subsec:light-effect}
 In der Nacht Map wurden die von Unity bereitgestellten Point-Lights als Straßenlichter benutzt.
 Point Lights k\"onnen mithilfe eines Radius auf einen bestimmten kreisf\"ormigen Bereich eingegrenzt werden.
 Weiters wird mithilfe der Lichtst\"arke die Wirkkraft des Lichtes in diesem Gebiet genauer bestimmt.
-Dank diesen Eigenschaften war das Point Light perfekt f\"ur die aufhellung der Straßen.
-~\ref{fig:beamvr_street_lights}
+Dank diesen Eigenschaften war das Point Light f\"ur die Aufhellung der Straßen, siehe Abb. ~\ref{fig:beamvr_street_lights}.
 ~\cite{Unity_PointLights_2022}
 \begin {figure}
     \centering
