@@ -29,6 +29,7 @@ In diesem Fall dient das Telefon sowohl als Anzeigegerät als auch als Sensordat
 Die VR-Brille besteht ausschließlich aus Linsen welche die Immersion der am Handy laufenden Applikation erhöht.
 
 \subsubsection{Tracking}
+\label{sec:tracking}
 
 Unter Tracking versteht man das ermitteln der Position von Objekten in der realen Welt.
 Folgend werden Arten das Tracking beschrieben.
@@ -171,69 +172,54 @@ Für den Aufbau werden nur das Headset und zwei Controller benötigt.
 
 \subsubsection{Grundlagen}
 
-Die HTC Vive Brillen und die Valve Index benützen beide das Lighthouse-Tracking.
+Die HTC Vive Brillen und die Valve Index benützen beide das Lighthouse-Tracking~\cite{steam_lighhouse_versions}.
 Diese Form des Trackings ist genauso wie das Tracking der Oculus Quest und Oculus Quest 2 ein Inside-Out Tracking.
 Im Gegensatz zu der Oculus Quest benützt das Lighhouse Tracking kein natürliches Licht, sondern für das Auge unsichtbares Licht.
-Diese Form des Tracking wird auch Marker-Based Inside-Out Tracking genannt.
-Im Falle des Lighhouse Tracking beleuchten die lighhouses die zu trackenden Geräte, womit sich die Geräte orientieren können.
-Neben Lighthouses werden sie auch Basestations oder Basisstationen genannt
+Diese Form des Tracking wird auch Marker-Based Inside-Out Tracking genannt\ref{sec:tracking}.
+Im Falle des Lighhouse Tracking beleuchten die Base Stations die zu trackenden Geräte, womit sich die Geräte orientieren können.
 Dies hat den Vorteil, dass die Benutzung der Vr Brille nicht von dem natürlichen abhängig ist.
-Statt Kameras besitzt ein zu trackendes Gerät Fotosensoren.
-Im Falle der HTC Vive befinden sich diese Sensoren in den Einkerbungen der Brille.
+Statt Kameras besitzt ein zu trackendes Gerät Fotosensoren~\cite{Buckley_2015}.
 
-Damit dieser Vorgang fehlerfrei funktioniert werden typischerweise zwei Lighthouses verwendet.
-Diese werde wie in Abb~\ref{fig:lighhouse_positioning} positioniert.
-Mögliche Fehler können auftreten, wenn die Lighthouses keine klare Sicht auf die Geräte haben.
-Tracking kann auch mit nur einem Lighthouse funktionieren, kann aber die Trackingfunktionalität negativ beeinflussen, da das Gerät nur von einer Richtung getrackt werden kann und die klare Sicht leichter verloren geht.
+\subsubsection{Positionierung}
+
+Damit dieser Vorgang fehlerfrei funktioniert werden typischerweise zwei Basestations verwendet
+Diese werde wie in Abb~\ref{fig:basetstation_positioning} positioniert.
+Mögliche Fehler können auftreten, wenn die Lighthouses keine klare Sicht auf die Geräte haben~\cite{steam_lighhouse_versions}..
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.4]{pics/lighhouse_positioning}
+    \includegraphics[scale=0.4]{pics/basestations_positioning}
     \caption{Positionierung der Lighhouses~\cite{Sercan_2018}}
-    \label{fig:lighhouse_positioning}
+    \label{fig:basetstation_positioning}
 \end{figure}
 
 \subsubsection{Funktionsweise}
 
-Das Lighhouse verwendet zwei verschiedene Laser.
-Hierbei gibt es 2 Laseremitter und einen Sync Blinker.
-Der Syncblinker ist ein Infrared Strahl und die anderen 2 Laseremitter sind Lichtstrahlen welche sich 60-mal in der Sekunde im Kreis drehen.
-Um die Position zu ermitteln, flasht der Sync Blinker.
-Nach dem Flash zählt das zu trackende Gerät bis die Laseremitter von dem Lighthouse von den sensoren aufgenommen wird.
-Durch die Zeitdifferenz kann mathematisch berechnet werden wo sich genau das Gerät befindet.
-Durch das auftreffen an mehreren Sensoren kann auch die Rotation bestimmt werden.
+Die Base Station besteht aus Syncblinker und Laseremitter.
+Der Syncblinker ist ein Infrarot Strahl und die anderen 2 Laseremitter sind Lichtstrahlen welche sich 60-mal in der Sekunde auf einer Drehscheibe drehen.
+Um die Position zu ermitteln, flasht der Sync Blinker und sobald dieser bei der Brille ankommt, fängt das Gerät zu zählen an bis die Lichtstrahlen der Laseremitter ankommen.
+Durch die Drehscheibe, auf der sich die Laseremitter befinden, beleuchtet die Base Station so viele wie mögliche Sensoren.
+Die Position mehrerer Punkte des Gerätes ist somit bekannt und es kann die Rotation der Brille ebenfalls berechntet werden~\cite{Buckley_2015, Skarredghost_2017}.
 
 \subsubsection{Versionen}
 
-Zum Zeitpunkt das Verfassen der Diplomarbeit gibt es 2 Versionen der Lighthouses.
-Die originale HTC Vive benutzte die version 1.0. Daraufhin benutzte die HTC Vive Pro die Version 2.0.
-Version 1.0 und 2.0 sind nicht miteinander kompatibel und könenn nicht miteinander verwendet werden.
+Zum Zeitpunkt das Verfassen der Diplomarbeit gibt es 2 Versionen der Base Stations.
+Version 1.0 und 2.0 sind nicht miteinander kompatibel.
 Folgend sind die Versionen aufgelistet mit den jeweils kompatiblen Geräten in der Klammer.
-Wobei Steam bei der Kompatibilität nur HTC Brillen und die Valve Index vermerkt haben, weshalb andere Brillen in der folgenden Liste ausgenommen worden sind.
+Wobei Steam bei der Kompatibilität nur HTC Brillen und die Valve Index vermerkt haben, weshalb andere Brillen in der folgenden Liste ausgenommen worden sind~\cite{steam_lighhouse_versions}.
 
 \begin{itemize}
     \item Lighthouse 1.0 (HTC Vive, Valve Index)
     \item Lighthouse 2.0 (HTC Vive Pro, Valve Index)
 \end{itemize}
 
-\emph{1.0 Lighthouses} besitzen eine nahezu quadratische form mit einer Länge von 15 cm, einer Breite von 16 cm und einer höhe von 10 cm.
+\emph{1.0 Lighthouses} besitzen eine nahezu quadratische form mit einer Länge von 15 cm, einer Breite von 16 cm und einer höhe von 10 cm
 
 \emph{2.0 Lighthouses} haben einer eher rechteckige form mit einer Länge von 15 cm, einer Breite von 13,30 cm und einer Höhe von 12,90 cm.
-Die Vorderseite ist der Länge nach abgerundet, mit welcher man eine höhere Reichweite erreichen konnte.
-Durch die erhöhte Sichtweite und der möglichkeit mit der neuen Version mehr wie zwei Lighthouses zu verwenden kann eine größere Spielfläche erreicht werden.
-Auch ohne höherer Anzahl an Lighthouses wird die Spielfläche erhöht.
-Der Sichtkontakt der Lighhouses ist nicht mehr nötig.
-
-
-% TODO: Sources :
-% * https://xinreality.com/wiki/Lighthouse#HTC_Vive
-% * https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9536760
-% * https://help.steampowered.com/de/faqs/view/1AF1-670B-FF5C-3323
-% * https://gizmodo.com/this-is-how-valve-s-amazing-lighthouse-tracking-technol-1705356768
-% * https://medium.com/silicon-valley-global-news/breaking-news-the-valve-lighthouse-2-0-89ddac43b9af
-% * https://www.galaxus.at/de/s1/product/htc-vive-base-station-vr-zubehoer-5920931?gclid=CjwKCAiApfeQBhAUEiwA7K_UHwANWeWWXH9gNXr-HfhJvymXdR3FpLpnLWU7yHUA9dUT4yFEvVK1JBoCb9AQAvD_BwE&gclsrc=aw.ds
-% * https://www.windowscentral.com/can-you-use-htc-vive-base-stations-valve-index
-
+Die Vorderseite ist der Länge nach abgerundet, mit welcher eine höhere Reichweite erreichbar is.
+Mit der neuen Version ist es auch möglich mehrere Base Stations zu verwenden.
+Durch die erhöhte Sichtweite und der Möglichkeit mehr wie zwei Lighthouses zu verwenden kann eine größere Spielfläche verwendet werden.
+Der Sichtkontakt der Lighhouses ist nicht mehr nötig~\cite{Cale_2019}.
 
 \subsection{Wireless Adapter }
 
