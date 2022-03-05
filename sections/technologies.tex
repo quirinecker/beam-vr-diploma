@@ -57,7 +57,7 @@ Typischerweise werden hierbei Kameras verwendet.
 Die dabei aufgenommenen Bilder werden mithilfe von Bildverarbeitungsmethoden analysiert und somit wird die Position der Objekte ermittelt.
 
 Bei \emph{Marker Based Inside Out Tracking} wird im Gegensatz kein natürliches Licht verwendet.
-Hierbei ist sind die zu trackenden Objekte von Lighthouses (siehe Abschnitt~\ref{sec:lighthouse}) abhängig.
+Hierbei ist sind die zu trackenden Objekte von Lighthouses (siehe Abschnitt~\ref{sec:lighthouse_tracking}) abhängig.
 Diese beleuchten den Raum mit nicht sichtbaren licht welches von Fotosensoren an den Geräten empfangen wird.
 
 
@@ -80,7 +80,7 @@ Hierbei wurden die auf die Spielkonsolen-basierten VR Headsets nciht berücksich
 \subsubsection{HTC Vive Pro}\label{sec:htc-vive}
 
 Wie bereits in Abschnitt~\ref{sec:vr-headset-types} beschrieben, gibt es von diesen Headsets verschiedene Modelle.
-Die HTC Vive Pro ist vom Typ ein tethered Headset mit dem Zusatz, dass auch sogenannte Light Houses gebraucht werden (siehe Abschnitt~\ref{sec:lighthouse}).
+Die HTC Vive Pro ist vom Typ ein tethered Headset mit dem Zusatz, dass auch sogenannte Light Houses gebraucht werden (siehe Abschnitt~\ref{sec:lighthouse_tracking}).
 Andere Produkte, wie die im Folgendem beschriebene Oculus Quest benötigen solche nicht.
 
 \paragraph{Vorteile}
@@ -168,12 +168,12 @@ Für den Aufbau werden nur das Headset und zwei Controller benötigt.
 
 \subsubsection{Vive Tracker}\label{sec:vive-tracker}
 
-\subsection{Lighthouse}\label{sec:lighthouse}
+\subsection{Lighthouse Tracking}\label{sec:lighthouse_tracking}
 
 \subsubsection{Grundlagen}
 
 Die HTC Vive Brillen und die Valve Index benützen beide das Lighthouse-Tracking~\cite{steam_lighhouse_versions}.
-Diese Form des Trackings ist genauso wie das Tracking der Oculus Quest und Oculus Quest 2 ein Inside-Out Tracking.
+Diese Form des Trackings ist genauso wie das Tracking der Oculus Quest und Oculus Quest 2 (siehe~\ref{sec:oculus_quest_tracking, sec:oculus-quest-2}) ein Inside-Out Tracking.
 Im Gegensatz zu der Oculus Quest benützt das Lighhouse Tracking kein natürliches Licht, sondern für das Auge unsichtbares Licht.
 Diese Form des Tracking wird auch Marker-Based Inside-Out Tracking genannt\ref{sec:tracking}.
 Im Falle des Lighhouse Tracking beleuchten die Base Stations die zu trackenden Geräte, womit sich die Geräte orientieren können.
@@ -220,6 +220,57 @@ Die Vorderseite ist der Länge nach abgerundet, mit welcher eine höhere Reichwe
 Mit der neuen Version ist es auch möglich mehrere Base Stations zu verwenden.
 Durch die erhöhte Sichtweite und der Möglichkeit mehr wie zwei Lighthouses zu verwenden kann eine größere Spielfläche verwendet werden.
 Der Sichtkontakt der Lighhouses ist nicht mehr nötig~\cite{Cale_2019}.
+
+
+\subsection{Oculus Quest Tracking}
+\label{sec:oculus_quest_tracking}
+
+Eine weitere Art das Tracking wird benutzt von Oculus.
+Wie bereits in~\ref{sec:lighthouse_tracking} erwähnt benutzt die Oculus Quest und Oculus Quest 2 ein Inside Out Tracking.
+Die Oculus Quest benützt Kameras, um sich im VR Raum zu orientieren.
+
+\subsubsection{DoF}
+
+Es gibt zwei verschiedene Arten des Oculus Quest und Oculus Quest 2 Tracking zwischen denen das Headset wechseln kann.
+Diese arten gelten nur für das VR Headset und nicht die Controller~\cite{oculus_support_headset_tracking}.
+
+\begin{itemize}
+    \item 3DoF
+    \item 6Dof
+\end{itemize}
+
+\emph{3DoF} bedeutet, dass die Rotation des VR Headsets getracked werden.
+Die Position wird nicht getracked.
+Oculus empfehlt nur im Sitzen oder im Stehen zu spielen, wenn 3DoF aktiviert ist.
+
+Bei \emph{6DoF} wird auch die Position getracked.
+Viele Spiele setzen vorraus, dass die Position getracked wird.
+
+\subsubsection{Headset Tracking}
+
+Das Oculus Quest 2 Headset benützt ein etwas anderes Tracking.
+Durch die Kameras, welche in dem Headset verbaut, sind analysiert es die Umgebung.
+Mit Bildverarbeitung erstellt es es aus den aufgenommenen Bildern eine 3d Map.
+Diese 3d Map wird benutzt um das Headset im dreidimensionalen Raum zu positionieren und rotieren~\cite{MECHATECH}.
+
+\subsubsection{Controller Tracking}
+
+Oculus nennt ihre virtual reality controller oculus touch.
+Diese haben einen ring welcher einen Ring um die Hand Bilden, auf welchen sich eine Infrarot LED befindet.
+Die Infrarot LED ist so positioniert, damit sie in die Richtung des Headsets schauen.
+Parallel machen die Kameras, welche auf dem Headset sich befinden, Fotos.
+Durch die Infrarot LED Strahlen kann das Headset mit den Fotos die Position der Controller ermitteln.
+Das Infrarotlicht der Controller ist für das menschliche Aug nicht sichtbar~\cite{Gajsek_2022}.
+Im Gegensatz zum Headsets benützen die Controller nach definition ein Outside in Tracking, da die Controller nicht von alleine wissen, wo sie sich im Raum befinden und das tracking mithilfe des Headset funktioniert.
+
+\subsubsection{Guardian}
+
+Oculus Guardian ist ein Sicherheitssystem, bei welchen man eine gewisse Spielfläche definieren kann.
+Die Grenzen der Spielfläche werden dann angezeigt, wenn man sich diesen nähert~\cite{Oculus_Guardien}.
+
+\emph{Guardian Space Sense} ist ein weiteres Sicherheitssystem.
+Durch die 3d Map, welche schon in dem Abschnitt Headset Tracking beschrieben worden ist, kann auch eine Hilfestelle für den Nutzer geleistet werden.
+Hier versuch die Oculus Quest Umrisse von Gegenständen, Menschen und anderen Lebewesen in der virtuellen realität sichtbar zu machen, wenn sich der Nutzer diesen nähert~\cite{Oculus_Guardien}.
 
 \subsection{Wireless Adapter }
 
