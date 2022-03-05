@@ -493,13 +493,49 @@ Hierbei vibrieren der Kontroller, eine spezielle Haptik Weste oder ein preparier
 
 \subsubsection{Skeleton Input}
 \setauthor{Florian Beckerle}
+Das Plugin bietet die Möglichkeit Hände mit Fingern und deren aktuellen Position darzustellen.
+Die Bewegungen werden hierbei zwischen zwei verschiedenen Begränzungen der Fingerpositionen unterschieden.
+WithContoller berechnet eine ungefähre Position der Finger während diese einen Kontroller in den Händen halten.
+Dies dient besonders dazu, die Interaktion zwischen der realen Hand und dem realen Kontroller digital darzustellen.
+WithoutController bietet die Bewegungen von Fingern, wenn sie keinen Kontroller in der Hand halten.
+In der realtität kann währenddessen jedoch trotzdem ein Kontroller gehalten werden, es wird nur digital nicht angezeit, siehe Abb. ~\ref{fig:steamvr_skeletal_input_models}.
+\begin {figure}
+    \centering
+    \includegraphics[scale=1]{pics/steamVR_skeletal_input_models}
+    \caption{Steam VR - Skeletal Input Models}
+    \label{fig:steamvr_skeletal_input_models}
+\end {figure}
+Die Positionen der Finger werden Relativ zu dem in der Hirarchie übergestuften Objekt und dem Model gemessen.
+Jeder Finger besteht hierbei standardmäßig aus 4 Gelenken.
+Ein Wert im Bereich von 0 bis 1 gibt an wie stark die Finger eingerollt sein sollen.
+Die Finger einer Hand sind bei SteamVR etwas auseinander gestpeizt, hier wird ebenfalls ein Wert von 0 bis 1 dazu verwendet um die distanz zwischen den Fingern zu verändern.
+
+Um die Position der Finger zu messen gibt es grunsätzlich drei verschiedene Methoden.
+Bei Estimated kann die Position des Körperteiles nicht direkt bestimmt werden.
+Jede Bewegung wird nur über die Bediehung der Trigger, Knöpfe und Trackpads des Kontrollers gestimmt.
+Partial kann die bewegungen der Finger direkt bestimmen, jedoch nur eingeschränkter als wie die tatsächlichen Finger.
+Die Positionen werden durch andere Werte, wie zum Beispiel von speziellen Handschuhen, gemessen.
+Full kann die komplette Körperbewegung des Benutzers messen, wie zum Beispiel durch Motion Caputre Anzügen oder handschuhen.
+
+Das Script, welches für die Bewegung des Modelles zuständig ist, besitzt eine Vielzahl an verschiedenen Optionen, siehe Abb. ~\ref{fig:steamvr_skeletal_input_Script}.
+Update Pose setzt die Position und Orientierung des Objektes neu, sobald der Controller bewegt wurde.
+Mirroring gibt an, ob die Knochen Daten entlang der X-Achse gespiegelt werden sollen.
+Die Blend Optionen bieten Einstellungsmöglichkeiten den Übergang zwischen Verschiednen Bewegungsmöglichkeiten und Animationen zu verändern.
+Weiters kann man einen bestimmten Knochen mittels GetBonePosition bekommen und die Positionen und Rotationen werden bittels GetBonePositions und GetBoneRotations bereitgestellt.
+\begin {figure}
+    \centering
+    \includegraphics[scale=1]{pics/steamVR_skeletal_input_script}
+    \caption{Steam VR - Skeletal Input Script}
+    \label{fig:steamvr_skeletal_input_Script}
+\end {figure}
 ~\cite{SteamVR_Skeleton_Input_2022}
 
 \subsubsection{Interaction System}
 \setauthor{Florian Beckerle}
 ~\cite{SteamVR_Interaction_System_2022}
 
-
+\subsubsection{Skeleton Poser}
+\setauthor{Florian Beckerle}
 ~\cite{SteamVR_Skeleton_Poser_2022}
 
 OpenVR Plugin
