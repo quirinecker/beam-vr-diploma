@@ -205,6 +205,7 @@ RaycastHit hit;
 \end{lstlisting}
 
 \section{3d Welt}\label{sec:3d-world}
+\setauthor{Florian Beckerle}
 Jedes Spiel besitzt eine Spielwelt.
 Babei ist es egal ob es sich um eine 3D oder 2D Applikation handelt.
 Unter den Begriff Spielwelt fällt die Umgebung in welcher sich der Spieler befindet.
@@ -252,6 +253,7 @@ In Forsaken starb Cayde jedoch und viele trauerten um ihn, als Gedenken wurde di
 
 
 \subsection{City Grid System}\label{subsec:city-grid-system}
+\setauthor{Florian Beckerle}
 Um die Gestaltung der Welt in BeamVR zu erleichtern, wurde ein Grid System verwendet.
 Dafür ist die Stadt in ein Raster aufgeteilt, an welchem sich alle Objekte der Welt auf allen 3 Achsen (x,y,z) orientieren.
 Unity stellt, wie in Abb. ~\ref{fig:grid-system-unity} zu sehen, so ein Grid Snapping System zur Verf\"ugung.
@@ -280,6 +282,7 @@ Als n\"achstes findet man unter dem Bereich World Grid ein Attribut namens Size,
 
 
 \subsection{Stadt}\label{subsec:city}
+\setauthor{Florian Beckerle}
 Jede Stadt hat viele verschiedene Strukturen wie zum Beispiel Sehensw\"urdigkeiten, Bauwerke und Einrichtungen wie Kinos, Theater oder Restaurants.
 F\"ur BeamVR wurden daher insgesamt \"uber 34 Geb\"aude Modelle erstellt um eine Vielfalt in der Umgebung zu erreichen, siehe Abb. ~\ref{fig:beamvr_building-variety}.
 
@@ -300,6 +303,7 @@ TODO: PERFORMANCE ERHÖHEN MITHILFE VON MAPS UND TEXTUREN ERKKLÄREN!!!! (hier)
 
 
 \subsection{Tag Stadt}\label{subsec:day-city}
+\setauthor{Florian Beckerle}
 Es wurden 17 der 34 verschieden Geb\"aude f\"ur diese Map modelliert, siehe Abb. ~\ref{fig:beamvr_building-variety}.
 Der Fokus bei der Gestaltung des Bauwerke lag darauf, dass diese m\"oglichst realistisch aussehen und dennoch nicht zu rechenaufwendig in der Darstellung sind.
 Daher wurden Texturen verwendet um kleinere Details an den Fassaden darzustellen, statt diese zu modellieren.
@@ -316,6 +320,7 @@ Daher wurden alle umliegenden Bauwerke mindestens 3 Meter h\"oher gemacht, als d
 \end {figure}
 
 \subsection{Nacht Stadt}\label{subsec:night-city}
+\setauthor{Florian Beckerle}
 In der Nacht Version der Stadt wurde die Skybox angepasst.
 Diese zeigt nun einen Sternenhimmel.
 Es handelt sich hierbei um eine Sphere oder Box, welche sich um die Spielwelt befindet, sie wird dazu benutzt um einen Himmel oder andere Umgebungen,
@@ -332,6 +337,7 @@ haben noch eigene Lichtquellen.
 \end {figure}
 
 \subsection{Apocalypse Stadt}\label{subsec:apocalypse-city}
+\setauthor{Florian Beckerle}
 F\"ur diese Umgebung wurden alle Geb\"aude nochmal \"uberarbeitet.
 Statt den intakten Glasfassaden werden nun vor barrikadierte Fenster und Ziegelsteine ohne Verputz f\"ur die Bauwerke verwendet, siehe Abb. ~\ref{fig:beamvr_damaged_texture}.
 Durch diese \"Anderung sieht die Stadt verlassen und postapokalyptisch aus.
@@ -356,6 +362,7 @@ Die Planzen und B\"aume wurden durch ausgetrocknete B\"usche ausgetauscht, damit
 
 
 \section{Sound Design}\label{sec:sound}
+\setauthor{Florian Beckerle}
 Ohne Sound Design würden die Maps von BeamVR unrealisitsch, da in einer Stadt immer etwas los ist.
 In der virtuellen Umgebung der verwendeten Game Engine existieren anfangs keine Geräusche, diese m\"ussen von den Entwicklern selber erstellt und eingef\"ugt werden.
 
@@ -376,6 +383,7 @@ Wenn der Spieler auf einem Pferd durch eine Weide reitet, kann eine dramatische 
 Die Informationen für die Absätze wurden hier gefunden ~\cite{GK_Media_Factory_Sound_Design_2022}.
 
 \subsection{Apocalypse}\label{subsec:apocalypse-background-sound}
+\setauthor{Florian Beckerle}
 Die Musik in der Apocalypse Map ist stark an das Horror Genre angelegt.
 Die Melodie ist jedoch nicht wirklich existent, stattdessen existiert ein durchgehendes pfeifendes Ger\"ausch, welches unterbewusst das Spannungslevel erh\"oht.
 Der Spieler f\"uhlt sich etwas unbehaglich und alleine.
@@ -384,16 +392,19 @@ Dadurch wirkt die Stadt, neben den br\"ockelnden H\"ausern, zus\"atzlich noch me
 Da die Sicht in dieser Map stark durch einen gelblichen Nebel, der wie ein Sandsturm wirkt, eingeschr\"ankt ist, kann man im Hintergrund den Wind pfeifen h\"oren.
 
 \subsection{City}\label{subsec:day-night-background-sound}
+\setauthor{Florian Beckerle}
 Die Hintergrundger\"ausche der Tag und Nacht Version der Stadt sind sehr \"ahnlich.
 Der Spieler kann Motorr\"ader und Autos auf den Straßen vorbeifahren h\"oren.
 Hin und wieder kann man Menschen, die man nicht sehen kann, bei kurzen Gespr\"achen miteinander zuh\"oren und ein Kind husted im Hintergrund.
 
 \subsection{Event}\label{subsec:building-collapse-sound}
+\setauthor{Florian Beckerle}
 Um spezifische Events, also bestimmte Dinge welche in der Welt passieren, f\"ur den Benutzer besser erkennbar zu machen, wurden zus\"atzlich Ge\"ausche eingef\"ugt.
 Auf der Apocalypse Map sind zusammenbrechende Geb\"aude zu h\"oren, um die schlechte instandhaltung der verlassenen Stadt erneut zu verdeutlichen.
 Aber wenn der Benutzer genauer hinsieht, kann man w\"ahrend diese Sounds h\"orbar sind, auch tats\"achlich eine kleine Auswahl an Bauwerken br\"ockeln sehen.
 
 \section{Effects}\label{sec:effects}
+\setauthor{Florian Beckerle}
 Unity bietet verschiedene M\"oglichkeiten um das Aussehen der Applikation zu beeinflussen.
 Mithilfe von Post Processing kann man Effekte zu dem Buffer der Kamera, also dem Aktuellen Frame der gerade Aufgenommen wurde, hinzuf\"ugen bevor etwas am Bildschirm Angezeigt wird.
 Eine kleine Auswahl von diesen Effekten sind zum Beispiel Bloom, Grain oder Color Grading.
@@ -553,6 +564,7 @@ Bei der Sat vs Sat Kurve werden einfache Veränderungen der Farbe wie beim Color
 Die letzte Option heißt Lum vs Sat Kurve und ermöglicht es in bestimmten Gebieten die Sättigung zu verringern, wie zum Beispiel in dunklen Stellen.
 
 \subsection{Nebel}\label{subsec:fog-effect}
+\setauthor{Florian Beckerle}
 Unity bietet mehrere M\"oglichkeiten Nebel darzustellen.
 Zum Beispiel mittels Post Processing, oder mithilfe der Lighting Einstellungen.
 F\"ur BeamVR wurde die zweite Variante verwendet, da der Nebel in BeamVR kein Hauptaugenmerk ist und mithilfe dieser Methode das Einstellen für BeamVR schneller ging.
@@ -609,6 +621,7 @@ Mittels eines Filters kann eine Unschärfe der eingehenden Lichter geschaffen we
 
 
 \subsection{Lichter}\label{subsec:light-effect}
+\setauthor{Florian Beckerle}
 In der Nacht Map wurden die von Unity bereitgestellten Point-Lights als Straßenlichter benutzt.
 Point Lights k\"onnen mithilfe eines Radius auf einen bestimmten kreisf\"ormigen Bereich eingegrenzt werden.
 Weiters wird mithilfe der Lichtst\"arke die Wirkkraft des Lichtes in diesem Gebiet genauer bestimmt.

@@ -383,8 +383,127 @@ Die folgenden Vorteile und Nachteile beziehen sich auf die Source 2 Engine.
 \end{itemize}
 
 
+\subsection{VR in Unity}
+\setauthor{Florian Beckerle}
+Unity bietet bereits eine eingebaute basis VR API, welche ein paar Features für die Verwendung von VR Geräten zur Verfügung stellt.
+Diese muss jedoch erst Eingstellt werden, das geht in folgenden Schritten.
+
+Um Vr für die Spiele zu aktivieren, müssen zuerst den Player Settings, welche im Menu bei Edit > Project Settings > Player zu finden sind, geöffnet werden.
+Als nächstes muss die Option Virtual Reality Supported aktiviert werden, dass in der Box ein Häcken zu erkennen ist, siehe Abb. ~\ref{fig:unity_vr_api_settings}.
+In der darunter stehenden Liste, namens Virtual Reality SDKs, können nun mit dem Plus-Knopf eine neue SDK hinzugefügt werden.
+Ein Beispiel hierfür wäre die Oculus SDK.
+Der Minus-Knopf bietet die Möglichkeit diese SDKs wieder zu entfernen, siehe Abb. ~\ref{fig:unity_vr_api_settings}.
+~\cite{Unity_VR_Overview_2022}
+
+Wenn VR aktiviert wurde, wird das Spiel automatisch auf die VR-Brille gerendert und dort angezeigt.
+Weiters besitzt jede Kamera, welche im Spiel ist, eine Option, auf welches Auge das Ausgangsignal angezeigt werden soll, zum Beispiel linkes-, rechtes-, beide- oder keine Augen.
+Unter den Augen versteht man die Bildschirme der VR-Brille welche sich vor den Augen des Benutzers befinden.
+Ein weiteres automatisches Feature ist, dass die Bewegung der VR-Brille in der realtität auf die Position der Kamera im Spiel übertragen wird.
+
+Unity empfielt für die verwendung der Api folgende Brillen, Gear VR, Oculus CV1 und die Vive.
+~\cite{Unity_VR_Overview_2022}
+
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.8]{pics/unity_basis_vr_api_settings}
+    \caption{Unity VR API - Settings}
+    \label{fig:unity_vr_api_settings}
+\end {figure}
 
 \subsection{VR Plugin}
+\setauthor{Florian Beckerle}
+Für BeamVR wurde das SteamVR Unity Plugin verwendet.
+Es wurde von Valve entwickelt und bietet bereits eine Vielzahl an vorgefertigten Demos, welche mit der Installation des Plugins mitgeliefert werden, diese werden später genauer beschrieben..
+~\cite{SteamVR_Overview_2022}
+
+\subsubsection{Quickstart}
+\setauthor{Florian Beckerle}
+Für das Setup des SteamVR Unity Plugins sind 5 Schritte notwendig.
+Damit alles Funktioniert muss SteamVR von Steam und das Plugin vom Unity Asset Store gedownloaded werden.
+Nachdem die Installation beider Softwares abgeschlossen wurde, muss das Plugin, über den Package Manager, in das Unity Projekt importiert werden.
+Im Menu Window wird nun eine neue Option namens SteamVR Input angezeigt, siehe Abb. ~\ref{fig:steamvr_input_menu_item}.
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.9]{pics/steamVR_Input_MenuItem}
+    \caption{Steam VR - Input Menu Item}
+    \label{fig:steamvr_input_menu_item}
+\end {figure}
+Wenn man auf diese klickt erscheint ein Popup welches fragt ob JSON Files kopiert werden sollen, dort drückt man auf Ja, siehe Abb. ~\ref{fig:steamvr_copy_json}.
+\begin {figure}
+    \centering
+    \includegraphics[scale=1]{pics/steamVR_Input_CopyJSON}
+    \caption{Steam VR - Copy JSON}
+    \label{fig:steamvr_copy_json}
+\end {figure}
+Nachdem der Vorgang abschlossen ist, öffnet sich das SteamVR Input Fenster, dort muss nun Save and Generate gedrückt werden, siehe Abb. ~\ref{fig:steamvr_save_and_generate}.
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.6]{pics/steamVR-Input-SaveAndGenerate}
+    \caption{Steam VR - Save and Generate}
+    \label{fig:steamvr_save_and_generate}
+\end {figure}
+Nun ist die Installation abgeschlossen und das SteamVR Unity Plugin ist einsatzbereit.
+~\cite{SteamVR_Quickstart_2022}
+
+\subsubsection{Render Models}
+\setauthor{Florian Beckerle}
+Das SteamVR Unity Plugin bietet eine virtuelle Darstellung der Kontroller, welche der Benutzer in den Händen hält.
+Die gezeigten Modelle benötigen hierfür mehrere Attribute, siehe Abb. ~\ref{fig:steamvr_render_models Script}.
+\begin {figure}
+    \centering
+    \includegraphics[scale=1]{pics/steamVR_render_models_script}
+    \caption{Steam VR - Render Models Script}
+    \label{fig:steamvr_render_models Script}
+\end {figure}
+Der Index ist der Index des getrackten Gerätes, und wird vom System wie eine ID zur Erkennung verwendet.
+Mittels dem Model Override kann man für Testzwecke ein bestimmtes Modell festlegen welches angezeigt werden soll.
+Die Shader können die Darstellung des Objektes verändern.
+Verbose gibt die Vorgänge im Script in der Konsole aus, diese Option wird jedoch nur für das Testen benötigt.
+Create Components erstellt individuelle Objekte für jeden Komponenten welcher verfügbar ist.
+Update Dynamically bewegt die einzelnen Komponenten gleich wie die physischen Gegenstücke.
+~\cite{SteamVR_Render_Models_2022}
+
+\subsubsection{Input}
+\setauthor{Florian Beckerle}
+Die die Hardware für VR Geräte schnell weiterentwickelt wird, hat Valve auf ein KeyBinding System zurückgegriffen.
+Die Entwickler und die Benutzer selbst können für neue oder breits vorhandene Hardware einstellen, welche Funktion die einzelnen Knöpfe und Trigger haben.
+Diese Aktionen wurden in 6 verschiedene Input Typen und einen Output Typen  aufgeteilt.
+
+Die Aktion Boolean besitzt zwei Zustände, true und false.
+Sie wird oft benutzt um Objekte zu greifen, da man zum Beispiel einen Würfel entweder aufheben können soll oder nicht.
+
+Single Aktionen können analoge Werte zwischen 0 und 1 annehmen und wird für Situationen benutzt wo der Boolean nicht ausreicht.
+Ein Anwendungsfall ist ein Auto, welches bei 0 stehen bleibt und bei 1 Vollgas fährt.
+Als Eingabe kann zum Beispiel der Trigger des Kontrollers benutzt werden.
+
+Vector2 besitzt zwei Werte, X und Y.
+Die Bewegungen des Kontrollers werden hierbei nur auf zwei Achsen gemessen.
+
+Vector3 besitzt im Gegensatz zu Vector2 drei verschiedenen Werte X, Y und Z.
+Diese Aktion wird selten benutzt, findet aber zum Beispiel im SteamVR Home einen Anwendungsfall beim Scrollen.
+
+Pose gibt die Position und Rotation in einem dreidimensionalen Raum wieder.
+Es wird dazu benutzt um die Bewegungen der Controller zu messen und digital nachzubilden.
+
+Skeleton benutzt das SteamVR Skeleton Input um die ungefähre Position und Rotation der Finger zu erkennen, während der Kontroller in den Händen gehalten wird.
+
+Vibration werden für haptisches Feedback bei VR Geräten verwendet.
+Hierbei vibrieren der Kontroller, eine spezielle Haptik Weste oder ein preparierter Sessel.
+~\cite{SteamVR_Input_2022}
+
+\subsubsection{Skeleton Input}
+\setauthor{Florian Beckerle}
+~\cite{SteamVR_Skeleton_Input_2022}
+
+\subsubsection{Interaction System}
+\setauthor{Florian Beckerle}
+~\cite{SteamVR_Interaction_System_2022}
+
+
+~\cite{SteamVR_Skeleton_Poser_2022}
+
+OpenVR Plugin
+
 
 \subsection{Steam}
 
