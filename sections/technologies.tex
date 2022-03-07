@@ -532,6 +532,22 @@ Weiters kann man einen bestimmten Knochen mittels GetBonePosition bekommen und d
 
 \subsubsection{Interaction System}
 \setauthor{Florian Beckerle}
+Das Interaction System funktioniert mittels dem Senden von Nachrichten an Objekte, mit welchen die Hände des Spielers oder andere Objekte interagieren.
+Diese Objekte können sich an die Hand anheften und somit gehalten werden.
+Das System bietet die Möglichkeit Maus Events nachzuahmen, somit funktioniert die interaktion mit der Benutzeroberfläche auch in VR.
+
+Die Player Klasse weiß wo die VR-Brille und die Kontroller positioniert sind.
+Mittels den Methoden hmdTransform und feetPositionGuess können die Positionen der Brille und eine schätzung der Fußstellung zurückgeliefert werden.
+
+Die Hand Klasse wird für die meißten Funktionen des Interaction Systems benötigt.
+Sie sendet interagierbaren Objekten Nachrichten über den aktuellen Status der Hand.
+Sie kann nur mit einem Objekt gleichzeitig direkt Interargieren, darunter versteht man das aufheben und werfen dieser.
+Objekte können an die Hand angebracht und wieder losgelöst werden.
+Das Verhalten der Hände kann durch sogenannte AttachmentFlags veränder werden, welche bei einer Interaktion aktiviert werden.
+
+Interactable Objekte können von Spielern aufgehoben werden, solange ein bestimmter Knopf gedrückt wird.
+Befindet sich die Hand, während dieser Knopf losgelassen wird, in Bewegung wird die Geschwindigkeit und die Richtung auf das Objekt übertragen und es wird geworfen.
+
 ~\cite{SteamVR_Interaction_System_2022}
 
 \subsubsection{Skeleton Poser}
