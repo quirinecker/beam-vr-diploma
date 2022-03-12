@@ -547,21 +547,81 @@ Das Verhalten der Hände kann durch sogenannte AttachmentFlags veränder werden,
 
 Interactable Objekte können von Spielern aufgehoben werden, solange ein bestimmter Knopf gedrückt wird.
 Befindet sich die Hand, während dieser Knopf losgelassen wird, in Bewegung wird die Geschwindigkeit und die Richtung auf das Objekt übertragen und es wird geworfen.
-
+%%Optional noch andere Scripts erklären falls notwendig, erscheinen jedoch nicht sonderlich wichtig (wichtigere noch mit !)
+%    Throwable
+%    LinearDrive
+%    CircularDrive
+%    LinearMapping
+%    VelocityEstimator !!
+%    IgnoreHovering
+%    UIElement
+%    ItemPackage
+%    ItemPackageSpawner
+%    ItemPackageReference
+%    PlaySound
+%    SoundPlayOneShot
+%    Util
+%    InteractableHoverEvents
+%    InteractableButtonEvents
+%    ComplexThrowable
+%    DistanceHaptics
+%    Player (Prefab) !!
+%    BlankController (Prefab)
+%    Teleport !!
+%    Render Model
+%    Hints
+%    Samples
 ~\cite{SteamVR_Interaction_System_2022}
 
 \subsubsection{Skeleton Poser}
 \setauthor{Florian Beckerle}
+Der Skeleton Poser funktioniert mithilfe von verschienen Posen, welche erstellt und eingefügt werden können.
+Mittels dem Blending Editor des Posers kann zwischen verschiedenen Posen ein Übergang erstellt werden.
+
+Hierbei existieren 4 Modi für die Fingerbewegungen.
+Der Static Modus erlaubt keine Fingerbewegungen und beachtet nur die Posen.
+Bei Free können die Finger frei bewegt werden und die Pose wird ignoriert.
+Mittels Extend können die Finger komplett ausgestreckt werden, aber nur nicht weiter eingerollt werden, als es bei der Pose eingestellt wurde.
+Bei Contract können die Finger ganz eingerollt werden, jedoch nicht weiter Ausgestreckt werden als bei der Pose.
 ~\cite{SteamVR_Skeleton_Poser_2022}
 
 OpenVR Plugin
+\subsubsection{OpenVR}
+OpenVR ist eine API, welche den direkten Zugriff auf VR-Hardware von verschiedenen Anbietern, wie Oculus, Mixed Reality und Vive, ermöglicht.
+Hierbei benötigt die Anwendung keine speziellen Kenntnisse über die Hardware.
+OpenVr besteht aus der Applikation und dem Treiber, welche über SteamVR miteinander kommunizieren.
+Die API besteht aus mehreren C++ Interface Klassen.
+Wenn die Applikation ausgeführt wird, liefert OpenVR, je nach vorhandenem SDK, das benötigte Interface zurück.
+~\cite{OpenVR_Github_Documentation_2020}
+
+\subsubsection{OpenVR Treiber}
+
+~\cite{OpenVR_SteamWorks_Documentation_2020}
 
 
-\subsection{Steam}
+\subsection{SteamVR}
 
 \subsection{Vive Wireless}
 
 \subsection{Final IK Plugin}
+\subsubsection{Aim IK}
+\subsubsection{Arm IK}
+\subsubsection{Baker}
+\subsubsection{Bipaed IK}
+\subsubsection{CCD IK}
+\subsubsection{FABRIK}
+\subsubsection{FABRIK IK}
+\subsubsection{Full Body Biped IK}
+\subsubsection{Grounder}
+\subsubsection{Interaction System}
+\subsubsection{Leg IK}
+\subsubsection{Limb IK}
+\subsubsection{Look At IK}
+\subsubsection{Rotation Limits}
+\subsubsection{Trigonometric IK}
+\subsubsection{VRIK}
+\subsubsection{Extending Final IK}
+
 
 \subsection{IDE}
 
