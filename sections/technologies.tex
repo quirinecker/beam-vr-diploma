@@ -686,12 +686,28 @@ BipedIK bietet die Möglichkeit jedes Glied, also Kopf, Füße, Arme, Ober- und 
 Weiters kann wieder ein Ziel festgelegt werden, falls der Charakter auf einen Gegenstand zielen soll.
 \begin {figure}
     \centering
-    \includegraphics[scale=1]{pics/finalik_bipedik_script}
+    \includegraphics[scale=0.8]{pics/finalik_bipedik_script}
     \caption{Final IK - BipedIK Script}
     \label{fig:finalIK_bipedik_script}
 \end {figure}
 ~\cite{FinalIK_BipedIK_2021}
+
 \subsubsection{CCD IK}
+Cyclic Coordinate Descent, auch als CCD bezeichnet, ist ein viel genutzter und bekannter Anwendungsfall von IK.
+Dieses Skript richtet die einzelnen Gelenke nacheinander in Richtung der Zielposition aus.
+Durch das ständige Widerholen dieser Aktion wird die Kette an Gelenken und Knochen richtig ausgerichtet.
+Damit die Gelenke nicht unnatürliche Positionen einnehmen, kann ein Rotationslimit festgelegt werden, dieses kann nicht überschritten werden und sorgt für zusätzlichen Realismus.
+Für längere Ketten an Gelenken wird empfohlen FABRIK zu verwenden.
+Ein Anwendungsfall für dieses Skript ist zum Beispiel ein Roboter oder andere Lebewesen, welche auf einem unebenen Gelände, mit ihren Beinen auf dem Boden stehen sollen, siehe Abb. ~\ref{fig:finalIK_ccd_robot_example}.
+Mit CCD ist es Möglich die Beine so auszurichten, dass der Boden mit allen Gliedern berührt wird, ohne die Animationen anpassen zu müssen.
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/finalik_ccd}
+    \caption{Final IK - CCD Robot Example}
+    \label{fig:finalIK_ccd_robot_example}
+\end {figure}
+~\cite{FinalIK_CCD_2021}
+
 \subsubsection{FABRIK}
 \subsubsection{FABRIK IK}
 \subsubsection{Full Body Biped IK}
