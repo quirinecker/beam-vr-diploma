@@ -86,12 +86,12 @@ Andere Produkte, wie die im Folgendem beschriebene Oculus Quest benötigen solch
 \paragraph{Vorteile}
 
 \begin{itemize}
-    \item die HTC kann mit SteamVR verwaltet werden, womit der manuelle Download von externer Software vermieden wird.
-    \item lighthouse tracking
-    \begin{itemize}
-        \item genaueres tracking~\ref{fig:tracking_precision_statistic}
-        \item nicht von dem natürlichen Licht abhängig~\cite{Dennis_Ziesecke_2019}
-    \end{itemize}
+    \item \textbf{SteamVR Verwaltung:} die HTC kann mit SteamVR verwaltet werden, womit der manuelle Download von externer Software vermieden wird.
+    Für Details über Steam VR wird auf Abschnitt~\ref{subsec:steam} referenziert.
+    \item \textbf{Lighthouse Tracking:} Zum Zeitpunkt des Verfassens dieser Arbeit ist Lighthouse Tracking verglichen mit anderen Tracking-Methoden die genaueste.
+    Aus Abbildung~\ref{fig:tracking_precision_statistic} kann entnommen werden, dass das Valve Lighthouse Tracking die kleinsten Abweichungen in allen drei Dimensionen hat.
+    Ein weiterer Vorteil des Lighhouse Tracking ist, dass kein natürliches Licht für den Tracking Process gebraucht wird~\cite{Dennis_Ziesecke_2019}.
+    Details zum Thema Lighthouse Tracking können im Abschnitt ~\ref{sec:lighthouse_tracking} entnommen werden.
 \end{itemize}
 
 \begin{figure}
@@ -104,9 +104,14 @@ Andere Produkte, wie die im Folgendem beschriebene Oculus Quest benötigen solch
 \paragraph{Nachteile}
 
 \begin{itemize}
-    \item längerer Aufbau wie die Folgend beschriebene Oculus Quest 2
-    \item hoher Preis~\ref{fig:vr_headset_prices}
-    \item es wird ein Computer benötigt
+    \item \textbf{Komplizierterer Aufbau:} Durch die Notwendigkeit der Base Stations, welche für das Lighthouse Tracking gebraucht werden, ist der Aufbau komplizierter.
+    Die Base Stations müssen etwas erhöht sein, weshalb ein Stativ oder sogar eine Wandmontage notwendig ist.
+    Außerdem müssen die Base Stations die zu trackenden Geräte im Sichtfeld haben.
+    Für weitere Informationen wird auf den Abschnitt~\ref{sec:lighthouse_tracking} verwiesen.
+    \item \textbf{Hoher Preis:} Nach der Erhebung, welche in Abb.~\ref{fig:vr_headset_prices} zu sehen ist, befindet sich die HTC Vive Pro im oberen Preissegment.
+    \item \textbf{Tethered:} Wie bereits in Abschnitt~\ref{sec:basics} beschrieben worden ist, benötigen tethered Headsets eine permanente Verbindung zu einem Computer.
+    Das bedeutet einerseits, dass der Transport komplizierter ist und für Normalverbraucher, ohne einen leistungsstarken Computer, der Preis für das Gesamtsystem steigt.
+    Besonders der Transportaspekt ist für diese Arbeit kritisch, da diese an vielen Plätzen hergezeigt werden soll.
 \end{itemize}
 
 \begin{figure}
@@ -604,7 +609,7 @@ Wenn die Applikation ausgeführt wird, liefert OpenVR, je nach vorhandenem SDK, 
 ~\cite{OpenVR_SteamWorks_Documentation_2020}
 
 
-\subsection{SteamVR}
+\subsection{Steam}\label{subsec:steam}
 
 \subsection{Vive Wireless}
 
