@@ -649,14 +649,14 @@ Die API besteht aus mehreren C++ Interface Klassen.
 Wenn die Applikation ausgeführt wird, liefert OpenVR, je nach vorhandenem SDK, das benötigte Interface zurück.
 ~\cite{OpenVR_Github_Documentation_2020}
 
-\subsubsection{OpenVR Treiber}
+%%\subsubsection{OpenVR Treiber}
 
-~\cite{OpenVR_SteamWorks_Documentation_2020}
+%%~\cite{OpenVR_SteamWorks_Documentation_2020}
 
 
-\subsection{Steam}\label{subsec:steam}
+%%\subsection{Steam}\label{subsec:steam}
 
-\subsection{Vive Wireless}
+%%\subsection{Vive Wireless}
 
 \subsection{Final IK Plugin}
 Final IK ist ein Unity Asset, welches von RootMotion entwickelt wurde.
@@ -764,7 +764,88 @@ Mit CCD ist es Möglich die Beine so auszurichten, dass der Boden mit allen Glie
 ~\cite{FinalIK_CCD_2021}
 
 \subsubsection{FABRIK}
-\subsubsection{FABRIK IK}
+Fabrik kann auf einer beliebigen Anzahl an Knochen-Segmenten mit Rotations-Limits verwendet werden.
+Es benutzt eine Methode welche die neue Position von Gelenken in beide Richtungen, also Vorwärts und Rückwerts,
+von einem Gelenk zum nächsten, berechnen kann.
+
+Ein Vorteil von FABRIK ist, dass die Knochenlängen während der Laufzeit verändert werden können,
+die Änderungen werden automatisch erkannt und neu berechnet. Ein Anwendungsfall für Fabrik ist in Abb. ~\ref{fig:finalIK_fabrik_example} zu sehen.
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/finalik_fabrik_pose}
+    \caption{Final IK - Fabrik Example}
+    \label{fig:finalIK_fabrik_example}
+\end {figure}
+
+Damit Fabrik benutzt werden kann, werden mehrere Variablen benötigt, siehe Abb. ~\ref{fig:finalIK_fabrik_script}.
+Target, beschreibt die Position eines Zieles, zu welchem sich der Arm bewegen soll.
+Die Position aller Knochen und Gelenke richtet sich automatisch so aus, dass der Arm auf das Ziel zeigt.
+
+Weight kann dazu benutzt werden, um die Änderungen von Fabrik ein- und auszublenden. Ein Wert von 1 bedeutet,
+dass alle Änderungen mit voller Kraft vorgenommen werden, wird der Wert nun näher an 0 gesetzt,
+werden die Effekte nicht mehr übernommen.
+
+Tolerance gibt die minimale Distanz an, welche die Zielposition bewegt werden muss,
+bevor Fabrik die Berechnung aller Gelenke erneut startet. Liegt die Positionsänderung unter dem
+Toleranzbereich wird nichts unternommen.
+
+MaxIterations gibt die maximale Anzahl an Iterationen, welche in einem Frame durchgeführt werden dürfen.
+Während den Iterationen wird die Position der Knochen und Gelenke berechnet.
+
+UseRotationLimits gibt an, ob die Rotationslimits auf den Einzelnen Knochen bei der Berechnung der Position
+miteinbezogen werden sollen, oder nicht.
+
+Bei Bones, handelt es sich um eine Liste, welche alle Knochen beinhalten soll, die bei der Berechnung der
+Positionen und Rotationen, herangezogen werden sollen.
+~\cite{FinalIK_FABRIK_2021}
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.8]{pics/finalik_fabrik_script}
+    \caption{Final IK - Fabrik Script}
+    \label{fig:finalIK_fabrik_script}
+\end {figure}
+
+
+\subsubsection{FABRIK Root}
+Fabrik Root ist ein Component, welcher mehrere einzelne Fabrik Ketten miteinander verbinden lässt.
+Hierbei kann es sich um kompliziertere Systeme mit mehreren Abzweigungen handeln, siehe Abb. ~\ref{fig:finalIK_fabrik_root_example}
+
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.8]{pics/finalik_fabrik_root_example}
+    \caption{Final IK - Fabrik Root Script}
+    \label{fig:finalIK_fabrik_root_example}
+\end {figure}
+
+Damit Fabrik Root richtig funktioniert müssen, ähnlich wie bei Fabrik, verschiedene Variablen angegeben werden,
+siehe Abb. ~\ref{fig:finalIK_fabrik_root_script}.
+
+Weight wird benutzt, um die Änderungen von FabrikRoot und Fabrik ein- und auszublenden.
+Ein Wert von 1 bedeutet, dass alle Änderungen mit voller Kraft vorgenommen werden, wird der Wert nun auf 0 gesetzt,
+werden die Effekte nicht mehr übernommen.
+
+Iterations gibt die Anzahl an Iterationen, welche in einem Frame durchgeführt werden dürfen, an.
+Hierbei wird in jeder Iteration die Position und Rotation aller angegebenen Fabrik Ketten berechnet.
+
+RootPin befestigt die Fabrik Ketten an einen Bestimmten Ort, welcher zum Beispiel auf einem Objekt,
+oder irgendwo in der Luft platziert werden kann. Dieser Punkt kann nicht durch die Fabrik Ketten bewegt werden.
+
+Chains ist eine Liste an Fabrik.
+IK gibt den Fabrik Komponent an, welcher die Position und Rotation einer Knochenkette berechnet.
+
+Pull gibt an wie stark diese Kette die, in der Hierarchie übergestellte, Kette bewegen darf.
+
+Pin gibt an, wie stark die Kette von einer Kette, welche in der Hierarchie untergeordnet ist, bewegt werden kann.
+
+Children ist eine Liste von Indizes, welche auf die, in der Hierarchie untergeordneten, Fabrik verweist.
+
+\begin {figure}
+\centering
+\includegraphics[scale=0.5]{pics/finalik_fabrik_root_script}
+\caption{Final IK - Fabrik Root Script}
+\label{fig:finalIK_fabrik_root_script}
+\end {figure}
+
 \subsubsection{Full Body Biped IK}
 \subsubsection{Grounder}
 \subsubsection{Interaction System}
