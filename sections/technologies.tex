@@ -60,7 +60,6 @@ Bei \emph{Marker Based Inside Out Tracking} wird im Gegensatz kein natürliches 
 Hierbei ist sind die zu trackenden Objekte von Lighthouses (siehe Abschnitt~\ref{sec:lighthouse_tracking}) abhängig.
 Diese beleuchten den Raum mit nicht sichtbaren licht welches von Fotosensoren an den Geräten empfangen wird.
 
-
 \subsection{VR Headset}
 \label{sec:vr-headset}
 \setauthor{Quirin Ecker}
@@ -136,7 +135,6 @@ Diese befindet sich genauso wie die HTC Vive Pro~\ref{sec:htc-vive} im teureren 
     Um diese Finger auch in die virtuelle Welt zu übertragen, benützen die Controller Sensoren, welche an diesen angebracht sind.
     Die Informationen der Fingerpositionen können daraufhin von Entwicklern in ihren Spielen benutzt werden.~\cite{SadlyItsBradley_2019}.
     Werden diese nicht benutzt, steht trotzdem noch die normale Controller Steuerung zur Verfügung.
-    Für mehr Informationen wird auf Abschnitt ~\ref{sec:vr-controller} verwiesen.
     \item \textbf{Lighthouse Tracking}: Die Valve Index benützt genauso wie die HTC Vive Pro das Lighthouse tracking mit dem Unterschied, dass beide Versionen des Lighthouse Tracking verwendet werden können.
     Für mehr Informationen wird auf~\ref{sec:lighthouse_tracking} verwiesen.
 \end{itemize}
@@ -184,8 +182,6 @@ Für den Aufbau werden nur das Headset und zwei Controller benötigt.
     Für verschiedene Möglichkeiten Full Body Tracking trotzdem zu erreichen wird auf~\cite{Martin_Rakver} verwiesen.
     \item \textbf{Tracking:} In Abb.~\ref{fig:tracking_precision_statistic} ist ersichtlich, dass das Tracking der Oculus Quest 2 schlechter abschneidet wie das der zuvor genannten Brillen.
 \end{itemize}
-
-\subsection{VR Controller}\label{sec:vr-controller}
 
 \subsection{Tracker}\label{sec:tracker}
 
@@ -243,7 +239,6 @@ Die Vorderseite ist der Länge nach abgerundet, mit welcher eine höhere Reichwe
 Mit der neuen Version ist es auch möglich mehrere Base Stations zu verwenden.
 Durch die erhöhte Sichtweite und der Möglichkeit mehr wie zwei Lighthouses zu verwenden kann eine größere Spielfläche verwendet werden.
 Der Sichtkontakt der Lighhouses ist nicht mehr nötig~\cite{Cale_2019}.
-
 
 \subsection{Oculus Quest Tracking}
 \label{sec:oculus_quest_tracking}
@@ -304,9 +299,34 @@ Aus diesem Grund gibt es einige Lösungen, die dieses Problem lösen wollen.
 Folgend werden zwei Lösungen näher Erläutert.
 Diese umfassen den Oculus Air Link und Vive WLAN Adapter.
 
+\subsubsection{Vive Wireless Adapter}
+
+Bei dem Vive wireless Adapter wird zusätzliche Hardware zur Brille benötigt.
+Diese beinhalten:
+
+\begin{itemize}
+    \item Powerbank
+    \item Wireless Link Box
+    \item PCIe WiGig Card
+    \item anderes Zubehör
+\end{itemize}
+
+Für Informationen zu der zusätzlichen Hardware wird auf~\cite{ViveWirelessAdapter} verwiesen
+
+Zum Zeitpunkt der Erstellung dieser Arbeit konnten keine zuverlässigen technischen Spezifikationen gefunden werden.
+Daher kann die Funktionsweise nur sehr oberflächlich beschrieben werden.
+
+Grundsätzlich wird für die Funktionalität die Wireless Link Box gebraucht, welche mit der PCIe WiGig Card verbunden ist.
+Die Wireless Link Box kombiniert mit der Antenne welche sich auf der VR-Brille befindet verschafft HTC ein möglichst latenz freies Erlebnis.
+Durch die ständige Bewegung der VR-Brille variiert die Brandweite konstant.
+Für dieses Problem benützt der Wireless Adapter einen Algorithmus welcher das Videosignal je nach Bandbreite in echtzeit komprimiert~\cite{VR_Conduit_2018}.
+
+Durch die zusätzliche Hardware ist die HTC Lösung etwas teuer.
+Eine Lösung ohne zusätzliche Kosten wurde von Oculus entwickelt und wird Oculus Air Link genannt.
+
 \subsubsection{Oculus Air Link}
 
-Auch wenn die Oculus Quest 2 und Oculus Quest bereits wireless Headsets sind kann man diese wie bereits zuvor beschrieben mit dem Computer verbinden.
+Auch, wenn die Oculus Quest 2 und Oculus Quest bereits wireless Headsets sind kann man diese wie bereits zuvor beschrieben mit dem Computer verbinden.
 Diese Verbindung wird Oculus Link genannt und besteht aus einem qualitativ hochwertigen USB C 3.0 Kabel~\cite{William_2020}.
 
 Um die Leistung eines PCs nun in Anspruch zu nehmen, ohne das Kabellose Erlebnis aufzugeben, entwickelte Oculus Quest Oculus Air Link~\cite{Oculus_2021}.
@@ -319,15 +339,6 @@ Für mehr Informationen zu dem Aufsetzen des Oculus Air Link wird auf~\cite{Ocul
 
 Ähnlich wie der Vive Wireless Adapter benützt der Oculus Air link auch WLAN für die Datenübertragung~\cite{Oculus_2021}.
 Dabei benützt Oculus die gleiche Streaming-Pipeline welche auch bei Oculus Link verwendet worden ist~\cite{Oculus_2021}.
-
-\subsubsection{Vive Wireless Adapter}
-
-Im Gegensatz zu dem Oculus Air Link gibt es den Vive Wireless Adapter schon etwas länger.
-Dieser war erstmals verfügbar am 24\. September 2018.
-Der Nachteil dieser Lösung ist, dass sie teurer ist wie die Lösung des Oculus Air Links.
-Einer der Gründe dafür ist, dass eine Powerbank mit dabei sein muss.
-Im Gegensatz zu der Oculus Quest sind die HTC Vive Pro oder auch Alternativen von HTC nur tethered Headsets.
-Dies bedeutet, dass zuvor diese Brillen den Strom von einem Kabel gehabt haben und nicht von einem Akku~\cite{ViveWirelessAdapter}.
 
 \section{Software}
 
@@ -437,6 +448,7 @@ Die folgenden Vorteile und Nachteile beziehen sich auf die Source 2 Engine.
     \item spiele, welche mit der Engine entwickelt worden sind, dürfen nur auf Steam publiziert werden~\cite{Brenna_Hillier_2015}
 \end{itemize}
 
+\subsection{Steam}\label{subsec:steam}
 
 \subsection{VR in Unity}
 \setauthor{Florian Beckerle}
