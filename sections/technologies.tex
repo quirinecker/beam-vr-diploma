@@ -319,7 +319,7 @@ Daher kann die Funktionsweise nur sehr oberflächlich beschrieben werden.
 Grundsätzlich wird für die Funktionalität die Wireless Link Box gebraucht, welche mit der PCIe WiGig Card verbunden ist.
 Die Wireless Link Box kombiniert mit der Antenne welche sich auf der VR-Brille befindet verschafft HTC ein möglichst latenz freies Erlebnis.
 Durch die ständige Bewegung der VR-Brille variiert die Brandweite konstant.
-Für dieses Problem benützt der Wireless Adapter einen Algorithmus welcher das Videosignal je nach Bandbreite in echtzeit komprimiert~\cite{VR_Conduit_2018}.
+Für dieses Problem benützt der Wireless Adapter einen Algorithmus welcher das Videosignal je nach Bandbreite in echtzeit komprimiert~\cite{VRConduit_2018}.
 
 Durch die zusätzliche Hardware ist die HTC Lösung etwas teuer.
 Eine Lösung ohne zusätzliche Kosten wurde von Oculus entwickelt und wird Oculus Air Link genannt.
@@ -367,29 +367,46 @@ Dies bedeutet beispielsweise, dass nur Spiele mit einer Wikipedia Seite mit einb
 Unity ist eine Game Engine, welche von Unity Technologies initial exklusiv für Apple Mac OS X entwickelt wurde.
 Die Engine wurde portiert und kann heute auch auf Windows und auf der Linux Plattform benützt werden.
 Sie ist für alle im prinzip gratis bis zu einem bestimmten Umsatz.
-Auch wenn sie eine Einsteiger Engine genannt wird, ist sie trotzdem im professionellen Bereich in benutzung und viele bekannte Spiele, wie Pokemon GO, Among us und Hearthstone wurden in der Unity Engine entwickelt~\cite{Haas2014AHO,UNITY_DOWNLOAD,UNITY_PRICING,WIKIPEDIA_UNITY_GAME_LIST_2014}.
+Auch wenn sie eine Einsteiger Engine genannt wird, ist sie trotzdem im professionellen Bereich in benutzung und viele bekannte Spiele, wie Pokemon GO, Among us und Hearthstone wurden in der Unity Engine entwickelt~\cite{Haas2014AHO,Unity_System_Specification,UNITY_PRICING_1,WIKIPEDIA_UNITY_GAME_LIST_2014}.
 
 \paragraph{Vorteile}
 
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.35]{pics/mobile_os_marketshare}
+    \caption{Mobile Betriebssystem Market Share~\cite{StatCounter_Mobile_2021}}
+    \label{fig:mobile-os-market-share}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.35]{pics/desktop_os_market_share}
+    \caption{Desktop Betriebsystem Market Share~\cite{StatCounter_Desktop_2021}}
+    \label{fig:desktop-os-market-share}
+\end{figure}
+
+
+
 \begin{itemize}
-    \item Gratis benutzung bis zu einem bestimmten Umsatz eines Produktes
-    \item Programmierbar in C\#, einer einfach zu erlernenden Sprachen siehe Abb.~\ref{fig:hardest_programming_languages}
-    \item Es kann für alle möglichen Plattformen ein Programm geschrieben werden~\cite{UNITY_PLATTFORMS}
-    \begin{itemize}
-        \item IOS
-        \item Android
-        \item Windows
-        \item Linux
-        \item WebGL
-    \end{itemize}
+    \item \textbf{Leichter Einstieg:} Das Einsteigen in Unity ist ein sehr einfacher Prozess.
+    Die einzige Voraussetzung für den Start einer Unity Applikation ist ein Unity Account.
+    Nach der Erstellung eines Accounts kann das Unity Hub heruntergeladen werden.
+    Anschließend kann in dem Unity Hub eine Version der Unity Engine heruntergeladen werden~\cite{Unity_Download}.
+    Anfangs ist die Engine gratis, fallen nach einem bestimmten Umsatz an~\cite{Unity_Pricing_2}.
+    \item \textbf{Programmiersprache:} In Abb.~\ref{fig:hardest_programming_languages} ist ersichtlich, dass viele Programmierer der Meinung sind, C\# einer der einfacheren zu lernenden Sprachen ist.
+    Verglichen mit den C++, welches die Programmiersprache der Unreal Engine ist, hat sie nach der Abb. eine weitaus kleinere Lernkurve.
+    \item \textbf{Plattform Kompatibilität:} Applikationen, welche in Unity entwickelt worden sind haben eine hohe Plattformunabhängigkeit.
+    Unity Applikationen können für die größten Desktop- und Mobile Betriebssysteme gebaut werden.
+    Siehe dazu Abb.~\ref{fig:desktop-os-market-share} und Abb.~\ref{fig:mobile-os-market-share}.
+    Für eine volle Liste der unterstützten Plattformen wird auf~\cite{UNITY_PLATTFORMS} verwiesen.
 \end{itemize}
 
 \paragraph{Nachteile}
 
 \begin{itemize}
-    \item im Vergleich zu Unreal weniger Market-share~\ref{fig:game_engine_marketshare}
-    \item geschlossener Source Code
-    \item schnellerer Kostenanfall wie bei Unreal
+    \item \textbf{Market Share:} Nach Abb.~\ref{fig:game_engine_marketshare} hat die Unity Engine weniger Market-share wie beispielsweise die Unreal Engine.
+    \item \textbf{Kostenanfall:} Es ist in~\cite{UNREAL_ENGINE_PRICING_2022} und~\cite{Unity_Pricing_2} ersichtlich, dass bei Unity schneller Kosten anfallen wie bei der Unereal Engine.
+    Das bedeutet nicht, dass die Kosten bei Unity mehr sind wie bei Unreal Engine, sondern, dass die kostenlose Entwicklungsphase bei Unreal länger ist.
 \end{itemize}
 
 \subsubsection{Unreal Engine}
@@ -410,16 +427,28 @@ Viele Spiele wie Fortnite, Ark Survival Evolved, Borderlands 3 und Jedi Fallen O
 \paragraph{Vorteile}
 
 \begin{itemize}
-    \item höchster Market-share nach Abb.~\ref{fig:game_engine_marketshare}
-    \item 'easy to learn' visual scripting~\ref{fig:visual_scripting_unreal_engine} %TODO: Statistic for visual scripting vs Code
-    \item Lizenzkosten von 5\% folgen erst bei einem Einkommen durch ein Produkt von 1.000.000\$~\cite{UNREAL_ENGINE_PRICING_2022}
+    \item \textbf{Market Share:} In Abb.~\ref{fig:game_engine_marketshare} ist ersichtlich, dass Unreal den Größten Market Share.
+    Dies ist genauso wie zuvor mit Vorsicht zu genießen, da diese Daten wie bereits beschrieben unter einem bestimmten Kriterium gesammelt worden sind.
+    \item \textbf{Visual Scripting:} Unreal Engine benutzt für das Scripting der Applikation neben der Programmiersprache C++ ein visual scripting System, welches auch Blueprint genannt wird.
+    Anders wie in Bolt, welches das Visual Scripting Tool für Unity ist, ist das Blueprint System bereits eingebaut.
+    Bolt muss noch extra installiert und konfiguriert werden~\cite{Unity_Bolt}.
+    Das integrierte Blueprint System hat seine Nachteile und seine Vorteile.
+    Ein Vorteil ist die abgeschwächte Lernkurve, die das System gegenüber von C++ bietet um die Unreal Engine kennenzulernen.
+    Dies zumindest nach~\cite{Mower_UnrealEngine} und~\cite{jwatte_2017}.
+     %TODO: Statistic for visual scripting vs Code
+    ~\ref{fig:visual_scripting_unreal_engine}
+    \item \textbf{Kostenanfall:} Wie bereits bei den Nachteilen der Unity Engine besprochen fallen die Kosten bei der Unreal Engine langsamer and wie bei der Unity Engine..\cite{UNREAL_ENGINE_PRICING_2022, Unity_Pricing_2}
 \end{itemize}
 
 \paragraph{Nachteile}
 
 \begin{itemize}
-    \item 5\% Lizenzkosten, wenn das Einkommen eines Produktes über 1.000.000\$ ist~\cite{UNREAL_ENGINE_PRICING_2022}
-    \item für erweiterte Funktionalität wird C++ benötigt, welches nach Umfrage in Abbildung~\ref{fig:hardest_programming_languages} die drittschwierigste Sprache zu erlernen ist
+    \item \textbf{Unterstützte Spielplattformen:} Applikationen, welche mit Unreal Engine gemacht worden sind können für weniger Plattformen entwickelt werden wie bei der Unity Engine~\cite{Viscirele_Unreal_v_Unity}.
+    \item \textbf{Unterstützte Entwicklerplattformen:} Mit der Unreal Engine ist es möglich auf den drei größten Desktop Betriebssystemen, welche in Abb.~\ref{fig:desktop-os-market-share} ersichtlich sind, zu entwickeln.
+    Dennoch ist es komplizierter die Game Engine auf Linux zu installieren, da man hier die Game Engine selber von der Quelle bauen muss.
+    Es gibt keinen offiziellen Binary Installer für Linux~\cite{Unreal_Installationsguide}.
+    \item \textbf{C++:} Für erweiterte Funktionalität, welche nicht mit dem Blueprint System implementiert, werden kann, muss auf C++ zurückgegriffen werden.
+    In Abb.~\ref{fig:hardest_programming_languages} ist zu sehen, dass C++ eine starke Lernkurve hat.
 \end{itemize}
 
 \subsubsection{Source Engine und Source 2 Engine}
@@ -437,16 +466,18 @@ Die folgenden Vorteile und Nachteile beziehen sich auf die Source 2 Engine.
 \paragraph{Vorteile}
 
 \begin{itemize}
-    \item Source Engine ist gratis zu nutzen und zu publizieren *(siehe Nachteile)
+    \item \textbf{Gratis:} Die Source Egnine ist grundsätzlich komplett Gratis.
+    Es gibt keine Kostenanfälle durch das nutzen der Engine.
+    Das einzige Kriterium von Valve ist, dass die Engine auf Steam publiziert werden muss~\cite{Brenna_Hillier_2015}.
 \end{itemize}
 
 
 \paragraph{Nachteile}\label{pgr:cons}
 
 \begin{itemize}
-    \item kein hoher Market-share (siehe Abbildung~\ref{fig:game_engine_marketshare})
-    \item spiele, welche mit der Engine entwickelt worden sind, dürfen nur auf Steam publiziert werden~\cite{Brenna_Hillier_2015}
-\end{itemize}
+    \item \textbf{Market Share:} In Abb.~\ref{fig:game_engine_marketshare} ist ersichtlich, dass die Source Engine verglichen mit den zuvor gennanten Game Engines keinen großen Marktanteil hat.
+    Weniger Nutzung einer Engine bedeutet auch weniger unterstützung, welche es online zur Verfügung gibt.
+    \item \textbf{Publizierung:} Wie bereits bei den Vorteilen angesprochen, muss ein Spiel, welches mit der Source Engine entwickelt worden ist auch auf Steam publiziert werden~\cite{Brenna_Hillier_2015}.
 
 \subsection{Steam}\label{subsec:steam}
 
