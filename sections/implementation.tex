@@ -1,43 +1,3 @@
-%Siehe tolle Daten in Tab. \ref{tab:impl:data}.
-%
-%%\begin{table}
-%%    \centering
-%%    \begin{tabular}{|lcc|}
-%%    \hline
-%%              & \textbf{Regular Customers} & \textbf{Random Customers} \\ \hline
-%%    Age       & 20-40                      & \textgreater{}60          \\ \hline
-%%    Education & university                 & high school               \\ \hline
-%%    \end{tabular}
-%%    \caption{Ein paar tabellarische Daten}
-%%    \label{tab:impl:data}
-%%\end{table}
-%%
-%%\begin{figure}
-%%    \centering
-%%    \includegraphics[scale=0.5]{pics/knuthi.jpg}
-%%    \caption{Don Knuth -- CS Allfather}
-%%    \label{fig:impl:knuth}
-%%\end{figure}
-%%
-%%Siehe und staune in Abb. \ref{fig:impl:knuth}.
-%%\lipsum[6-9]
-%%Dann betrachte den Code in Listing \ref{lst:impl:foo}.
-%%
-%%\begin{lstlisting}[language=Python,caption=Some code,label=lst:impl:foo]
-%%# Program to find the sum of all numbers stored in a list (the not-Pythonic-way)
-%%
-%%# List of numbers
-%%numbers = [6, 5, 3, 8, 4, 2, 5, 4, 11]
-%%
-%%# variable to store the sum
-%%sum = 0
-%%
-%%# iterate over the list
-%%for val in numbers:
-%%    sum = sum+val
-%%
-%%print("The sum is", sum)
-%\end{lstlisting}
 
 \section{Aufbau}
 \label{sec:assembly}
@@ -54,7 +14,7 @@ Folgend werden alle Gegenstände und Geräte für den Aufbau in Abb.~\ref{fig:as
 
 \begin{enumerate}
     \item VR Raum
-    \item Lighthouses~\ref{sec:lighthouse}
+    \item Lighthouses~\ref{sec:lighthouse_tracking}
     \item Monitor
     \item Balken
     \item Startposition
@@ -64,7 +24,7 @@ Folgend werden alle Gegenstände und Geräte für den Aufbau in Abb.~\ref{fig:as
 \subsection{Erklärung}\label{subsec:description}
 
 Der Spieler started bei der Startposition und balanciert entlang des Balkens.
-Die Lichtboxen müssen diagonal positioniert werden wie bereits beschrieben in dem Abschnitt~\ref{sec:lighthouse}.
+Die Lichtboxen müssen diagonal positioniert werden wie bereits beschrieben in dem Abschnitt~\ref{sec:lighthouse_tracking}.
 Der Balken sollte ca in der Mitte positioniert werden und die langen seiten sollten möglichst parallel zu den langen seiten des VR Raums sein.
 
 Leichte Abweichungen der optimalen position sind nicht problematisch.
@@ -654,3 +614,140 @@ Die eingestellten Effekte werden dann auf alle Objekte angewandt, die mithilfe d
 \subsection{CameraRigGame}\label{subsec:camera-rig-game-prefab}
 \subsection{CameraRigMenu}\label{subsec:camera-rig-menu-prefab}
 \section{Inbetriebnahme}\label{sec:commissioning}
+
+Die BeamVR Applikation benötigt viele Geräte und Gegenstände um die Immersion zu gewährleisten.
+Daher sind sehr viele Schritte involviert, um die BeamVR Applikation in ihrer vollen Funktionalität zu genießen.
+Diese Schritte beinhalten:
+
+\begin{itemize}
+    \item Aufbau
+    \item Steam VR Installation
+    \item VR Headset Verbindung
+    \item Tracker Verbindung
+    \item Steam VR Setup
+    \item Controller Mapping
+    \item Applikation Starten
+    \item Beam Kalibration
+    \item Full Body Tracking Kalibration
+\end{itemize}
+
+
+\subsection{Aufbau}
+
+Der grundsätzliche Aufbau wurde berets in dem Abschnitt~\ref{sec:assembly}.
+Ebenfalls bereits in Abschnitt~\ref{sec:assembly} beschrieben ist die Position des Monitors.
+Dieser wird noch wichtig für das SteamVR Setup in Abschnitt~\ref{subsec:steam-vr-setup} und beschreibt nicht den physischen Monitor.
+Die Position von dem physischen Monitor ist von keiner Bedeutung in der BeamVR Applikation.
+
+\subsection{Steam VR Installation}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/steam-vr-in-store}
+    \caption{Steam VR Download}
+    \label{fig:steam-vr-in-store}
+\end{figure}
+
+Offiziell werden die Valve Index und die HTC Brillen von BeamVR unterstützt.
+Die Applikation funktioniert mit Steam VR.
+Steam VR ist eine Software welche auf Steam herunterladbar ist.
+Es ist dabei nicht wichtig, dass die SteamVR Installation vor dem Einstecken der Geräte erfolgt.
+Ist bereits ein VR kompatibles Gerät eingesteckt wird der Benutzer oder die Benutzerin auch aufgerufen SteamVR zu installieren
+Der Download ist in dem Steam Store auffindbar
+In Abb.~\ref{fig:steam-vr-in-store} ist ein Screenshot von der Steam VR Downloadseite.
+
+\subsection{VR Headset Verbindung}
+
+Die Verbindung von dem Headset zu dem Computer ist von Headset zu Headset unterschiedlich.
+Deshalb wird hier nur die Verbindung mit einer HTC Vive Pro beschrieben.
+Dabei wird auch die kabellose Variante beschrieben, welche mit dem HTC Vive Wireless Adapter funktioniert.
+Für mehr informationen zu dem Adapter wird auf~\ref{subsec:wireless-virtual-reality} verwiesen.
+
+\subsubsection{Tethered}
+
+In der Box der HTC Vive Pro befindet siche eine Sogenannte Linkbox.
+Diese Linkbox ist die Zentralstelle, an der die Kabel von dem VR Headset zusammengehen und zum einen in deinen Computer gehen und zum andere in den Strom.
+Bei der Box gibt es zwei Seiten, in die eine steckt kommen die Kabel des Headsets hinein und in die andere das Stromkabel, ein Displaykabel und ein USB-Kabel.
+Die HTC Vive Pro verwendet ein spezielles Kabel welches das Headset mit der Linkbox verbindet.
+
+\subsubsection{Wireless Adapter}
+
+Mit dem Wireless Adapter kann das Headset ohne Kabel verwendet werden.
+Das Aufsetzen von dem Wireless Adapter ist etwas komplizierter.
+Wie bereits in dem Abschnitt~\ref{subsec:wireless-virtual-reality} braucht diese Verbindung zu dem Computer auch eine Linkbox.
+
+In diesem Fall reciht ein Kabel, welches diese Linkbox verbindet.
+Dieses Kabel ist dann mit einer PCIe Karte im Computer verbunden, welche vor diesem Prozess in den Computer eingebaut werden muss.
+Die Linkbox an sich muss statisch irgendwo positioniert werden.
+Mögliche Orte dafür wären das der Monitor oder die Wand.
+Grundsätzlich wäre es optimal, dass die Linkbox eine freie Sicht auf die VR-Brille hat.
+
+Schlussendlich wird für das kabellose Erlebnis noch die Antenne gebraucht, welche auf die VR-Brille angebracht wird.
+Diese Antenne besitzt den gleichen port wie die Linkbox und einen USB Port.
+In der Box von dem Wireless Adapter befindet siche ein kürzeres Kabel zum Verbinden des Headset.
+Mit desen Kabel wird dann die Antenne mit dem Headset verbunden.
+Das USB kabel ist für die Stromversorgung, welche durch die inkludierte Power Bank erfolgt.
+
+Um den Wireless Adapter nun mit dem Computer zu verbinden wird noch eine extra Software benötigt, die man von der HTC Vive Seite herunterladen kann.
+Mit dieser sollte sich das Headset automatisch mit dem Computer über Steamvr verbinden.
+
+\subsection{Tracker Verbindung}
+
+Genauso wie die Controller und das Headset funktionieren die Tracker mit der SteamVR Software.
+Anders wie bei den Controllern ist die Verbindung zu dem Computer.
+Die Verbindung wird über eine Dongle und eine Dongle Halterung gelöst.
+Dabei wird die Dongle Halterung in den PC gesteckt und die Dongle in die Dongle Halterung.
+
+Sobald die Tracker fertig eingesteckt sind, muss in SteamVR und bei den Trackern die Pairing Modus aktiviert werden.
+In Steam VR kann man diesen Modus unter \emph{SteamVR Menü > Devices > Pair Controller} gefunden werden.
+Der Pairingmodus des Trackers erfolgt mit einem langen drücken des Knopfes in der Mitte des Trackers.
+
+\subsection{Steam VR Setup}\label{subsec:steam-vr-setup}
+
+In der SteamVR Applikation kann unter \emph{SteamVR Menü > Room Setup} das Room Setup gefunden werden.
+Das Roomsetup ist für die Kalibrierung des Raumes zuständig.
+Dies beinhaltet die höhe des Bodens, die Größe des VR Raumes und die Orientierung des VR Raumes.
+Bei der BeamVR Applikation ist das Setup ein wichtiger Schritt, um ein immersives Erlebnis zu erreichen.
+
+Zum Zeitpunkt der Erstellung dieser Arbeit konnten keine zuverlässigen Informationen bezüglich des Room Setup gefunden werden.
+Trotzdem zeigt sich aus Erfahrung, dass die Kalibrierung des Monitors die initiale Richtung des VR Headsets angibt.
+Die Richtung des VR Headsets ist aber auch von dem Seitenverhältnis der VR Fläche abhängig.
+Zeigt der Controller bei der Kalibrierung de länge des Raums entlang ist die Orientierung des Headsets trotzdem in Richtung der Breite.
+Bedeutet, dass sich die Orientierung in diesem Fall gegen den Uhrzeigersinn um 90 Grad dreht.
+
+Für BeamVR ist es wichtig, dass die längere Seite in die gleiche Richtung wie der Balken schaut und die kürzere seite in die andere.
+Dies ist in Abb.~\ref{} abgebildet.
+In der Zusammenfassung des VR Raums sollte die Orientierung wie in Abb.~\ref{} ausschauen.
+
+%Todo: Image of the Summary of the Setup with the arrow down
+%Todo: Image of the Setup with the right ratio and monitor direction
+
+Bei der Kalibrierung des Bodens ist es nur wichtig, dass es möglich genau ist, damit die Gravitation wie erwarted funktioniert.
+Für mehr Information über die Gravitaion wird auf~\ref{subsec:gravity} verwiesen.
+
+\subsection{Controller Mapping}\label{subsec:controller-mapping}
+
+
+\subsection{Applikation Starten}\label{subsec:run-application}
+
+Nachdem alles aufgebaut und aufgesetzt ist kann die Applikation in Steam gestartet werden.
+Die Applikation kann in dem Unity Editor gestarted werden oder als gebaute Datei.
+Wichtig dabei ist, dass das Spiel bei Steam importiert wird, damit das Controller Mapping funktioniert.
+
+\subsection{Beam Kalibration}
+
+Bevor eine der Drei Karten ausgewählt werden kann, muss noch die Beam Kalibration stattfinden.
+Diese ist für die Ortung des Balkens in der digitalen Welt.
+Für mehr Informationen zu der Kalibrierung wird auf den Abschnitt~\ref{subsec:beam-calibration} verwiesen.
+Dort wird das Setup noch genauer beschrieben.
+
+\subsection{Full Body Tracking Kalibration}
+
+Nach der Beam Kalibration ist es möglich in einer der Karten hineinzuladen.
+In diesen Karten steht vorne am Balken ein Spielermodell.
+Das Full Body Tracking wird durch drücken des Trackpads auf dem Controllers aktiviert.
+In Abb.~\ref{} ist das Trackpad des Controllers zu sehen.
+
+Für ein besseres Tracking sollte eine möglichst natürliche Pose, wie beispielsweise eine A-Pose, eingehalten werden.
+Diese A-Pose ist in Abb.~\ref{} abgebildet.
+
