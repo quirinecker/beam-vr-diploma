@@ -616,8 +616,8 @@ Die eingestellten Effekte werden dann auf alle Objekte angewandt, die mithilfe d
 \section{Inbetriebnahme}\label{sec:commissioning}
 
 Die BeamVR Applikation benötigt viele Geräte und Gegenstände um die Immersion zu gewährleisten.
-Daher sind sehr viele Schritte involviert, um die BeamVR Applikation in ihrer vollen Funktionalität zu genießen.
-Diese Schritte beinhalten:
+Daher sind sehr viele Schritte involviert, um BeamVR in ihrer vollen Funktionalität zu genießen.
+Folgende Schritte sind involviert:
 
 \begin{itemize}
     \item Aufbau
@@ -625,7 +625,6 @@ Diese Schritte beinhalten:
     \item VR Headset Verbindung
     \item Tracker Verbindung
     \item Steam VR Setup
-    \item Controller Mapping
     \item Applikation Starten
     \item Beam Kalibration
     \item Full Body Tracking Kalibration
@@ -634,8 +633,8 @@ Diese Schritte beinhalten:
 
 \subsection{Aufbau}
 
-Der grundsätzliche Aufbau wurde berets in dem Abschnitt~\ref{sec:assembly}.
-Ebenfalls bereits in Abschnitt~\ref{sec:assembly} beschrieben ist die Position des Monitors.
+Der grundsätzliche Aufbau wurde berets in dem Abschnitt~\ref{sec:assembly} beschrieben.
+Ebenfalls in Abschnitt~\ref{sec:assembly} beschrieben, ist die Position des Monitors.
 Dieser wird noch wichtig für das SteamVR Setup in Abschnitt~\ref{subsec:steam-vr-setup} und beschreibt nicht den physischen Monitor.
 Die Position von dem physischen Monitor ist von keiner Bedeutung in der BeamVR Applikation.
 
@@ -649,26 +648,36 @@ Die Position von dem physischen Monitor ist von keiner Bedeutung in der BeamVR A
 \end{figure}
 
 Offiziell werden die Valve Index und die HTC Brillen von BeamVR unterstützt.
-Die Applikation funktioniert mit Steam VR.
+Somit funktioniert die Applikation mit SteamVR.
 Steam VR ist eine Software welche auf Steam herunterladbar ist.
 Es ist dabei nicht wichtig, dass die SteamVR Installation vor dem Einstecken der Geräte erfolgt.
-Ist bereits ein VR kompatibles Gerät eingesteckt wird der Benutzer oder die Benutzerin auch aufgerufen SteamVR zu installieren
-Der Download ist in dem Steam Store auffindbar
-In Abb.~\ref{fig:steam-vr-in-store} ist ein Screenshot von der Steam VR Downloadseite.
+Der Download für die Software ist in dem Steam Store zu finden.
+In Abb.~\ref{fig:steam-vr-in-store} ist ein Screenshot von der Steam VR Downloadseite zu sehen.
 
 \subsection{VR Headset Verbindung}
 
 Die Verbindung von dem Headset zu dem Computer ist von Headset zu Headset unterschiedlich.
-Deshalb wird hier nur die Verbindung mit einer HTC Vive Pro beschrieben.
-Dabei wird auch die kabellose Variante beschrieben, welche mit dem HTC Vive Wireless Adapter funktioniert.
+Deshalb wird in Zuge diesr Arbeit nur die Verbindung mit einer HTC Vive Pro beschrieben.
+Dabei ist auch die kabellose Variante inkludiert, welche mit dem HTC Vive Wireless Adapter funktioniert.
 Für mehr informationen zu dem Adapter wird auf~\ref{subsec:wireless-virtual-reality} verwiesen.
 
 \subsubsection{Tethered}
 
-In der Box der HTC Vive Pro befindet siche eine Sogenannte Linkbox.
-Diese Linkbox ist die Zentralstelle, an der die Kabel von dem VR Headset zusammengehen und zum einen in deinen Computer gehen und zum andere in den Strom.
-Bei der Box gibt es zwei Seiten, in die eine steckt kommen die Kabel des Headsets hinein und in die andere das Stromkabel, ein Displaykabel und ein USB-Kabel.
-Die HTC Vive Pro verwendet ein spezielles Kabel welches das Headset mit der Linkbox verbindet.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/link-box-setup}
+    \caption{Aufgesetzte Linkbox}
+    \label{fig:link-box-setup}
+\end{figure}
+
+
+In der Box der HTC Vive Pro befindet sich eine sogenannte Linkbox.
+Diese Linkbox ist die Zentralstelle, an der das Headset steckt, die Kabel zu dem Computer und das Stromkabel.
+Diese Ports sind auf zwei Seiten aufgeteilt.
+Eine Seite ist nur für das Headset Kabel und die andere Seite ist für den Strom und die PC-Verbindung.
+Das Headset Kabel ist ein spezielles Kabel für die Brille, das Stromkabel ein Power-Adapter und die PC-Verbindung ist ein USB-A Kabel und ein Mini Displayport zu normalen Displayport Kabel~\cite{VivePro_Setup}.
+In Abb.~\ref{fig:link-box-setup} ist eine aufgesetzte Linkbox zu sehen.
+Für mehr Informationen wird auf~\cite{VivePro_Setup} verwiesen.
 
 \subsubsection{Wireless Adapter}
 
@@ -676,31 +685,49 @@ Mit dem Wireless Adapter kann das Headset ohne Kabel verwendet werden.
 Das Aufsetzen von dem Wireless Adapter ist etwas komplizierter.
 Wie bereits in dem Abschnitt~\ref{subsec:wireless-virtual-reality} braucht diese Verbindung zu dem Computer auch eine Linkbox.
 
-In diesem Fall reciht ein Kabel, welches diese Linkbox verbindet.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{pics/vive-wireless-setup-linkbox}
+    \caption{Linkbox Setup~\cite{Wireless_Adapter_Setup_Docs}}
+    \label{fig:vive-wireless-setup-linkbox}
+\end{figure}
+
+
+In diesem Fall reicht ein Kabel, welches diese Linkbox verbindet.
 Dieses Kabel ist dann mit einer PCIe Karte im Computer verbunden, welche vor diesem Prozess in den Computer eingebaut werden muss.
 Die Linkbox an sich muss statisch irgendwo positioniert werden.
 Mögliche Orte dafür wären das der Monitor oder die Wand.
-Grundsätzlich wäre es optimal, dass die Linkbox eine freie Sicht auf die VR-Brille hat.
+Grundsätzlich wäre es optimal, dass die Linkbox eine freie Sicht auf die VR-Brille hat~\cite{Wireless_Adapter_Setup_Docs}.
+In Abb.~\ref{fig:vive-wireless-setup-linkbox} ist auf dem Monitor eine mit dem links stehenden PC verbundene Linkbox.
 
-Schlussendlich wird für das kabellose Erlebnis noch die Antenne gebraucht, welche auf die VR-Brille angebracht wird.
-Diese Antenne besitzt den gleichen port wie die Linkbox und einen USB Port.
-In der Box von dem Wireless Adapter befindet siche ein kürzeres Kabel zum Verbinden des Headset.
-Mit desen Kabel wird dann die Antenne mit dem Headset verbunden.
-Das USB kabel ist für die Stromversorgung, welche durch die inkludierte Power Bank erfolgt.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/vive-wireless-setup-adapter}
+    \caption{Angesteckter Adapter~\cite{Wireless_Adapter_Setup_Page}}
+    \label{fig:vive-wireless-setup-adapter}
+\end{figure}
 
-Um den Wireless Adapter nun mit dem Computer zu verbinden wird noch eine extra Software benötigt, die man von der HTC Vive Seite herunterladen kann.
-Mit dieser sollte sich das Headset automatisch mit dem Computer über Steamvr verbinden.
+
+Schlussendlich wird für das kabellose Erlebnis noch der Adapter gebraucht, welcher auf die VR-Brille angebracht wird.
+Der Adapter besitzt einen Headset kabel Port und einen USB-A Port.
+Inkludiert in der Box des Adapters ist ein kürzeres Headset Kabel zur verbindung des Headsets mit dem Adapter.
+Der USB-Port wird für die Stromzufuhr gebraucht.
+Für den Strom wird eine inkludierte Powerbank mit dem Headset verbunden mittel eines USB-A zu UBS-A Kabel~\cite{Wireless_Adapter_Setup_Page}.
+In Abb.~\ref{fig:vive-wireless-setup-adapter} ist ein fertig angesteckter Adapter zu sehen.
+
+Um den Wireless Adapter nun zu verwenden wird noch eine extra Software benötigt, die man von der HTC Vive Seite herunterladen kann.
+Mit dieser sollte sich das Headset automatisch mit dem Computer über Steamvr verbinden~\cite{Wireless_Adapter_Setup_Page}.
 
 \subsection{Tracker Verbindung}
 
 Genauso wie die Controller und das Headset funktionieren die Tracker mit der SteamVR Software.
 Anders wie bei den Controllern ist die Verbindung zu dem Computer.
-Die Verbindung wird über eine Dongle und eine Dongle Halterung gelöst.
-Dabei wird die Dongle Halterung in den PC gesteckt und die Dongle in die Dongle Halterung.
+Die Verbindung wird über eine Dongle und einer Dongle Halterung gelöst.
+Dabei wird die Dongle Halterung an den PC angesteckt und die Dongle in die Dongle Halterung eingesteckt~\cite{vive_tracker_setup_video_2021}.
 
 Sobald die Tracker fertig eingesteckt sind, muss in SteamVR und bei den Trackern die Pairing Modus aktiviert werden.
-In Steam VR kann man diesen Modus unter \emph{SteamVR Menü > Devices > Pair Controller} gefunden werden.
-Der Pairingmodus des Trackers erfolgt mit einem langen drücken des Knopfes in der Mitte des Trackers.
+In Steam VR kann dieser Modus unter \emph{SteamVR Menü > Devices > Pair Controller} gefunden werden.
+Der Pairingmodus des Trackers erfolgt mit einem langen drücken des Knopfes in der Mitte des Trackers~\cite{vive_tracker_setup_video_2021}.
 
 \subsection{Steam VR Setup}\label{subsec:steam-vr-setup}
 
@@ -715,39 +742,59 @@ Die Richtung des VR Headsets ist aber auch von dem Seitenverhältnis der VR Flä
 Zeigt der Controller bei der Kalibrierung de länge des Raums entlang ist die Orientierung des Headsets trotzdem in Richtung der Breite.
 Bedeutet, dass sich die Orientierung in diesem Fall gegen den Uhrzeigersinn um 90 Grad dreht.
 
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{pics/monitor_calibration}
+    \caption{Kalibrierung des Monitors und der Maße des VR Raums}
+    \label{fig:steam-vr-calibration}
+\end{figure}
+
+
 Für BeamVR ist es wichtig, dass die längere Seite in die gleiche Richtung wie der Balken schaut und die kürzere seite in die andere.
-Dies ist in Abb.~\ref{} abgebildet.
+Dies ist in Abb.~\ref{fig:steam-vr-calibration} abgebildet.
 In der Zusammenfassung des VR Raums sollte die Orientierung wie in Abb.~\ref{} ausschauen.
 
 %Todo: Image of the Summary of the Setup with the arrow down
-%Todo: Image of the Setup with the right ratio and monitor direction
 
 Bei der Kalibrierung des Bodens ist es nur wichtig, dass es möglich genau ist, damit die Gravitation wie erwarted funktioniert.
 Für mehr Information über die Gravitaion wird auf~\ref{subsec:gravity} verwiesen.
 
-\subsection{Controller Mapping}\label{subsec:controller-mapping}
-
-
 \subsection{Applikation Starten}\label{subsec:run-application}
 
 Nachdem alles aufgebaut und aufgesetzt ist kann die Applikation in Steam gestartet werden.
-Die Applikation kann in dem Unity Editor gestarted werden oder als gebaute Datei.
+Die Applikation kann in dem Unity Editor gestartet werden oder als gebaute Datei.
 Wichtig dabei ist, dass das Spiel bei Steam importiert wird, damit das Controller Mapping funktioniert.
 
 \subsection{Beam Kalibration}
 
-Bevor eine der Drei Karten ausgewählt werden kann, muss noch die Beam Kalibration stattfinden.
+Bevor eine der drei Karten ausgewählt werden kann, muss noch die Beam Kalibration stattfinden.
 Diese ist für die Ortung des Balkens in der digitalen Welt.
 Für mehr Informationen zu der Kalibrierung wird auf den Abschnitt~\ref{subsec:beam-calibration} verwiesen.
 Dort wird das Setup noch genauer beschrieben.
 
 \subsection{Full Body Tracking Kalibration}
 
-Nach der Beam Kalibration ist es möglich in einer der Karten hineinzuladen.
-In diesen Karten steht vorne am Balken ein Spielermodell.
-Das Full Body Tracking wird durch drücken des Trackpads auf dem Controllers aktiviert.
-In Abb.~\ref{} ist das Trackpad des Controllers zu sehen.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/a-pose-human}
+    \caption{A-Pose Modell~\cite{vkstudio_2020}}
+    \label{fig:a-pose-human}
+\end{figure}
 
-Für ein besseres Tracking sollte eine möglichst natürliche Pose, wie beispielsweise eine A-Pose, eingehalten werden.
-Diese A-Pose ist in Abb.~\ref{} abgebildet.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.1]{pics/vive_controller_trackpad}
+    \caption{Trackpad des HTC Vive Pro Controller}
+    \label{fig:vive-controller-trackpad}
+\end{figure}
+
+
+
+Nach der Beam Kalibration ist es möglich eine Karte auszuwählen.
+In diesen Karten steht vorne am Balken ein Spieler Modell.
+Das Full Body Tracking wird durch Drücken des Trackpads auf dem Controllers aktiviert.
+In Abb.~\ref{fig:vive-controller-trackpad} ist das Trackpad eines HTC Vive Controller zu sehen.
+
+Für ein gutes Tracking sollte eine möglichst natürliche Pose, wie beispielsweise eine A-Pose, eingehalten werden.
+Diese A-Pose ist in Abb.~\ref{fig:a-pose-human} abgebildet.
 
