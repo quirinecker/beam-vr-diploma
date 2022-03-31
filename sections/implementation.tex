@@ -97,7 +97,105 @@ _calibrationControllerObject.data = VRIKCalibrator.Calibrate(
 \subsection{Beam Calibration}
 \label{subsec:beam-calibration}
 
-%TODO: (Quirin Ecker): Write the Beam Calibration Section
+Das Kernthema dieser Arbeit ist, ein reales Objekt in die virtuelle Welt zu synchronisieren.
+In dem Fall der Arbeit ist dieses Objekt wie bereits beschrieben ein Balken.
+
+Die Beam Kalibration ist für die Synchronisation des realen Balkens mit dem virtuellen Balken zuständig.
+In der Entwicklungsphase gab es sehr viele Ansätze diese Synchronisation zu implementieren.
+Hier ist zwischen Grundansätzen und Implementierungsansätze zu Unterscheiden.
+Im Zuge dieser arbeit beschreibt ein Grundansatz die grundlegende Strategie das Problem zu lösen und ein Implementierungsansatz die Strategie einen Grundansatz zu lösen.
+
+\subsubsection{Grundansätze}
+
+Folgend werden zwei dieser Grundansätze beschrieben.
+
+\begin{itemize}
+    \item Tracker Ansatz
+    \item Marker Ansatz
+\end{itemize}
+
+Der Initial Ansatz dieser Arbeit war der \emph{Tracker Ansatz}.
+Dieser Ansatz war eine Lösung mit den bereits in Abschnitt~\ref{sec:vive-tracker} beschriebenen Tracker.
+In diesem Lösungsansatz würde ein Tracker in die Mitte des Balkens platziert werden.
+Durch diesen Tracker und die Dimensionen des Balkens würde es in der Theorie möglich sein die Position und größe des Balkens zu berechnen.
+
+Der Vorteil dieses Ansatzes wäre, dass der Balken wärend des Spielerlebnis verschiebbar ist, da die Position durch den Tracker aktualisiert werden kann.
+
+Leider besitzt dieser Ansatz den ein oder anderen Nachteil.
+Einer dieser Nachteile ist, dass die Dimensionen des Balkens beim Initial Setup gemessen werden müssen.
+Weiters muss der Tracker in der mitte des Balkens befestigt werden, da durch Änderungen der Position des Trackers auch Änderungen des virtuellen Balkens auftreten.
+Schlussendlich muss auch die Mitte des Balkens gefunden werden um den Tracker dort zu plazieren.
+
+Da die Positionsänderung des Balkens während der Laufzeit in der BeamVR Applikation vernachlässigt werden kann wurde der zweite Lösungsansatz gewählt.
+
+Der zweite und finale Ansatz ist der \emph{Marker Ansatz}.
+Für die BeamVR Applikation reicht es normal aus, dass die Skalierung, Position und Orientierung einmal vor dem Erlebnis ermittelt werden.
+Wie bereits beschrieben ist dadurch die dynamische Änderung des virtuellen Balken vernachlässigbar.
+
+Für den Markenansatz wird kein zusätzlicher Tracker gebraucht.
+Alles, was für diesen Ansatz wichtig ist, ist ein Controller und die restlichen VR Geräte.
+
+Das Prinzip diesem Ansatz ist, dass mit dem Controller die Ecken des Balkens markiert werden.
+Diese Markierungen werden von der Applikation gespeichert und später in der Game-Szene verwendet, um den Balken richtig zu positionieren, skalieren und orientieren.
+Da die Höhe durch das SteamVR Setup bekannt ist, müssen nur die oberen Ecken des Balkens.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/beam_mark}
+    \caption{Markierung Einer Ecke des Balkens}
+    \label{fig:beam-mark}
+\end{figure}
+
+Eine dieser Markierung wird folgendermaßen durchgeführt.
+Das runde ende des Controllers muss an der gewünschten Ecke anstoßen.
+Daraufhin wird der Trigger gedrückt, welcher sich an der unteren seite des Controller befindet.
+In Abb.~\ref{fig:beam-mark} ist dieser Vorgan Visualisiert visualisiert.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.25]{pics/beam-marking-sequence}
+    \caption{Reihenfolge der Markierungen}
+    \label{fig:beam-marking-sequence}
+\end{figure}
+
+
+Für die Markierung jeder Ecke gibt es eine gewisse Reihenfolge.
+Diese Reihenfolge ist von der BeamVR Applikation vordefiniert und von der Position des Abgrunds abhängig.
+In Abb.~\ref{fig:beam-marking-sequence} ist die Reihenfolge ersichtlich.
+
+\subsubsection{Implementierungsansatz}
+
+Für den Marker Ansatz gibt es wiederum zwei verschiedene Implementierunsansätze.
+Diese beinhalten:
+
+\begin{itemize}
+    \item Beam Transformation Ansatz
+    \item World Transformation Ansatz
+\end{itemize}
+
+Der einfachere Ansatz ist der Beam Transformation Ansatz.
+Bei diesem Ansatz passen wir den virtuellen Balken an den realen Balken an.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.25]{pics/beam-point-labeling}
+    \caption{Beschriftungen des Balkens}
+    \label{fig:beam-point-labeling}
+\end{figure}
+
+
+Durch die Postionen der Ecken kann die Mitte berechnet werden, da davon ausgegangen werden kann, dass der Balken ein Quader ist.
+In Abb.~\ref{fig:beam-point-labeling} sind die Ecken der oberen Seite des Balken mit $P_{1}, P_{2}, P_{3}, P_{4}$ beschriftet.
+Die Mitte der oberen Decke kann mit folgender Formel beschrieben werden.
+
+$$
+
+D = (P_{4} - P_{1})
+
+M = P_{1} +  \frac{D}{2}
+
+$$
+
 
 \subsection{Schwerkraft}
 \label{subsec:gravity}
