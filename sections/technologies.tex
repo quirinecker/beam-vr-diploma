@@ -484,22 +484,22 @@ Die folgenden Vorteile und Nachteile beziehen sich auf die Source 2 Engine.
 
 \subsection{VR in Unity}
 \setauthor{Florian Beckerle}
-Unity bietet bereits eine eingebaute basis VR API, welche ein paar Features für die Verwendung von VR Geräten zur Verfügung stellt.
-Diese muss jedoch erst Eingstellt werden, das geht in folgenden Schritten.
+Unity bietet bereits eine eingebaute Basis VR API, welche ein paar Features für die Verwendung von VR Geräten zur Verfügung stellt.
+Diese muss jedoch erst eingstellt werden, das geht in folgenden Schritten.
 
-Um Vr für die Spiele zu aktivieren, müssen zuerst den Player Settings, welche im Menu bei Edit > Project Settings > Player zu finden sind, geöffnet werden.
-Als nächstes muss die Option Virtual Reality Supported aktiviert werden, dass in der Box ein Häcken zu erkennen ist, siehe Abb. ~\ref{fig:unity_vr_api_settings}.
-In der darunter stehenden Liste, namens Virtual Reality SDKs, können nun mit dem Plus-Knopf eine neue SDK hinzugefügt werden.
+Um VR für die Spiele zu aktivieren, müssen zuerst die Player Settings, welche im Menü bei Edit > Project Settings > Player zu finden sind, geöffnet werden.
+Als nächstes muss die Option Virtual Reality Supported aktiviert werden, sodass in der Box ein Haken zu erkennen ist, siehe Abb. ~\ref{fig:unity_vr_api_settings}.
+In der darunter stehenden Liste, namens Virtual Reality SDKs, kann nun mit dem Plus-Knopf eine neue SDK hinzugefügt werden.
 Ein Beispiel hierfür wäre die Oculus SDK.
-Der Minus-Knopf bietet die Möglichkeit diese SDKs wieder zu entfernen, siehe Abb. ~\ref{fig:unity_vr_api_settings}.
+Der Minus-Knopf bietet die Möglichkeit, diese SDKs wieder zu entfernen, siehe Abb. ~\ref{fig:unity_vr_api_settings}.
 ~\cite{Unity_VR_Overview_2022}
 
 Wenn VR aktiviert wurde, wird das Spiel automatisch auf die VR-Brille gerendert und dort angezeigt.
-Weiters besitzt jede Kamera, welche im Spiel ist, eine Option, auf welches Auge das Ausgangsignal angezeigt werden soll, zum Beispiel linkes-, rechtes-, beide- oder keine Augen.
+Weiters besitzt jede Kamera, welche im Spiel ist, eine Option, auf welches Auge das Ausgangssignal angezeigt werden soll, zum Beispiel linkes-, rechtes-, beide- oder keine Augen.
 Unter den Augen versteht man die Bildschirme der VR-Brille welche sich vor den Augen des Benutzers befinden.
-Ein weiteres automatisches Feature ist, dass die Bewegung der VR-Brille in der realtität auf die Position der Kamera im Spiel übertragen wird.
+Ein weiteres automatisches Feature ist, dass die Bewegung der VR-Brille, in der Realtität auf die Position der Kamera im Spiel übertragen wird.
 
-Unity empfielt für die verwendung der Api folgende Brillen, Gear VR, Oculus CV1 und die Vive.
+Unity empfiehlt für die Verwendung der Api folgende Brillen: Gear VR, Oculus CV1 und die Vive.
 ~\cite{Unity_VR_Overview_2022}
 
 \begin {figure}
@@ -512,14 +512,14 @@ Unity empfielt für die verwendung der Api folgende Brillen, Gear VR, Oculus CV1
 \subsection{VR Plugin}
 \setauthor{Florian Beckerle}
 Für BeamVR wurde das SteamVR Unity Plugin verwendet.
-Es wurde von Valve entwickelt und bietet bereits eine Vielzahl an vorgefertigten Demos, welche mit der Installation des Plugins mitgeliefert werden, diese werden später genauer beschrieben..
+Es wurde von Valve entwickelt und bietet bereits eine Vielzahl an vorgefertigten Demos, welche mit der Installation des Plugins mitgeliefert werden, diese werden später genauer beschrieben.
 ~\cite{SteamVR_Overview_2022}
 
 \subsubsection{Quickstart}
 \setauthor{Florian Beckerle}
 Für das Setup des SteamVR Unity Plugins sind 5 Schritte notwendig.
-Damit alles Funktioniert muss SteamVR von Steam und das Plugin vom Unity Asset Store gedownloaded werden.
-Nachdem die Installation beider Softwares abgeschlossen wurde, muss das Plugin, über den Package Manager, in das Unity Projekt importiert werden.
+Damit alles funktioniert muss SteamVR von Steam und das Plugin vom Unity Asset Store gedownloaded werden.
+Nachdem die Installation beider Softwares abgeschlossen wurde, muss das Plugin über den Package Manager in das Unity Projekt importiert werden.
 Im Menu Window wird nun eine neue Option namens SteamVR Input angezeigt, siehe Abb. ~\ref{fig:steamvr_input_menu_item}.
 \begin {figure}
     \centering
@@ -527,14 +527,14 @@ Im Menu Window wird nun eine neue Option namens SteamVR Input angezeigt, siehe A
     \caption{Steam VR - Input Menu Item}
     \label{fig:steamvr_input_menu_item}
 \end {figure}
-Wenn man auf diese klickt erscheint ein Popup welches fragt ob JSON Files kopiert werden sollen, dort drückt man auf Ja, siehe Abb. ~\ref{fig:steamvr_copy_json}.
+Wenn man auf diese klickt, erscheint ein Popup, welches fragt, ob JSON Files kopiert werden sollen, dort drückt man auf Ja, siehe Abb. ~\ref{fig:steamvr_copy_json}.
 \begin {figure}
     \centering
     \includegraphics[scale=1]{pics/steamVR_Input_CopyJSON}
     \caption{Steam VR - Copy JSON}
     \label{fig:steamvr_copy_json}
 \end {figure}
-Nachdem der Vorgang abschlossen ist, öffnet sich das SteamVR Input Fenster, dort muss nun Save and Generate gedrückt werden, siehe Abb. ~\ref{fig:steamvr_save_and_generate}.
+Nachdem der Vorgang abgeschlossen ist, öffnet sich das SteamVR Input Fenster, dort muss nun Save and Generate gedrückt werden, siehe Abb. ~\ref{fig:steamvr_save_and_generate}.
 \begin {figure}
     \centering
     \includegraphics[scale=0.6]{pics/steamVR-Input-SaveAndGenerate}
@@ -555,72 +555,72 @@ Die gezeigten Modelle benötigen hierfür mehrere Attribute, siehe Abb. ~\ref{fi
     \label{fig:steamvr_render_models Script}
 \end {figure}
 Der Index ist der Index des getrackten Gerätes, und wird vom System wie eine ID zur Erkennung verwendet.
-Mittels dem Model Override kann man für Testzwecke ein bestimmtes Modell festlegen welches angezeigt werden soll.
+Mittels dem Model Override kann man für Testzwecke ein bestimmtes Modell festlegen, welches angezeigt werden soll.
 Die Shader können die Darstellung des Objektes verändern.
 Verbose gibt die Vorgänge im Script in der Konsole aus, diese Option wird jedoch nur für das Testen benötigt.
-Create Components erstellt individuelle Objekte für jeden Komponenten welcher verfügbar ist.
+Create Components erstellt individuelle Objekte für jede Komponente, welche verfügbar ist.
 Update Dynamically bewegt die einzelnen Komponenten gleich wie die physischen Gegenstücke.
 ~\cite{SteamVR_Render_Models_2022}
 
 \subsubsection{Input}
 \setauthor{Florian Beckerle}
-Die die Hardware für VR Geräte schnell weiterentwickelt wird, hat Valve auf ein KeyBinding System zurückgegriffen.
-Die Entwickler und die Benutzer selbst können für neue oder breits vorhandene Hardware einstellen, welche Funktion die einzelnen Knöpfe und Trigger haben.
-Diese Aktionen wurden in 6 verschiedene Input Typen und einen Output Typen  aufgeteilt.
+Die Hardware für VR Geräte schnell weiterentwickelt wird, hat Valve auf ein KeyBinding System zurückgegriffen.
+Die Entwickler und die Benutzer selbst können für neue oder bereits vorhandene Hardware einstellen, welche Funktion die einzelnen Knöpfe und Trigger haben.
+Diese Aktionen wurden in 6 verschiedene Input Typen und einen Output Typen aufgeteilt.
 
 Die Aktion Boolean besitzt zwei Zustände, true und false.
-Sie wird oft benutzt um Objekte zu greifen, da man zum Beispiel einen Würfel entweder aufheben können soll oder nicht.
+Sie wird oft benutzt, um Objekte zu greifen, da man zum Beispiel einen Würfel entweder aufheben können soll oder nicht.
 
-Single Aktionen können analoge Werte zwischen 0 und 1 annehmen und wird für Situationen benutzt wo der Boolean nicht ausreicht.
+Single Aktionen können analoge Werte zwischen 0 und 1 annehmen und wird für Situationen benutzt, in denen der Boolean nicht ausreicht.
 Ein Anwendungsfall ist ein Auto, welches bei 0 stehen bleibt und bei 1 Vollgas fährt.
 Als Eingabe kann zum Beispiel der Trigger des Kontrollers benutzt werden.
 
 Vector2 besitzt zwei Werte, X und Y.
 Die Bewegungen des Kontrollers werden hierbei nur auf zwei Achsen gemessen.
 
-Vector3 besitzt im Gegensatz zu Vector2 drei verschiedenen Werte X, Y und Z.
+Vector3 besitzt im Gegensatz zu Vector2 drei verschiedene Werte X, Y und Z.
 Diese Aktion wird selten benutzt, findet aber zum Beispiel im SteamVR Home einen Anwendungsfall beim Scrollen.
 
 Pose gibt die Position und Rotation in einem dreidimensionalen Raum wieder.
-Es wird dazu benutzt um die Bewegungen der Controller zu messen und digital nachzubilden.
+Es wird dazu benutzt, um die Bewegungen der Controller zu messen und digital nachzubilden.
 
-Skeleton benutzt das SteamVR Skeleton Input um die ungefähre Position und Rotation der Finger zu erkennen, während der Kontroller in den Händen gehalten wird.
+Skeleton benutzt das SteamVR Skeleton Input, um die ungefähre Position und Rotation der Finger zu erkennen, während der Kontroller in den Händen gehalten wird.
 
-Vibration werden für haptisches Feedback bei VR Geräten verwendet.
-Hierbei vibrieren der Kontroller, eine spezielle Haptik Weste oder ein preparierter Sessel.
+Vibrationen werden für haptisches Feedback bei VR Geräten verwendet.
+Hierbei vibrieren der Kontroller, eine spezielle Haptik Weste oder ein präparierter Sessel.
 ~\cite{SteamVR_Input_2022}
 
 \subsubsection{Skeleton Input}
 \setauthor{Florian Beckerle}
-Das Plugin bietet die Möglichkeit Hände mit Fingern und deren aktuellen Position darzustellen.
-Die Bewegungen werden hierbei zwischen zwei verschiedenen Begränzungen der Fingerpositionen unterschieden.
-WithContoller berechnet eine ungefähre Position der Finger während diese einen Kontroller in den Händen halten.
+Das Plugin bietet die Möglichkeit, Hände mit Fingern und deren aktuelle Position darzustellen.
+Die Bewegungen werden hierbei zwischen zwei verschiedenen Begrenzungen der Fingerpositionen unterschieden.
+WithController berechnet eine ungefähre Position der Finger, während diese einen Kontroller in den Händen halten.
 Dies dient besonders dazu, die Interaktion zwischen der realen Hand und dem realen Kontroller digital darzustellen.
 WithoutController bietet die Bewegungen von Fingern, wenn sie keinen Kontroller in der Hand halten.
-In der realtität kann währenddessen jedoch trotzdem ein Kontroller gehalten werden, es wird nur digital nicht angezeit, siehe Abb. ~\ref{fig:steamvr_skeletal_input_models}.
+In der Realtität kann währenddessen jedoch trotzdem ein Kontroller gehalten werden, es wird nur digital nicht angezeigt, siehe Abb. ~\ref{fig:steamvr_skeletal_input_models}.
 \begin {figure}
     \centering
     \includegraphics[scale=1]{pics/steamVR_skeletal_input_models}
     \caption{Steam VR - Skeletal Input Models}
     \label{fig:steamvr_skeletal_input_models}
 \end {figure}
-Die Positionen der Finger werden Relativ zu dem in der Hirarchie übergestuften Objekt und dem Model gemessen.
+Die Positionen der Finger werden relativ zu dem in der Hierarchie übergestuften Objekt und dem Model gemessen.
 Jeder Finger besteht hierbei standardmäßig aus 4 Gelenken.
-Ein Wert im Bereich von 0 bis 1 gibt an wie stark die Finger eingerollt sein sollen.
-Die Finger einer Hand sind bei SteamVR etwas auseinander gestpeizt, hier wird ebenfalls ein Wert von 0 bis 1 dazu verwendet um die distanz zwischen den Fingern zu verändern.
+Ein Wert im Bereich von 0 bis 1 gibt an, wie stark die Finger eingerollt sein sollen.
+Die Finger einer Hand sind bei SteamVR etwas auseinandergestpreizt, hier wird ebenfalls ein Wert von 0 bis 1 dazu verwendet, um die Distanz zwischen den Fingern zu verändern.
 
-Um die Position der Finger zu messen gibt es grunsätzlich drei verschiedene Methoden.
+Um die Position der Finger zu messen, gibt es grundsätzlich drei verschiedene Methoden.
 Bei Estimated kann die Position des Körperteiles nicht direkt bestimmt werden.
-Jede Bewegung wird nur über die Bediehung der Trigger, Knöpfe und Trackpads des Kontrollers gestimmt.
-Partial kann die bewegungen der Finger direkt bestimmen, jedoch nur eingeschränkter als wie die tatsächlichen Finger.
+Jede Bewegung wird nur über die Bediehnung der Trigger, Knöpfe und Trackpads des Kontrollers gestimmt.
+Partial kann die Bewegungen der Finger direkt bestimmen, jedoch nur eingeschränkter als die tatsächlichen Finger.
 Die Positionen werden durch andere Werte, wie zum Beispiel von speziellen Handschuhen, gemessen.
-Full kann die komplette Körperbewegung des Benutzers messen, wie zum Beispiel durch Motion Caputre Anzügen oder handschuhen.
+Full kann die komplette Körperbewegung des Benutzers messen, wie zum Beispiel durch Motion Caputre Anzüge oder Handschuhe.
 
 Das Script, welches für die Bewegung des Modelles zuständig ist, besitzt eine Vielzahl an verschiedenen Optionen, siehe Abb. ~\ref{fig:steamvr_skeletal_input_Script}.
 Update Pose setzt die Position und Orientierung des Objektes neu, sobald der Controller bewegt wurde.
 Mirroring gibt an, ob die Knochen Daten entlang der X-Achse gespiegelt werden sollen.
-Die Blend Optionen bieten Einstellungsmöglichkeiten den Übergang zwischen Verschiednen Bewegungsmöglichkeiten und Animationen zu verändern.
-Weiters kann man einen bestimmten Knochen mittels GetBonePosition bekommen und die Positionen und Rotationen werden bittels GetBonePositions und GetBoneRotations bereitgestellt.
+Die Blend Optionen bieten Einstellungsmöglichkeiten, um den Übergang zwischen Verschiedenen Bewegungsmöglichkeiten und Animationen zu verändern.
+Weiters kann man einen bestimmten Knochen mittels GetBonePosition bekommen und die Positionen und Rotationen werden mittels GetBonePositions und GetBoneRotations bereitgestellt.
 \begin {figure}
     \centering
     \includegraphics[scale=1]{pics/steamVR_skeletal_input_script}
@@ -633,16 +633,16 @@ Weiters kann man einen bestimmten Knochen mittels GetBonePosition bekommen und d
 \setauthor{Florian Beckerle}
 Das Interaction System funktioniert mittels dem Senden von Nachrichten an Objekte, mit welchen die Hände des Spielers oder andere Objekte interagieren.
 Diese Objekte können sich an die Hand anheften und somit gehalten werden.
-Das System bietet die Möglichkeit Maus Events nachzuahmen, somit funktioniert die interaktion mit der Benutzeroberfläche auch in VR.
+Das System bietet die Möglichkeit, Maus Events nachzuahmen, somit funktioniert die Interaktion mit der Benutzeroberfläche auch in VR.
 
-Die Player Klasse weiß wo die VR-Brille und die Kontroller positioniert sind.
-Mittels den Methoden hmdTransform und feetPositionGuess können die Positionen der Brille und eine schätzung der Fußstellung zurückgeliefert werden.
+Die Player Klasse weiß, wo die VR-Brille und die Kontroller positioniert sind.
+Mittels der Methoden hmdTransform und feetPositionGuess können die Positionen der Brille und eine Schätzung der Fußstellung zurückgeliefert werden.
 
-Die Hand Klasse wird für die meißten Funktionen des Interaction Systems benötigt.
+Die Hand Klasse wird für die meisten Funktionen des Interaction Systems benötigt.
 Sie sendet interagierbaren Objekten Nachrichten über den aktuellen Status der Hand.
-Sie kann nur mit einem Objekt gleichzeitig direkt Interargieren, darunter versteht man das aufheben und werfen dieser.
+Sie kann nur mit einem Objekt gleichzeitig direkt interargieren, darunter versteht man das Aufheben und Werfen dieser.
 Objekte können an die Hand angebracht und wieder losgelöst werden.
-Das Verhalten der Hände kann durch sogenannte AttachmentFlags veränder werden, welche bei einer Interaktion aktiviert werden.
+Das Verhalten der Hände kann durch sogenannte AttachmentFlags verändert werden, welche bei einer Interaktion aktiviert werden.
 
 Interactable Objekte können von Spielern aufgehoben werden, solange ein bestimmter Knopf gedrückt wird.
 Befindet sich die Hand, während dieser Knopf losgelassen wird, in Bewegung wird die Geschwindigkeit und die Richtung auf das Objekt übertragen und es wird geworfen.
@@ -674,17 +674,16 @@ Befindet sich die Hand, während dieser Knopf losgelassen wird, in Bewegung wird
 
 \subsubsection{Skeleton Poser}
 \setauthor{Florian Beckerle}
-Der Skeleton Poser funktioniert mithilfe von verschienen Posen, welche erstellt und eingefügt werden können.
+Der Skeleton Poser funktioniert mithilfe von verschiedenen Posen, welche erstellt und eingefügt werden können.
 Mittels dem Blending Editor des Posers kann zwischen verschiedenen Posen ein Übergang erstellt werden.
 
 Hierbei existieren 4 Modi für die Fingerbewegungen.
 Der Static Modus erlaubt keine Fingerbewegungen und beachtet nur die Posen.
 Bei Free können die Finger frei bewegt werden und die Pose wird ignoriert.
 Mittels Extend können die Finger komplett ausgestreckt werden, aber nur nicht weiter eingerollt werden, als es bei der Pose eingestellt wurde.
-Bei Contract können die Finger ganz eingerollt werden, jedoch nicht weiter Ausgestreckt werden als bei der Pose.
+Bei Contract können die Finger ganz eingerollt werden, jedoch nicht weiter ausgestreckt werden als bei der Pose.
 ~\cite{SteamVR_Skeleton_Poser_2022}
 
-OpenVR Plugin
 \subsubsection{OpenVR}
 OpenVR ist eine API, welche den direkten Zugriff auf VR-Hardware von verschiedenen Anbietern, wie Oculus, Mixed Reality und Vive, ermöglicht.
 Hierbei benötigt die Anwendung keine speziellen Kenntnisse über die Hardware.
@@ -710,11 +709,11 @@ Hierbei wird das Full Body Biped IK, welches inbegriffen ist, verwendet.
 ~\cite{FinalIK_Overview_2020}
 
 \subsubsection{AimIK}
-AimIK rotiert die Knochen des 3D-Modells, so dass auf ein Objekt gezielt werden kann.
-Es wird hierbei nicht die eingebaute LookAt Funktion des Animators benutzt, da die Objekte mit denen gezielt wird, nicht mit den Achsen des Modells übereinstimmen.
+AimIK rotiert die Knochen des 3D-Modells, sodass auf ein Objekt gezielt werden kann.
+Es wird hierbei nicht die eingebaute LookAt Funktion des Animators benutzt, da die Objekte, mit denen gezielt wird, nicht mit den Achsen des Modells übereinstimmen.
 AimIK ermöglicht ein natürlich aussehendes Ergebnis, selbst wenn sich das Ziel beinahe hinter dem zielendem Objekt befindet.
 Rotation limits verhindern, dass das Skelett in unnatürliche Bewegungen und Stellungen verändert wird.
-Bei menschenähnlichen Modellen, limitiert diese Einstellung die Gelenke auf die gleichen Bewegungsmöglichkeiten wie bei einem Menschen, siehe Abb. ~\ref{fig:finalIK_aimIK_pose}.
+Bei menschenähnlichen Modellen limitiert diese Einstellung die Gelenke auf die gleichen Bewegungsmöglichkeiten wie bei einem Menschen, siehe Abb. ~\ref{fig:finalIK_aimIK_pose}.
 Diese können jedoch frei verändert werden, was jedoch zu unrealistischen Posen führen kann.
 \begin {figure}
     \centering
@@ -726,12 +725,12 @@ Diese können jedoch frei verändert werden, was jedoch zu unrealistischen Posen
 Damit die Berechnung der Pose funktioniert, werden mehrere verschiedene Einstellungsmöglichkeiten bereitgestellt, siehe Abb. ~\ref{fig:finalIK_aimIK_script}.
 Um zu wissen worauf gezielt werden soll, muss zuerst ein Ziel festgelegt werden, dies ist möglich bei der Variable Target.
 Aim Transform ist das Objekt, mit welchem gezielt werden soll.
-Dabei kann es sich um viele verschiedene Objekte, wie Waffen oder ein Hand die auf etwas zeigen soll, handeln.
-Axis gibt an in welche Richtung das Objekt zielt.
-Wenn zum Beispiel ein Laserpointer den Laser in Richtung der Z-Achse abstrahlt muss die Achse auf (0,0,1) gesetzt werden, da das Schema (x,y,z) ist.
-Damit die richtigen Knochen bewegt werden, wenn auf ein Ziel gezielt wird, müssen diese bei Bones Definiert werden.
-Das Wight steuert wie stark die veränderungen des Scripts auf die tatsächliche Position des Knochen einwirken sollen.
-Bei 0 wird der Knochen kaum bis garnicht verändert, wenn der Wert jedoch 1 ist, wird die ursprüngliche Position komplett verändert.
+Dabei kann es sich um viele verschiedene Objekte, wie Waffen oder eine Hand, die auf etwas zeigen soll, handeln.
+Axis gibt an, in welche Richtung das Objekt zielt.
+Wenn zum Beispiel ein Laserpointer den Laser in Richtung der Z-Achse abstrahlt, muss die Achse auf (0,0,1) gesetzt werden, da das Schema (x,y,z) ist.
+Damit die richtigen Knochen bewegt werden, wenn auf ein Ziel gezielt wird, müssen diese bei Bones definiert werden.
+Das Wight steuert, wie stark die Veränderungen des Scripts auf die tatsächliche Position des Knochen einwirken sollen.
+Bei 0 wird der Knochen kaum bis gar nicht verändert, wenn der Wert jedoch 1 ist, wird die ursprüngliche Position komplett verändert.
 \begin {figure}
     \centering
     \includegraphics[scale=0.7]{pics/finalik_aimik_script}
@@ -745,8 +744,8 @@ ArmIK stellt die Position und Rotation der Knochen eines Armes so ein, dass die 
 Hierfür werden 5 Knochen benötigt, Chest, Shoulder, Upper Arm, Forearm und Hand, siehe Abb. ~\ref{fig:finalIK_armIK_script}.
 Chest befindet sich im Oberkörper des Modells und ist am nähesten am Arm dran.
 Shoulder ist der Schulterknochen, Upper Arm ist der Oberarm Knochen, Forearm ist der Unterarm Knochen und Hand befindet sich in der Hand.
-Hierbei werden die Finger nicht beachtet, da es nur um die Berechnung der Position des Armes handelt.
-Mithilfe der Target Variable wird erneut ein Ziel festgelegt, welches die Zielposition der Hand angiebt.
+Hierbei werden die Finger nicht beachtet, da es sich nur um die Berechnung der Position des Armes handelt.
+Mithilfe der Target Variable wird erneut ein Ziel festgelegt, welches die Zielposition der Hand angibt.
 \begin {figure}
     \centering
     \includegraphics[scale=1]{pics/finalik_armik_script}
@@ -756,8 +755,8 @@ Mithilfe der Target Variable wird erneut ein Ziel festgelegt, welches die Zielpo
 ~\cite{FinalIK_ArmIK_2021}
 
 \subsubsection{Baker}
-Der Baker ist ein Tool welches die Aufnahme von Animations Clips ermöglicht.
-Um humanoide Modelle aufzunehmen, muss das Humanoid Baker Script zu dem Animierten Objekt hinzugefügt werden, siehe Abb. ~\ref{fig:finalIK_humanoid_baker}.
+Der Baker ist ein Tool, welches die Aufnahme von Animations Clips ermöglicht.
+Um humanoide Modelle aufzunehmen, muss das Humanoid Baker Script zu dem animierten Objekt hinzugefügt werden, siehe Abb. ~\ref{fig:finalIK_humanoid_baker}.
 Für andere Modelle wird das Generic Baker Script benötigt, siehe Abb. ~\ref{fig:finalIK_generic_baker}.
 Wenn die Applikation in Unity ausgeführt wird, kann in beiden Scripten auf Bake Animation States gedrückt werden.
 Nun werden die Animationen in einen vorher ausgewählten Ordner abgespeichert und können jederzeit wiederverwendet werden.
@@ -777,12 +776,12 @@ Nun werden die Animationen in einen vorher ausgewählten Ordner abgespeichert un
 ~\cite{FinalIK_Baker_2021}
 
 \subsubsection{Biped IK}
-Biped IK erlaubt die Modifikation der Position und Rotation der Knochen, eines Modelles mit 2 Beinen, 2 Armen und einem Kopf.
+Biped IK erlaubt die Modifikation der Position und Rotation der Knochen eines Modelles mit 2 Beinen, 2 Armen und einem Kopf.
 Das Script erkennt die Knochen automatisch und ist sofort einsatzbereit.
 Seit FinalIK 4.0 wird jedoch FullBodyBiped IK empfohlen, da dieses eine leichtere Optimierung der IK eines Modelles erlaubt.
 
-Es können wie bei vorherigen Funktionen, Animationen beliebig überschrieben werden, ohne diese tatsächlich ändern zu müssen.
-BipedIK bietet die Möglichkeit jedes Glied, also Kopf, Füße, Arme, Ober- und Unterkörper, einzeln einzustellen, siehe Abb. ~\ref{fig:finalIK_bipedik_script}.
+Es können wie bei vorherigen Funktionen Animationen beliebig überschrieben werden, ohne diese tatsächlich ändern zu müssen.
+BipedIK bietet die Möglichkeit, jedes Glied, also Kopf, Füße, Arme, Ober- und Unterkörper, einzeln einzustellen, siehe Abb. ~\ref{fig:finalIK_bipedik_script}.
 Weiters kann wieder ein Ziel festgelegt werden, falls der Charakter auf einen Gegenstand zielen soll.
 \begin {figure}
     \centering
@@ -794,12 +793,12 @@ Weiters kann wieder ein Ziel festgelegt werden, falls der Charakter auf einen Ge
 
 \subsubsection{CCD IK}
 Cyclic Coordinate Descent, auch als CCD bezeichnet, ist ein viel genutzter und bekannter Anwendungsfall von IK.
-Dieses Skript richtet die einzelnen Gelenke nacheinander in Richtung der Zielposition aus.
-Durch das ständige Widerholen dieser Aktion wird die Kette an Gelenken und Knochen richtig ausgerichtet.
+Dieses Script richtet die einzelnen Gelenke nacheinander in Richtung der Zielposition aus.
+Durch das ständige Wiederholen dieser Aktion wird die Kette an Gelenken und Knochen richtig ausgerichtet.
 Damit die Gelenke nicht unnatürliche Positionen einnehmen, kann ein Rotationslimit festgelegt werden, dieses kann nicht überschritten werden und sorgt für zusätzlichen Realismus.
-Für längere Ketten an Gelenken wird empfohlen FABRIK zu verwenden.
-Ein Anwendungsfall für dieses Skript ist zum Beispiel ein Roboter oder andere Lebewesen, welche auf einem unebenen Gelände, mit ihren Beinen auf dem Boden stehen sollen, siehe Abb. ~\ref{fig:finalIK_ccd_robot_example}.
-Mit CCD ist es Möglich die Beine so auszurichten, dass der Boden mit allen Gliedern berührt wird, ohne die Animationen anpassen zu müssen.
+Für längere Ketten an Gelenken wird empfohlen, FABRIK zu verwenden.
+Ein Anwendungsfall für dieses Skript ist zum Beispiel ein Roboter oder andere Lebewesen, welche auf einem unebenen Gelände mit ihren Beinen auf dem Boden stehen sollen, siehe Abb. ~\ref{fig:finalIK_ccd_robot_example}.
+Mit CCD ist es möglich die Beine so auszurichten, dass der Boden mit allen Gliedern berührt wird, ohne die Animationen anpassen zu müssen.
 \begin {figure}
     \centering
     \includegraphics[scale=0.4]{pics/finalik_ccd}
@@ -891,18 +890,18 @@ Children ist eine Liste von Indizes, welche auf die, in der Hierarchie untergeor
 \label{fig:finalIK_fabrik_root_script}
 \end {figure}
 
-\subsubsection{Full Body Biped IK}
-\subsubsection{Grounder}
-\subsubsection{Interaction System}
-\subsubsection{Leg IK}
-\subsubsection{Limb IK}
-\subsubsection{Look At IK}
-\subsubsection{Rotation Limits}
-\subsubsection{Trigonometric IK}
-\subsubsection{VRIK}
-\subsubsection{Extending Final IK}
+%\subsubsection{Full Body Biped IK}
+%\subsubsection{Grounder}
+%\subsubsection{Interaction System}
+%\subsubsection{Leg IK}
+%\subsubsection{Limb IK}
+%\subsubsection{Look At IK}
+%\subsubsection{Rotation Limits}
+%\subsubsection{Trigonometric IK}
+%\subsubsection{VRIK}
+%\subsubsection{Extending Final IK}
 
 
-\subsection{IDE}
+%\subsection{IDE}
 
-\subsection{Modellierung}
+%\subsection{Modellierung}
