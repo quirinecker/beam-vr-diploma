@@ -3,7 +3,7 @@
 \label{sec:assembly}
 \setauthor{Quirin Ecker}
 
-Folgend werden alle Gegenstände und Geräte für den Aufbau in Abb.~\ref{fig:assembly} angeführt.
+Folgend werden alle Gegenstände und Geräte für den Aufbau in Abb.~\ref{fig:assembly} aufgelistet.
 
 \begin{figure}
     \centering
@@ -23,16 +23,17 @@ Folgend werden alle Gegenstände und Geräte für den Aufbau in Abb.~\ref{fig:as
 
 \subsection{Erklärung}\label{subsec:description}
 
-Der Spieler started bei der Startposition und balanciert entlang des Balkens.
-Die Lichtboxen müssen diagonal positioniert werden wie bereits beschrieben in dem Abschnitt~\ref{sec:lighthouse_tracking}.
+Die folgende Erklärung bezieht sich dabei auf die Abbildung~\ref{fig:assembly}
+Der Spieler oder die Spielerin startet bei der Startposition und balanciert entlang des Balkens.
+Die Base-Stations müssen diagonal zueinander positioniert werden.
+Für mehr Information über die Base-Stations wird auf den Abschnitt~\ref{sec:lighthouse_tracking} verwiesen.
 Der Balken sollte ca in der Mitte positioniert werden und die langen seiten sollten möglichst parallel zu den langen seiten des VR Raums sein.
 
 Leichte Abweichungen der optimalen position sind nicht problematisch.
-Größere Abweichungen können zu unerwarteten verhalten führen.
-Die echte position des Bildschirmes ist nicht wichtig.
-Wichtig ist nur wo die position bei der kalibrierung eingestellt ist~\ref{fig:assembly}.
-Durch das Positionieren des Monitors wird die standard Blickrichtung für SteamVR eingestellt.
-Wenn der monitor Beispielsweise auf der anderen seite eingestellt wird, schaut man in die Falsche richtung in der Simulation.
+Größere Abweichungen können zu unerwarteten Verhalten führen.
+Die echte Position des Monitors muss nicht in der gleichen Position wie in der Abbildung sein.
+Dabei ist die Kennzeichnung nur für die Kalibrierung wichtig.
+Für mehr Informationen wird auf den Abschnitt~\ref{sec:commissioning} verwiesen.
 
 \section{Code}
 \label{sec:code}
@@ -41,24 +42,27 @@ Wenn der monitor Beispielsweise auf der anderen seite eingestellt wird, schaut m
 \label{sec:full-body-tracking}
 \setauthor{Quirin Ecker}
 
-Für das Full-Body-Tracking verwenden wir ein Plugin namens Final IK.
-Dieses Plugin ist ein kostenpflichtiges Programm.
-Für die Diplomarbeit wurde das Plugin gratis zur Verfügung gestellt.
+Das Full-Body-Tracking wurde mit einem kostenpflichtigen Plugin namens Final IK implementiert.
+Dieses Plugin ist für die Arbeit gratis zur Verfügung gestellt worden.
 
-Für die Kalibrierung des Full Body Trackings verwenden wir einen Knopf auf dem Controller.
-Dieser Vorgang ist bereits in dem Abschnitt~\ref{subsec:full-body-tracking-calibration} beschrieben.
+Bevor Full-Body-Tracking benutzt werden kann, muss das Tracking erstmals kalibriert werden.
+In BeamVR funktioniert die Kalibration des Full-Body-Trackings mit dem Trackpad auf dem Controller.
+Diese Taste ist in Abb.~\ref{fig:vive-controller-trackpad} zu sehen.
+Die Taste für das Kalibrieren wird in der Inbetriebnahme, welche in Abschnitt~\ref{sec:commissioning} beschrieben wird, benutzt.
 
-Standardmäßig wird das Full Body Tracking mit der Taste C kalibriert.
+Standardmäßig wird in FinalIK das Full Body Tracking mit der Taste C kalibriert.
 Damit die Kalibration auch in VR erfolgen kann, ist eine Taste für das kalibrieren auch auf dem Controller reserviert.
-Wie bereits in dem Abschnitt~\reft{subsec:full-body-tracking-calibration} beschrieben, ist diese Taste das Trackpad des Controllers.
+Wie bereits beschrieben ist diese Taste das Trackpad auf dem Controller.
 
-Um das Kalibrieren auf eine andere Taste zu stellen, werden die Daten für das Full-Body-Tracking an die Script-Komponente übergeben, die für das horchen auf die gewünschte Taste verantwortlich ist.
-Mit diesen Daten wird die statische Funktion \emph{Calibrate()} der Klasse \emph{VRIKCalibrator} aufgerufen, wenn die Taste auf dem Controller gedruckt wird.
+Um das Kalibrieren auf eine andere Taste zu stellen, werden die Daten für das Full-Body-Tracking an die eine Script-Komponente übergeben.
+Diese Script-Komponente horcht auf Tastenbetätigungen des Trackpad.
+Sobald die Taste gedrückt wird, wird die statische Funktion \emph{Calibrate()} der Klasse \emph{Calibrate()} mit den übergebenen Daten aufgerufen.
+
 Um zu checken, ob die Taste gedrückt wird, benützen wir das SteamVR Plugin.
-
 In Listing~\ref{lst:defining-control-objects} werden die Objekte für das Kontrollieren der Tasten zugewiesen.
 Mit diesen Objekten kann mithilfe der Update-Methode auf einen Tastendruck gehorcht werden.
 Das Horchen auf diese Taste ist in Listing~\ref{lst:checking-for-input} ersichtlich.
+In diesem Fall muss auf die Taste beider Controller gehorcht werden, weshalb hier auf zwei Tasten gehorcht wird.
 
 \begin{lstlisting}[language={[Sharp]C},label={lst:defining-control-objects}, caption={Zuweisung der Kontroll Objekt}]{Zuweisung der Kontroll Objekte}
 private readonly SteamVR_Action_Boolean _inputAction = SteamVR_Actions.default_Teleport;
@@ -94,130 +98,26 @@ _calibrationControllerObject.data = VRIKCalibrator.Calibrate(
 );
 \end{lstlisting}
 
-
-\subsection{Beam Calibration}
-\label{subsec:beam-calibration}
-
-Das Kernthema dieser Arbeit ist, ein reales Objekt in die virtuelle Welt zu synchronisieren.
-In dem Fall der Arbeit ist dieses Objekt wie bereits beschrieben ein Balken.
-
-Die Beam Kalibration ist für die Synchronisation des realen Balkens mit dem virtuellen Balken zuständig.
-In der Entwicklungsphase gab es sehr viele Ansätze diese Synchronisation zu implementieren.
-Hier ist zwischen Grundansätzen und Implementierungsansätze zu Unterscheiden.
-Im Zuge dieser arbeit beschreibt ein Grundansatz die grundlegende Strategie das Problem zu lösen und ein Implementierungsansatz die Strategie einen Grundansatz zu lösen.
-
-\subsubsection{Grundansätze}
-
-Folgend werden zwei dieser Grundansätze beschrieben.
-
-\begin{itemize}
-    \item Tracker Ansatz
-    \item Marker Ansatz
-\end{itemize}
-
-Der Initial Ansatz dieser Arbeit war der \emph{Tracker Ansatz}.
-Dieser Ansatz war eine Lösung mit den bereits in Abschnitt~\ref{sec:vive-tracker} beschriebenen Tracker.
-In diesem Lösungsansatz würde ein Tracker in die Mitte des Balkens platziert werden.
-Durch diesen Tracker und die Dimensionen des Balkens würde es in der Theorie möglich sein die Position und größe des Balkens zu berechnen.
-
-Der Vorteil dieses Ansatzes wäre, dass der Balken wärend des Spielerlebnis verschiebbar ist, da die Position durch den Tracker aktualisiert werden kann.
-
-Leider besitzt dieser Ansatz den ein oder anderen Nachteil.
-Einer dieser Nachteile ist, dass die Dimensionen des Balkens beim Initial Setup gemessen werden müssen.
-Weiters muss der Tracker in der mitte des Balkens befestigt werden, da durch Änderungen der Position des Trackers auch Änderungen des virtuellen Balkens auftreten.
-Schlussendlich muss auch die Mitte des Balkens gefunden werden um den Tracker dort zu plazieren.
-
-Da die Positionsänderung des Balkens während der Laufzeit in der BeamVR Applikation vernachlässigt werden kann wurde der zweite Lösungsansatz gewählt.
-
-Der zweite und finale Ansatz ist der \emph{Marker Ansatz}.
-Für die BeamVR Applikation reicht es normal aus, dass die Skalierung, Position und Orientierung einmal vor dem Erlebnis ermittelt werden.
-Wie bereits beschrieben ist dadurch die dynamische Änderung des virtuellen Balken vernachlässigbar.
-
-Für den Markenansatz wird kein zusätzlicher Tracker gebraucht.
-Alles, was für diesen Ansatz wichtig ist, ist ein Controller und die restlichen VR Geräte.
-
-Das Prinzip diesem Ansatz ist, dass mit dem Controller die Ecken des Balkens markiert werden.
-Diese Markierungen werden von der Applikation gespeichert und später in der Game-Szene verwendet, um den Balken richtig zu positionieren, skalieren und orientieren.
-Da die Höhe durch das SteamVR Setup bekannt ist, müssen nur die oberen Ecken des Balkens.
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.3]{pics/beam_mark}
-    \caption{Markierung Einer Ecke des Balkens}
-    \label{fig:beam-mark}
-\end{figure}
-
-Eine dieser Markierung wird folgendermaßen durchgeführt.
-Das runde ende des Controllers muss an der gewünschten Ecke anstoßen.
-Daraufhin wird der Trigger gedrückt, welcher sich an der unteren seite des Controller befindet.
-In Abb.~\ref{fig:beam-mark} ist dieser Vorgan Visualisiert visualisiert.
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.25]{pics/beam-marking-sequence}
-    \caption{Reihenfolge der Markierungen}
-    \label{fig:beam-marking-sequence}
-\end{figure}
-
-
-Für die Markierung jeder Ecke gibt es eine gewisse Reihenfolge.
-Diese Reihenfolge ist von der BeamVR Applikation vordefiniert und von der Position des Abgrunds abhängig.
-In Abb.~\ref{fig:beam-marking-sequence} ist die Reihenfolge ersichtlich.
-
-\subsubsection{Implementierungsansatz}
-
-Für den Marker Ansatz gibt es wiederum zwei verschiedene Implementierunsansätze.
-Diese beinhalten:
-
-\begin{itemize}
-    \item Beam Transformation Ansatz
-    \item World Transformation Ansatz
-\end{itemize}
-
-Der einfachere Ansatz ist der Beam Transformation Ansatz.
-Bei diesem Ansatz passen wir den virtuellen Balken an den realen Balken an.
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.25]{pics/beam-point-labeling}
-    \caption{Beschriftungen des Balkens}
-    \label{fig:beam-point-labeling}
-\end{figure}
-
-
-Durch die Postionen der Ecken kann die Mitte berechnet werden, da davon ausgegangen werden kann, dass der Balken ein Quader ist.
-In Abb.~\ref{fig:beam-point-labeling} sind die Ecken der oberen Seite des Balken mit $P_{1}, P_{2}, P_{3}, P_{4}$ beschriftet.
-Die Mitte der oberen Decke kann mit folgender Formel beschrieben werden.
-
-\[
-
-D = (P_{4} - P_{1})
-
-M = P_{1} +  \frac{D}{2}
-
-\]
-
-
 \subsection{Schwerkraft}
 \label{subsec:gravity}
 
 Damit die Applikation eine gewisse Spannung erhält, gibt es auch die Möglichkeit von dem Balken runterzufallen.
-Dies Sollte passieren, sobald die Person auch in der physischen Realität von diesem Balken fällt.
-Folgend ist die Bedingung für einen Fall und die Funktionsweise beschrieben.
+Dies sollte passieren, sobald die Person auch in der physischen Realität von dem Balken fällt.
+Folgend ist die Bedingung für einen Fall beschrieben.
 
 \subsubsection{Bedienung}
 
-Um ein realistisches Fallen zu gestalten ist es wichtig zu erkennen, wann eine Person nicht mehr auf den Balken ist und von dem Balek fliegt.
-Die erste wichtige Bedienung ist, dass der Benutzer oder die Benutzerin über dem Abgrund ist.
-Befindet sich die Person noch auf dem Haus, steht die Person zwar nicht auf dem Balken sollte aber trotzdem nicht runterfallen.
+Bei der implementierung des Fallens muss es bestimmte Bedienungen geben, bei denen die Spielerin oder der Spieler herunterfallen soll.
+Die erste Bedienung ist, dass die Benutzerin oder der Benutzer sich über dem Abgrund befindet.
+Befindet sich die Person noch auf dem Haus, steht sie zwar nicht auf dem Balken, sollte aber trotzdem nicht herunterfallen.
 
-Die zweite und wahrscheinlich spannendere Bedingung ist, ab wann eine Person, welche sich über dem Abgrund befindet, von dem Balken runterfliegt.
-Grundsätzlich fliegt der Benutzer oder die Benutzerin von dem Balken, wenn dieser oder diese das Gleichgewicht verliert.
-Leider ist dies etwas schwierig nachzustellen, wenn sich der Balken auf dem Boden befindet.
+Die zweite Bedingung ist, ab wann eine Person, welche sich über dem Abgrund befindet, von dem Balken herunterfliegt.
+Grundsätzlich fliegt die Benutzerin oder der Benutzer von dem Balken, wenn diese oder dieser das Gleichgewicht verliert.
+Der einfachheitshalber wurde keine Bedingung anhand des Gleichgewichtes implementiert.
 
-Schlussendlich musste die Entscheidung getroffen werden, ob die Gravitation nach einem Fuß oder zwei Füßen auf dem Boden wirkt.
-In der BeamVR Applikation ist die Entscheidung auf die Bediengung mit einem Fuß auf dem Boden gefallen.
-Somit fällt der Benutzer die Benutzerin von dem Balken sobald ein Fuß der Person auf dem Boden ankommt.
+Schlussendlich musste die Entscheidung getroffen werden, ob die Benutzerin oder der Benutzer bereits bei einem Fuß der bei zwei Füßen am Boden herunterfliegt.
+In der BeamVR Applikation ist die Entscheidung auf die Bedingung mit einem Fuß auf dem Boden gefallen.
+Somit fällt die Benutzerin oder der Benutzer von dem Balken herunter, sobald ein Fuß der Person auf dem Boden ankommt.
 
 \subsubsection{Funktionsweise}
 
@@ -229,8 +129,8 @@ Somit fällt der Benutzer die Benutzerin von dem Balken sobald ein Fuß der Pers
 \end{figure}
 
 
-Um zu checken, ob ein Fuß sich auf dem Boden befindet wurde ein Collider unter den Balken Gelegt welcher in der Höhe des Bodens ist.
-Diesen Collider kann man sich wie eine Unsichtbare Box vorstellen.
+Um zu checken, ob ein Fuß sich auf dem Boden befindet wurde ein Collider unter den Balken in der Höhe des Bodens platziert.
+Diesen Collider ist eine unsichtbare Box, die nur für die Überprüfung möglicher Kollision existiert.
 In Abb.~\ref{fig:gravitation-collider} ist diese Anordnung visualisiert.
 
 Die Höhe des Bodens wird durch das SteamVR Setup ermittelt.
@@ -239,12 +139,11 @@ Dies funktioniert anhand der getrackten Controller.
 Weitere Informationen über das SteamVR Setup können in Abschnitt~\ref{subsec:steam-vr-setup} gefunden werden.
 
 Kollidiert einer der Füße mit dem Collider, wird die gesamte VR Fläche mit einer Beschleunigung von 9.81 m/s nach unten bewegt.
-Kurz bevor die Fläche auf dem Boden aufkommt, wird in eine GameOver Szene gewechselt.
+Kurz bevor die Fläche auf dem Boden aufkommt, wird in eine ander Szene gewechselt.
 
 Um die Möglichkeit zu verhindern, dass der Kopf durch das Haus fliegt, da nur die füße sich auf dem Boden befinden und der Kopf immer noch über dem Haus wurde ein weiterer Check eingebaut.
-Dieser Check beinhaltet, dass das Headset sich über dem Collider sich befinden muss, damit der Spieler oder die Spielerin runterfliegt.
+Dieser Check beinhaltet, dass das Headset sich über dem Collider befinden muss, damit die Spielerin oder der Spieler runterfliegt.
 Befindet sich das Headset noch über dem Haus kann der Spieler oder die Spielerin nicht von dem Haus fliegen.
-
 
 \subsection{Verkehrssystem}
 \label{subsec:traffic-system}
@@ -365,6 +264,208 @@ RaycastHit hit;
         }
 ...
 \end{lstlisting}
+
+\section{Beam Kalibration}
+\label{sec:beam-calibration}
+
+Das Kernthema dieser Arbeit ist, ein reales Objekt in die virtuelle Welt zu synchronisieren.
+Im Falle unserer Arbeit ist dieses Objekt wie bereits beschrieben ein Balken.
+
+Die Beam Kalibration ist für die Synchronisation des physischen und virtuellen Balkens zuständig.
+In der Entwicklungsphase gab es mehrere Ansätze diese Synchronisation zu implementieren.
+Hier ist zwischen Grundansätzen und Implementierungsansätze zu unterscheiden.
+Im Zuge dieser Arbeit beschreibt ein Grundansatz die grundlegende Strategie das Problem zu lösen und ein Implementierungsansatz die Strategie einen Grundansatz zu lösen.
+
+\subsection{Grundansätze}\label{subsec:grundansaetze}
+
+Folgend werden zwei dieser Grundansätze beschrieben.
+
+\subsubsection{Tracker Ansatz}
+
+Der Initial-Ansatz dieser Arbeit war der \emph{Tracker Ansatz}.
+Dieser Ansatz war eine Lösung mit den bereits in Abschnitt~\ref{sec:vive-tracker} beschriebenen Trackern.
+In diesem Lösungsansatz würde ein Tracker in die Mitte des Balkens platziert werden.
+Durch diesen Tracker und die Dimensionen des Balkens würde es in der Theorie möglich sein die Position und größe des Balkens zu berechnen.
+
+Der Vorteil dieses Ansatzes wäre, dass der Balken während des Spielerlebnis verschiebbar ist, da die Position durch den Tracker aktualisiert werden kann.
+
+Leider besitzt dieser Ansatz durch die Benutzung des Trackers einige Nachteile.
+Einer dieser Nachteile ist, dass die Dimensionen des Balkens beim Initial Setup gemessen werden müssen.
+Weiters muss der Tracker in der mitte des Balkens befestigt werden, da durch Änderungen der Position des Trackers auch Änderungen des virtuellen Balkens auftreten.
+Bei keiner Befestigung kann der Tracker leicht verrutschen.
+Schlussendlich muss auch die Mitte des Balkens ermittelt werde, um den Tracker dort zu platzieren.
+Wenn die Ermittlung ungenau ist, wird es zu einer ungenauen Synchronisation führen.
+
+\subsubsection{Marker Ansatz}
+
+Für die BeamVR Applikation reicht es normal aus, dass die Skalierung, Position und Orientierung einmal vor dem Spielerlebnis ermittelt werden.
+Das bedeutet, dass die dynamische Änderung der Position in den meisten Fällen vernachlässigt werden kann.
+
+Bei dem Marker Ansatz werden keine zusätzlichen Geräte wie Tracker gebraucht.
+Für das Kalibrieren des Balkens wird dabei einer der Controller verwendet
+
+Im Prinzip wird bei diesem Ansatz der Controller verwendet, um die Ecken des Balkens zu markieren.
+Diese Markierungen werden von der Applikation gespeichert und später in der Game-Szene verwendet, um den Balken richtig zu positionieren, skalieren und orientieren.
+Da die Höhe durch das SteamVR Setup bekannt ist, müssen nur die oberen Ecken des Balkens.
+Für mehr Informationen über das SteamVR Setup wird auf den Abschnitt~\ref{subsec:steam-vr-setup}.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/beam_mark}
+    \caption{Markierung Einer Ecke des Balkens}
+    \label{fig:beam-mark}
+\end{figure}
+
+Eine dieser Markierung wird folgendermaßen durchgeführt.
+Der Ring am Ende des Controller muss an der gewünschten Ecke anstoßen.
+Daraufhin wird der Trigger gedrückt, welcher sich an der unteren seite des Controller befindet.
+In Abb.~\ref{fig:beam-mark} ist dieser Vorgang dargestellt.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.25]{pics/beam-marking-sequence}
+    \caption{Reihenfolge der Markierungen}
+    \label{fig:beam-marking-sequence}
+\end{figure}
+
+Insgesamt muss jede obere Ecke mit dem zuvor beschriebenen Vorgang markiert werden.
+Für die Markierung jeder Ecke gibt es eine gewisse Reihenfolge.
+Diese Reihenfolge ist von der BeamVR Applikation vordefiniert und von der Position des Abgrunds abhängig.
+In Abb.~\ref{fig:beam-marking-sequence} ist die Reihenfolge ersichtlich.
+
+Da die dynamische Positionsänderung während der Laufzeit in der BeamVR Applikation vernachlässigt werden kann wurde der Marker-Ansatz für die finale Applikation gewählt.
+
+\subsection{Basisberechnungen}
+\label{subsec:basisberechnungen}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.25]{pics/beam-point-labeling}
+    \caption{Beschriftungen des Balkens}
+    \label{fig:beam-point-labeling}
+\end{figure}
+
+
+Durch die Postionen der Ecken kann die Mitte des Balkens berechnet werden, da davon ausgegangen werden kann, dass der Balken ein Quader ist.
+In Abb.~\ref{fig:beam-point-labeling} sind die Ecken der oberen Seite des Balken mit $P_{1}, P_{2}, P_{3}, P_{4}$ beschriftet.
+Diese Punkte beschreiben die Reihenfolge, in der die Punkte der unteren seite $O_{1}, O_{2}, O_{3}, O_{4}$ und der oberen Seite $U_{1}, U_{2}, U_{3}, U_{4}$ angeordnet sind.
+Alle restlichen Variablen können in der Tabelle~\ref{tab:variables} eingesehen werden.
+Die Mitte der oberen Decke kann mit der folgenden Formeln berechnet werden.
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        $O_{1}, O_{2}, O_{3}, O_{4}$ & Ecken der oberen Seite des Balkens                 \\ \hline
+        $U_{1}, U_{2}, U_{3}, U_{4}$ & Ecken der unteren Seite des Balkens                \\ \hline
+        $h$                          & Höhe des Balkens                                   \\ \hline
+        $w$                          & Breite des Balkens                                 \\ \hline
+        $l$                          & Länge des Balkens                                  \\ \hline
+        $M_{O}$                      & Mittelpunkt der oberen Seite des Balkens           \\ \hline
+        $M_{U}$                      & Mittelpunkt der unteren Seite des Balkens          \\ \hline
+        $M$                          & Mittelpunkt des Balkens                            \\ \hline
+        $D_{OU}$                     & Diagonale der unteren und oberen Seite des Balkens \\ \hline
+        $V_{MU}$                     & Mittelpunkt des VR Raums am Boden                  \\ \hline
+    \end{tabular}
+    \caption{Basisvariablen}
+    \label{tab:variables}
+\end{table}
+
+\pagebreak
+
+$\vec{D_{OU}} = O_{4} - O_{1}$
+
+$M_{OU} = O_{1} +  \frac{\vec{D_{OU}}}{2} $
+
+$\vec{h} = (O_{4} - VM_{U}) \cdot \begin{bmatrix} 0 \\ 0 \\ 1  \end{bmatrix}$
+
+$M = M_{OU} + \frac{\vec{h}}{2}$
+
+Für die Skalierung des Balkens werden noch die Dimensionen des Balkens gebraucht.
+Diese Dimensionen werden einfach mit dem Betrag der Vektoren folgendermaßen berechnet.
+
+$h = |\vec{h}|$
+
+$b = |\vec{O_{1}O_{3}}|$
+
+$w = |\vec{O_{2}O_{4}}|$
+
+\subsection{Implementierungsansatz}
+\label{subsec:implementierungsansatz}
+
+Für den Marker Ansatz gibt es wiederum zwei verschiedene Implementierunsansätze.
+Diese beinhalten:
+
+\begin{itemize}
+    \item Beam Transformation Ansatz
+    \item Player Transformation Ansatz
+\end{itemize}
+
+\subsubsection{Beam Transformation Ansatz}
+
+Der einfachere Ansatz ist der Beam Transformation Ansatz.
+Bei diesem Ansatz wird der virtuelle Balken an den physischen Balken angepasst.
+
+Durch die Basisberechnungen ist der Mittelpunkt des physischen Balkens bekannt.
+Die standardmäßige Position des Ankers befindet sich in Unity in der Mitte des Elements~\cite{AM_APPS_2020}.
+Somit müssen die Koordinaten des virtuellen Balkens zu den Koordinaten des Mittelpunktes von dem physischen Balken gesetzt werden.
+
+In Unity kann die Position wie in Listing~\ref{lst:beam-transformation-position} gesetzt werden.
+Dabei ist die Variable \emph{beam} das Transform Object des virtuellen Balkens und M der Mittelpunkt des physischen Balkens.
+
+
+\begin{lstlisting}[language={[Sharp]C},label={lst:beam-transformation-position}, caption={Beam Positionstranformation}]{Beam Positionstranformation}
+    beam.position = M;
+\end{lstlisting}
+
+Für die Skalierung-Anpassung kann die berechnete Höhe, Länge und Breite verwendet werden.
+Die Skalierung wird in Unity wie in der Listing~\ref{lst:beam-transformation-scale} gesetzt.
+Dabei ist die Variable \emph{beam} das Transform Objekt des virtuellen Balkens, \emph{l}  die Länge, \emph{h} die Höhe und \emph{w} die Breite.
+
+\begin{lstlisting}[language={[Sharp]C},label={lst:beam-transformation-scale}, caption={Beam Skalierungstransformation}]{Beam Skalierungstransformation}
+    beam.localScale = new Vector3(l, h, w);
+\end{lstlisting}
+
+Der Beam Transformation Ansatz ist der leichtere Implementierungsansatz.
+Nachteil dieser Implementierung ist aber, dass große Differenzen zwischen des physischen und des virtuellen Balkens zu unrealistischen Positionen führen.
+Damit der Balken trotzdem in einer realistischen Position bleibt, gibt es den zweiten Implementierungsansatz.
+
+\subsubsection{Player Transformation Ansatz}
+
+Anstatt den Balken eine neue Position zu geben wird bei dem Player Transformation Ansatz die Startposition der Spielerin oder des Spielers versetzt.
+Somit bleibt der Balken in einer Position welche von der Entwicklerin oder dem Entwickler eingestellt worden ist.
+Sobald die Benutzerin oder der Benutzer in eine Karte lädt, wird seine Position so eingestellt, dass er oder sie im richtigen Abstand zum Balken steht.
+
+Um die korrekte Position der Spielerin oder des Spielers zu berechnen wird der Vektor zwischen dem CameraRig und dem physischen Balken berechnet.
+Wie bereits beschrieben in den Abschnitt~\ref{sec:prefabs} ist das CameraRig das Elternelement aller VR spezifischen Elemente.
+Somit beschreibt das CameraRig die Position der Spielerin oder des Spielers.
+Aus Erfahrung hat sich gezeigt, dass der Boden des CameraRig auch der Boden ist, welcher beim SteamVR Setup gesetzt worden ist.
+Für mehr Informationen zu dem SteamVR Setup wird auf den Abschnitt~\ref{subsec:steam-vr-setup} verwiesen.
+Somit ist der Boden des VR Raums $V_{MU}$ auch der Mittelpunkt des Bodens von dem CameraRig.
+Dieser Vektor wird folgendermaßen berechnet.
+Für Variablenreferenz wird auf die Tabelle~\ref{tab:variables_advanced} verwiesen.
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        $V_{MM}$  & Mittelpunkt und Position des CameraRig                  \\ \hline
+        $V_{MMn}$ & Neue Positions des CameraRig                            \\ \hline
+        $B$       & Position des virtuellen Balkens                         \\ \hline
+    \end{tabular}
+    \caption{Basisvariablen}
+    \label{tab:variables_advanced}
+\end{table}
+
+$\vec{MV_{MM}} = V_{MM} - M$
+
+Die neue Position des CameraRig wird berechnet, indem zu der Position des virtuellen Balkens der berechnete Vektor addiert wird.
+Folgend steht die Formel mit welcher die neue Position berechnet wird.
+Für Variablenreferenz wird auf die Tabelle~\ref{tab:variables_advanced} verwiesen.
+
+$V_{MMn} = B + \vec{MV_{MM}}$
+
+Schlussendlich ist dies der Ansatz, welcher in BeamVR zum Einsatz gekommen ist.
 
 \section{3d Welt}\label{sec:3d-world}
 \setauthor{Florian Beckerle}
@@ -517,8 +618,6 @@ Die Planzen und B\"aume wurden durch ausgetrocknete B\"usche ausgetauscht, damit
     \caption{Beam VR - Apocalypse Map}
     \label{fig:beamvr_apocalypse_map}
 \end {figure}
-
-
 
 \section{Sound Design}\label{sec:sound}
 \setauthor{Florian Beckerle}
@@ -804,8 +903,10 @@ Die eingestellten Effekte werden dann auf alle Objekte angewandt, die mithilfe d
 \label{sec:prefabs}
 \setauthor{Quirin Ecker}
 
-In Unity gibt es ein System welches dem Entwickler oder der Entwicklerin erlaubt eine bestimmte Zusammenstellung von 3d Elementen zu speichern und mehrmals zu verwenden.
-Wird dieses Prefab verändert verändert sich es in jeder Stelle wo es platziert worden ist.
+% TODO: fine tuning
+
+In Unity gibt es ein System welches dem Entwickler oder der Entwicklerin erlaubt eine bestimmte Zusammenstellung von 3d Elementen zu speichern und mehrmals in verschiedenen Szenen zu verwenden.
+Wird dieses Prefab verändert, verändert sich es an jeder Stelle wo es platziert worden ist.
 Somit können Elemente welche aus mehreren kleineren Elementen bestehen gruppiert werden zu einem sogenannten Prefab und an mehreren Stellen verwenden.
 Es werden dabei Komponenten und die Position der einzelnen Elemente relativ zu dem Prefab gespeichert.
 
@@ -875,6 +976,8 @@ Beispielsweise gibt es kein Spieler Modell in dem MenuCameraRig, womit alle Elem
 \section{Inbetriebnahme}
 \label{sec:commissioning}
 \setauthor{Quirin Ecker}
+
+% TODO: fine tuning
 
 Die BeamVR Applikation benötigt viele Geräte und Gegenstände um die Immersion zu gewährleisten.
 Daher sind sehr viele Schritte involviert, um BeamVR in ihrer vollen Funktionalität zu genießen.
@@ -1036,7 +1139,7 @@ Wichtig dabei ist, dass das Spiel bei Steam importiert wird, damit das Controlle
 
 Bevor eine der drei Karten ausgewählt werden kann, muss noch die Beam Kalibration stattfinden.
 Diese ist für die Ortung des Balkens in der digitalen Welt.
-Für mehr Informationen zu der Kalibrierung wird auf den Abschnitt~\ref{subsec:beam-calibration} verwiesen.
+Für mehr Informationen zu der Kalibrierung wird auf den Abschnitt~\ref{sec:beam-calibration} verwiesen.
 Dort wird das Setup noch genauer beschrieben.
 
 \subsection{Full Body Tracking Kalibration}\label{subsec:full-body-tracking-calibration}
