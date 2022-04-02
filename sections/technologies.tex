@@ -890,16 +890,21 @@ Children ist eine Liste von Indizes, welche auf die, in der Hierarchie untergeor
 \label{fig:finalIK_fabrik_root_script}
 \end {figure}
 
-%\subsubsection{Full Body Biped IK}
-%\subsubsection{Grounder}
-%\subsubsection{Interaction System}
-%\subsubsection{Leg IK}
-%\subsubsection{Limb IK}
-%\subsubsection{Look At IK}
-%\subsubsection{Rotation Limits}
-%\subsubsection{Trigonometric IK}
+\subsubsection{Full Body Biped IK}
+    Die Full Body Biped IK ist eine flexible und schnelle Lösung für Biped Charaktere, darunter Fallen Modelle, welche zum Beispiel auf zwei Beinen stehen.
+    Der Charakter wird auf ein simples IK-Rig reduziert, von welchem die Position und Rotation der einzelnen Gliedmaßen berechnet wird.
+    Die Berechnung wird dabei in jedem Frame durchgeführt.
+    Das Ergebnis danach wieder auf das 3D Modell übertragen, siehe Abb. ~\ref{fig:finalIK_full_body_biped_ik}.
+    ~\cite{FinalIK_FullBodyBipedIK_2021}
+    \begin {figure}
+        \centering
+        \includegraphics[scale=0.5]{pics/fullbodybipedIK}
+        \caption{Final IK - FullBodyBiped IK}
+        \label{fig:finalIK_full_body_biped_ik}
+    \end {figure}
+
 %\subsubsection{VRIK}
-%\subsubsection{Extending Final IK}
+
 
 
 %\subsection{IDE}
