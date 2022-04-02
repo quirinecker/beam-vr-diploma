@@ -906,32 +906,34 @@ Die eingestellten Effekte werden dann auf alle Objekte angewandt, die mithilfe d
 % TODO: fine tuning
 
 In Unity gibt es ein System welches dem Entwickler oder der Entwicklerin erlaubt eine bestimmte Zusammenstellung von 3d Elementen zu speichern und mehrmals in verschiedenen Szenen zu verwenden.
-Wird dieses Prefab verändert, verändert sich es an jeder Stelle wo es platziert worden ist.
-Somit können Elemente welche aus mehreren kleineren Elementen bestehen gruppiert werden zu einem sogenannten Prefab und an mehreren Stellen verwenden.
-Es werden dabei Komponenten und die Position der einzelnen Elemente relativ zu dem Prefab gespeichert.
+Diese Zusammenstellungen von 3d Elementen heißen auch Prefabs.
+Wird dieses Prefab verändert, wird es an jeder platzierten Stelle aktualisiert.
+Es werden dabei die Komponenten und Positionen der einzelnen Elemente relativ zu dem Prefab gespeichert.
 
 Prefabs können auch überschrieben werden an der Stelle wo sie platziert worden sind.
-Aus Erfahrung zeigt sich aber, dass dies mit Vorsicht zu genießen ist, da lokale änderungen nicht mehr global überschrieben werden.
+Aus Erfahrung zeigt sich aber, dass dies mit Vorsicht zu genießen ist, da lokale Änderungen nicht mehr global überschrieben werden.
 Somit haben globale Änderungen keinen wirklichen Einfluss auf das lokale Prefab.
+Außerdem können Prefabs auch ineinander verschachtelt werden~\cite{Unity_Prefabs}.
 
-In der BeamVR Applikation wird dieses System an mehreren Stellen angewandt.
-Beispielsweise ist es sehr nützlich, da die VR Fläche in der Applikation sich nicht wirklich abändert von Karte zu Karte.
-Hier wird ein Game Prefab welches alle Game relevanten Elemente beinhaltet benutzt.
-Dieses wird dann in alle Karten platziert.
+In der BeamVR Applikation wird dieses System an mehreren Stellen verwendet.
+Diese Prefabs wurden beispielsweise in der BeamVR Applikation für einzelne Elemente, welche in allen Karten existieren, benutzt.
+Alle diese Elemente werden in ein sogenanntes Game Prefab gruppiert, welches in allen Karten platziert wird.
 
-Folgend wird das Game Prefab und zwei weitere wichtige Prefabs für BeamVR beschrieben.
+Folgend werden das Game Prefab und zwei weitere für BeamVR relevante Prefabs noch genauer beschrieben.
 
 \subsection{Game}\label{subsec:game-prefab}
 
 Wie bereits beschrieben befinden sich alle Game relevant Elemente in dem Game Prefab.
-Somit wird dieses Prefab in allen Szenen verwendet bis auf die Main Menu Szene und die Game Over Szene.
+Somit wird dieses Prefab in allen Karten Szenen verwendet.
+Nur in der Menü- und Setup-Szenen wird dieses Prefab nicht gebraucht.
 
 Folgend sind die wichtigsten Elemente des Game Prefab aufgelistet:
 
 \begin{itemize}
     \item \textbf{Beam:} Der Beam ist der virtuelle Balken, der von dem Hochhaus absteht.
-    \item \textbf{Collider:} Die Collider sind Elemente, welche Aktionen auslösen, wenn ein anderes Element mit diesen kollidiert
-    \item \textbf{GameCameraRig:} Das~\emph{GameCameraRig} ist weiteres Prefab in dem Game Prefab, welches für VR spezifische Elemente zuständig ist.
+    \item \textbf{Collider:} Die Collider sind Elemente, welche Aktionen auslösen, wenn ein anderes Element mit diesen kollidiert.
+    Visuelle sind diese Collider unsichtbar.
+    \item \textbf{GameCameraRig:} Das~\emph{GameCameraRig} ist ein weiteres Prefab, welches für VR spezifische Elemente zuständig ist.
 \end{itemize}
 
 
@@ -944,23 +946,22 @@ Das Prefab an sich soll den VR Raum darstellen.
 Folgende sind die wichtigsten Elemente des GameCameraRig Prefab aufgelistet:
 
 \begin{itemize}
-    \item \textbf{Controller:} Die Controller sind Elemente welche eine SteamVR Controlelr Script-Component beinhalten.
+    \item \textbf{Controller:} Die Controller sind Elemente welche eine SteamVR Controller Script-Component beinhalten.
     Durch dieses Script befindet sich dieses Element in der richtigen Position und Orientierung relativ zu der VR Fläche.
     \item \textbf{Camera:} Genauso wie die Controller Elemente besitzt das Camera Element auch ein Script.
-    Mit diesem Script nimmt die Kamera die Position und Orientierung des Headsets relativ zur VR Fläche.
-    In diesem Element befindet sich eine Kamera.
-    Diese Kamera ist für die Sicht des Spielers zuständig.
+    Mit diesem Script nimmt die Kamera die Position und Orientierung des Headsets relativ zur VR Fläche an.
+    Diese Kamera ist auch für die Sicht des Spielers zuständig.
     \item \textbf{Tracker Objekte} Diese Elemente haben ebenfalls wieder ein ähnliches Script.
     Durch dieses Script befindet sich dieses Element in der gleichen Position und Orientierung des physischen Tracker.
-    In dem Script Komponenten kann die richtige Input Quelle für den Tracker eingestellt werden.
-    \item \textbf{Spieler Modell:} Das Spieler Modell ist das Modell, welches nach dem Kalibrieren des FUll-Body-Tracking die Pose des Spielers einnimmt.
+    In der Script Komponente kann in einem Auswahlmenü der richtige Tracker eingestellt werden.
+    \item \textbf{Spieler Modell:} Das Spieler Modell ist das Modell, welches nach dem Kalibrieren des Full-Body-Trackings die Pose des Spielers einnimmt.
     \item \textbf{VRIK Calibration Controller:} Bei diesem Element befindet sich ein Script-Component, in dem das Full-Body-Tracking konfiguriert werden kann.
     Für mehr Informationen wird auf Abschnitt~\ref{subsec:final-ik-plugin} verwiesen.
 \end{itemize}
 
-\subsection{MenuCamerRig}\label{subsec:menu-camera-rig}
+\subsection{MenuCameraRig}\label{subsec:menu-camera-rig}
 
-Das MenuCameraRig ist genauso wie das GameCameraRig eine Abänderung des von SteamVR Plugin bereitgestellte CamraRig.
+Das MenuCameraRig ist genauso wie das GameCameraRig eine Abänderung des von SteamVR Plugin bereitgestellte CameraRig.
 Im Gegensatz zum GameCameraRig wird das MenuCameraRig nicht in den 3 Karten verwendet.
 Das MenuCameraRig wird in den Menü Scenen verwendet und besteht aus Menü und VR spezifische Elemente.
 
