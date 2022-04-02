@@ -453,7 +453,7 @@ Für Variablenreferenz wird auf die Tabelle~\ref{tab:variables_advanced} verwies
         $V_{MMn}$ & Neue Positions des CameraRig                            \\ \hline
         $B$       & Position des virtuellen Balkens                         \\ \hline
     \end{tabular}
-    \caption{Basisvariablen}
+    \caption{Player Transformation Variablen}
     \label{tab:variables_advanced}
 \end{table}
 
@@ -750,6 +750,7 @@ White Clip stellt auf einen weißen Punkt nach der Kurve ein.
 Der Filmic (ACES) Tonemapper verwendet Schätzwerte  des ACES Tonemappers, um ein filmisches Aussehen zu erreichen.
 Das Resultat ist ein höherer Kontrast und es wird Einfluss auf die Farbe und Sättigung des Bildes genommen.
 Dieser Tonemapper besitzt keine Einstellungsmöglichkeiten, siehe Abb. ~\ref{}.
+% TODO: (Florian Beckerle) resolve reverence
 \begin {figure}
     \centering
     \includegraphics[scale=0.9]{pics/unity-post-processing-color-grading-filmic}
@@ -903,8 +904,6 @@ Die eingestellten Effekte werden dann auf alle Objekte angewandt, die mithilfe d
 \label{sec:prefabs}
 \setauthor{Quirin Ecker}
 
-% TODO: fine tuning
-
 In Unity gibt es ein System welches dem Entwickler oder der Entwicklerin erlaubt eine bestimmte Zusammenstellung von 3d Elementen zu speichern und mehrmals in verschiedenen Szenen zu verwenden.
 Diese Zusammenstellungen von 3d Elementen heißen auch Prefabs.
 Wird dieses Prefab verändert, wird es an jeder platzierten Stelle aktualisiert.
@@ -963,22 +962,20 @@ Folgende sind die wichtigsten Elemente des GameCameraRig Prefab aufgelistet:
 
 Das MenuCameraRig ist genauso wie das GameCameraRig eine Abänderung des von SteamVR Plugin bereitgestellte CameraRig.
 Im Gegensatz zum GameCameraRig wird das MenuCameraRig nicht in den 3 Karten verwendet.
-Das MenuCameraRig wird in den Menü Scenen verwendet und besteht aus Menü und VR spezifische Elemente.
+Das MenuCameraRig wird in den Menü-Szenen verwendet und besteht aus Menü und VR spezifische Elemente.
 
-Viele Elemente sleich wie bei dem GameCameraRig, wie die Controller und die Camera.
+Viele Elemente sind gleich wie bei dem GameCameraRig.
 Der große Unterschied des MenuCameraRig ist, dass die Controller noch weitere Script-Componenten beinhalten.
 Diese sind Input Scripts welche für den Auswahlstrahl und das Auswählen der Menü-Elemente verantwortlich sind.
 
-%TODO: Möglichkeit für ein Bild eines Inputstrahls
+%TODO: (Quirin Ecker)(optional) Möglichkeit für ein Bild eines Inputstrahls
 
-Ein weiterer Unterschied zu dem GameCameraRig ist, dass viele der gamespezifischen Elemente Fehlen.
-Beispielsweise gibt es kein Spieler Modell in dem MenuCameraRig, womit alle Elemente für das Full-Body-Tracking nicht gebraucht werden.
+Weiters sind viele der game-spezifischen Elemente in diesem Prefab nicht vorhanden.
+Beispielsweise gibt es keine Full-Body-Tracking Elemente, wie das Spieler-Modell und der VRIK-Calibration-Controller.
 
 \section{Inbetriebnahme}
 \label{sec:commissioning}
 \setauthor{Quirin Ecker}
-
-% TODO: fine tuning
 
 Die BeamVR Applikation benötigt viele Geräte und Gegenstände um die Immersion zu gewährleisten.
 Daher sind sehr viele Schritte involviert, um BeamVR in ihrer vollen Funktionalität zu genießen.

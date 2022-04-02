@@ -436,7 +436,6 @@ Viele Spiele wie Fortnite, Ark Survival Evolved, Borderlands 3 und Jedi Fallen O
     Das integrierte Blueprint System hat seine Nachteile und seine Vorteile.
     Ein Vorteil ist die abgeschwächte Lernkurve, die das System gegenüber von C++ bietet um die Unreal Engine kennenzulernen.
     Dies zumindest nach~\cite{Mower_UnrealEngine} und~\cite{jwatte_2017}.
-     %TODO: Statistic for visual scripting vs Code
     ~\ref{fig:visual_scripting_unreal_engine}
     \item \textbf{Kostenanfall:} Wie bereits bei den Nachteilen der Unity Engine besprochen fallen die Kosten bei der Unreal Engine langsamer and wie bei der Unity Engine..\cite{UNREAL_ENGINE_PRICING_2022, Unity_Pricing_2}
 \end{itemize}
@@ -479,6 +478,7 @@ Die folgenden Vorteile und Nachteile beziehen sich auf die Source 2 Engine.
     \item \textbf{Market Share:} In Abb.~\ref{fig:game_engine_marketshare} ist ersichtlich, dass die Source Engine verglichen mit den zuvor gennanten Game Engines keinen großen Marktanteil hat.
     Weniger Nutzung einer Engine bedeutet auch weniger unterstützung, welche es online zur Verfügung gibt.
     \item \textbf{Publizierung:} Wie bereits bei den Vorteilen angesprochen, muss ein Spiel, welches mit der Source Engine entwickelt worden ist auch auf Steam publiziert werden~\cite{Brenna_Hillier_2015}.
+\end{itemize}
 
 \subsection{Steam}\label{subsec:steam}
 
@@ -851,6 +851,8 @@ Positionen und Rotationen, herangezogen werden sollen.
 
 
 \subsubsection{FABRIK Root}
+
+
 Fabrik Root ist ein Component, welcher mehrere einzelne Fabrik Ketten miteinander verbinden lässt.
 Hierbei kann es sich um kompliziertere Systeme mit mehreren Abzweigungen handeln, siehe Abb. ~\ref{fig:finalIK_fabrik_root_example}
 
@@ -860,6 +862,8 @@ Hierbei kann es sich um kompliziertere Systeme mit mehreren Abzweigungen handeln
     \caption{Final IK - Fabrik Root Script}
     \label{fig:finalIK_fabrik_root_example}
 \end {figure}
+
+% TODO: (Florian Beckerle) Fix reference
 
 Damit Fabrik Root richtig funktioniert müssen, ähnlich wie bei Fabrik, verschiedene Variablen angegeben werden,
 siehe Abb. ~\ref{fig:finalIK_fabrik_root_script}.
@@ -884,24 +888,26 @@ Pin gibt an, wie stark die Kette von einer Kette, welche in der Hierarchie unter
 Children ist eine Liste von Indizes, welche auf die, in der Hierarchie untergeordneten, Fabrik verweist.
 
 \begin {figure}
-\centering
-\includegraphics[scale=0.5]{pics/finalik_fabrik_root_script}
-\caption{Final IK - Fabrik Root Script}
-\label{fig:finalIK_fabrik_root_script}
+    \centering
+    \includegraphics[scale=0.5]{pics/finalik_fabrik_root_script}
+    \caption{Final IK - Fabrik Root Script}
+    \label{fig:finalIK_fabrik_root_script}
 \end {figure}
 
 \subsubsection{Full Body Biped IK}
-    Die Full Body Biped IK ist eine flexible und schnelle Lösung für Biped Charaktere, darunter Fallen Modelle, welche zum Beispiel auf zwei Beinen stehen.
-    Der Charakter wird auf ein simples IK-Rig reduziert, von welchem die Position und Rotation der einzelnen Gliedmaßen berechnet wird.
-    Die Berechnung wird dabei in jedem Frame durchgeführt.
-    Das Ergebnis danach wieder auf das 3D Modell übertragen, siehe Abb. ~\ref{fig:finalIK_full_body_biped_ik}.
-    ~\cite{FinalIK_FullBodyBipedIK_2021}
-    \begin {figure}
-        \centering
-        \includegraphics[scale=0.5]{pics/fullbodybipedIK}
-        \caption{Final IK - FullBodyBiped IK}
-        \label{fig:finalIK_full_body_biped_ik}
-    \end {figure}
+
+Die Full Body Biped IK ist eine flexible und schnelle Lösung für Biped Charaktere, darunter Fallen Modelle, welche zum Beispiel auf zwei Beinen stehen.
+Der Charakter wird auf ein simples IK-Rig reduziert, von welchem die Position und Rotation der einzelnen Gliedmaßen berechnet wird.
+Die Berechnung wird dabei in jedem Frame durchgeführt.
+Das Ergebnis danach wieder auf das 3D Modell übertragen, siehe Abb. ~\ref{fig:finalIK_full_body_biped_ik}.
+~\cite{FinalIK_FullBodyBipedIK_2021}
+
+\begin {figure}
+    \centering
+    \includegraphics[scale=0.5]{pics/fullbodybipedIK}
+    \caption{Final IK - FullBodyBiped IK}
+    \label{fig:finalIK_full_body_biped_ik}
+\end {figure}
 
 %\subsubsection{VRIK}
 
