@@ -267,6 +267,7 @@ RaycastHit hit;
 
 \section{Beam Kalibration}
 \label{sec:beam-calibration}
+\setauthor{Quirin Ecker}
 
 Das Kernthema dieser Arbeit ist, ein reales Objekt in die virtuelle Welt zu synchronisieren.
 Im Falle unserer Arbeit ist dieses Objekt wie bereits beschrieben ein Balken.
@@ -283,7 +284,7 @@ Folgend werden zwei dieser Grundansätze beschrieben.
 \subsubsection{Tracker Ansatz}
 
 Der Initial-Ansatz dieser Arbeit war der \emph{Tracker Ansatz}.
-Dieser Ansatz war eine Lösung mit den bereits in Abschnitt~\ref{sec:vive-tracker} beschriebenen Trackern.
+Dieser Ansatz war eine Lösung mit den Vive Trackern.
 In diesem Lösungsansatz würde ein Tracker in die Mitte des Balkens platziert werden.
 Durch diesen Tracker und die Dimensionen des Balkens würde es in der Theorie möglich sein die Position und größe des Balkens zu berechnen.
 
@@ -955,7 +956,7 @@ Folgende sind die wichtigsten Elemente des GameCameraRig Prefab aufgelistet:
     In der Script Komponente kann in einem Auswahlmenü der richtige Tracker eingestellt werden.
     \item \textbf{Spieler Modell:} Das Spieler Modell ist das Modell, welches nach dem Kalibrieren des Full-Body-Trackings die Pose des Spielers einnimmt.
     \item \textbf{VRIK Calibration Controller:} Bei diesem Element befindet sich ein Script-Component, in dem das Full-Body-Tracking konfiguriert werden kann.
-    Für mehr Informationen wird auf Abschnitt~\ref{subsec:final-ik-plugin} verwiesen.
+    Für mehr Informationen wird auf Abschnitt~\ref{sec:final-ik-plugin} verwiesen.
 \end{itemize}
 
 \subsection{MenuCameraRig}\label{subsec:menu-camera-rig}
